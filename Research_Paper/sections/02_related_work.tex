@@ -1,11 +1,22 @@
 \section{Related Work}
 \label{sec:related_work}
 
-\subsection{Multimodal Urban Flood Risk Assessment}
-Machine learning methods for flood assessment range from single-source hydraulic models to deep learning on Sentinel SAR imagery \cite{redaelli2026saferplaces}. However, traditional monolithic models require all feature inputs to be present simultaneously, failing gracefully when cloud cover masks optical bands or sensors experience dropout.
+\subsection{Agentic Environmental AI Frameworks}
+The integration of artificial intelligence into environmental monitoring and disaster management has witnessed a paradigm shift toward multi-agent systems (MAS). Recent frameworks can be organized into four distinct architectural paradigms:
+\begin{enumerate}
+    \item \textit{LLM-Chained Copilots} \cite{talemi2026llm, cantonjos2026agentic}: Systems utilizing Large Language Models to summarize natural language bulletins and prompt emergency managers. While highly expressive, they suffer from hallucination and lack numerical calibration under sensor failure.
+    \item \textit{Remote-Sensing Tool-Use Agents} \cite{jiang2026floodllm, sandeep2026remote}: Autonomous agents executing programmatic API calls to extract satellite spectral indices. These systems rely on heuristic decision trees to resolve conflicting satellite passes.
+    \item \textit{Knowledge-Graph Wrappers} \cite{lee2025knowledge, sayyad2025multi}: Graph neural network wrappers mapping geospatial sensors to domain ontologies. They excel at static spatial relationships but struggle with high-frequency dynamic weather shifts.
+    \item \textit{MAS Orchestrations} \cite{hofmeister2023multi, hofmeister2024uncertainty, zadeh2025evidential, shabbir2025multimodal}: Distributed agent ensembles coordinating environmental sensor nodes.
+\end{enumerate}
 
-\subsection{Agentic LLMs in Environmental Intelligence}
-Recent frameworks like Flood-LLM \cite{jiang2026floodllm} and SaferPlaces \cite{redaelli2026saferplaces} utilize LLM agents for natural language reasoning. While LLMs excel at qualitative text parsing, they lack mathematical calibration, producing arbitrary confidence values that cannot be interpreted as calibrated probabilities or epistemic uncertainty bounds.
+\subsection{Subjective Logic and Evidential Fusion in MAS}
+Subjective Logic (SL), formulated by J{\o}sang \cite{josang2016subjective}, extends Dempster-Shafer belief theory by establishing a rigorous mathematical bijection between Dirichlet evidence distributions and evidential opinions $\omega = (\mathbf{b}, u, \mathbf{a})$. Unlike traditional Bayesian networks that collapse uncertainty into point probability estimates, Subjective Logic explicitly separates belief mass $\mathbf{b}$ from unobserved epistemic uncertainty $u$.
 
-\subsection{Subjective Logic & Evidential Multi-Source Fusion}
-Subjective Logic \cite{josang2016subjective} extends Dempster-Shafer theory by explicitly separating belief mass $\mathbf{b}$ from epistemic uncertainty $u$ via a bijective mapping to Dirichlet distributions. van der Heijden et al. \cite{heijden2018distributed} established WBF and CCF fusion operators, while Kaplan et al. \cite{kaplan2015subjective} formalized partial observability. AEGIS is the first framework to integrate Subjective Logic opinion fusion within a domain-specialist multi-agent geographic intelligence system.
+In multi-agent systems, fusing opinions from multiple agents requires associative operators. van der Heijden et al. \cite{heijden2018distributed} introduced Cumulative Belief Fusion (CBF), Weighted Belief Fusion (WBF), and Consensus \& Compromise Fusion (CCF) to resolve agent agreement. Kaplan et al. \cite{kaplan2015subjective} extended SL to information security management systems by formalizing partial observability projections under missing data streams. Wang and Singh \cite{wang2007formal} established Brier-score reputation tracking for agent trust update, while Nielsen and Parsons \cite{nielsen2006argumentation} and Sun et al. \cite{sun2024targeted} explored argumentation-driven multi-agent communication.
+
+\subsection{Conflict Resolution in Multi-Agent Systems}
+Resolving conflicting sensory inputs across heterogeneous agents remains a core challenge in multi-agent coordination. Chikoti \cite{chikoti2025argumentation} investigated argumentation-based consensus protocols for environmental sensor networks, showing that rule-based argumentation requires extensive manual tuning. In contrast, Jensen-Shannon (JS) divergence offers a non-parametric, distance-based measure of opinion conflict \cite{heijden2018distributed}, enabling dynamic switching between consensus and weighted fusion operators.
+
+\subsection{Evidential Deep Learning}
+Evidential Deep Learning (EDL) \cite{liu2025evidential, chen2025deep, li2024subjective} parameterizes neural networks to output the parameters of a Dirichlet distribution directly. While EDL has been applied to spatial prediction under distribution shift \cite{liu2025evidential} and hydrological forecasting \cite{chen2025deep}, training end-to-end EDL models on small spatio-temporal datasets risks severe overfitting and severe computational overhead on CPU hardware. AEGIS avoids these pitfalls by adopting a \textit{Hybrid Evidential Head} that concatenates low-dimensional Subjective Logic opinion tensors with raw multi-modal features, combining the efficiency of gradient-boosted decision trees (LightGBM) with the mathematical guarantees of Subjective Logic.

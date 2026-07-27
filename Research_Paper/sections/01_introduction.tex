@@ -1,19 +1,49 @@
 \section{Introduction}
 \label{sec:intro}
 
-Urban flood risk assessment requires integrating heterogeneous, multi-rate, and multi-resolution environmental sensory data, including numerical precipitation forecasts (ERA5), synthetic aperture radar backscatter (Sentinel-1 SAR), optical vegetation indices (Sentinel-2), topographic digital elevation models (Copernicus DEM), ground sensor arrays (OpenAQ, rain gauges), and unstructured text bulletins.
+\subsection{Climate Disaster Intelligence in the Era of Multimodal Data}
+Urban extreme flooding events present critical challenges to disaster response authorities, emergency planners, and civil infrastructure operators. During major climate disasters, heterogeneous environmental data streams—ranging from numerical weather prediction forecasts and synthetic aperture radar (SAR) backscatter to optical satellite imagery, terrain slope digital elevation models, ground sensor networks, and unstructured text bulletins—arrive at irregular cadences with conflicting and contradictory signals. For example, during the severe flooding of Brisbane, South-East Queensland (SEQ), Australia in February--March 2022 (producing over \$2 billion AUD in insured losses and emergency response expenditure \cite{jiang2026floodllm, shabbir2025multimodal}), dense cloud cover severely degraded optical satellite observations (Sentinel-2), while numerical precipitation models (ERA5) and ground rain gauges emitted diverging estimates of regional surface runoff.
 
-Recent advances in agentic AI \cite{dubey2025agentic, jiang2026floodllm} propose assigning specialist agents to individual data modalities and using LLMs as central arbiters. However, LLM-driven prompt arbitration exhibits critical vulnerabilities:
+\subsection{The Agentic AI Wave and Its Open Problems}
+To handle this data explosion, recent research has embraced agentic AI frameworks for environmental decision support. Existing approaches can be categorized into three representative agentic paradigms:
 \begin{enumerate}
-    \item \textbf{Uncalibrated Confidence \& Majority Skew}: LLM prompt aggregation lacks formal Dirichlet evidence representation, causing models to collapse onto majority classes (e.g., ``Dry'') while ignoring high-risk minority flood states.
-    \item \textbf{Hallucination Under Missing Inputs}: When satellite optical imagery is obscured by heavy cloud cover, LLMs fill missing context with ungrounded heuristics rather than propagating uncertainty.
-    \item \textbf{Opacity of Post-Hoc Feature Attributions}: Standard post-hoc tools such as SHAP or LIME output feature importance scores but fail to provide an auditable lineage detailing which agent emitted which evidence mass.
+    \item \textit{LLM-Chained Copilots} \cite{talemi2026llm, cantonjos2026agentic}: Prompt-engineered Large Language Model agents that ingest text summaries of environmental data and output qualitative risk scores.
+    \item \textit{Remote-Sensing Tool-Use Agents} \cite{jiang2026floodllm, sandeep2026remote}: Autonomous agents invoking specialized geospatial python APIs or GIS tools.
+    \item \textit{Knowledge-Graph Wrappers} \cite{lee2025knowledge, redaelli2026saferplaces}: Graph-based multi-agent systems mapping sensor nodes to ontology entities.
+\end{enumerate}
+Despite their initial promise, existing agentic environmental systems suffer from three fundamental structural open problems:
+\begin{itemize}
+    \item \textbf{Uncalibrated Confidence}: LLMs output uncalibrated probability estimates that fail to distinguish between epistemic uncertainty (lack of knowledge due to missing sensors) and aleatoric noise (inherent sensor variance).
+    \item \textbf{Hallucination Under Missing Modalities}: When a sensory stream is interrupted (e.g., SAR orbital blackout or cloud occlusion), LLM agents hallucinate pseudo-observations rather than decaying confidence gracefully.
+    \item \textbf{Non-Deterministic Opacity}: Prompt chaining lacks deterministic mathematical guarantees, making decisions non-reproducible and un-auditable for emergency analysts.
+\end{itemize}
+
+\subsection{Research Gap}
+To date, no multi-agent environmental decision-support system simultaneously provides:
+\begin{enumerate}
+    \item A formal evidential representation grounded in Subjective Logic Dirichlet algebra.
+    \item Deterministic missing-modality projection with monotone uncertainty growth guarantees.
+    \item Per-agent historical credibility propagation to weight conflicting inputs dynamically.
+    \item Source-provenance-tagged explanations replacing post-hoc feature attributions.
 \end{enumerate}
 
-To overcome these structural limitations, we introduce \textbf{AEGIS} (\textit{Agentic Evidential Geographic Intelligence for Sustainability}). AEGIS grounds multi-agent decision support in Subjective Logic (SL) \cite{josang2016subjective}, mapping domain features directly to Dirichlet evidence vectors. The main contributions of this work are fourfold:
+\subsection{Hypothesis and Research Questions}
+We formulate four core scientific hypotheses to evaluate our proposed approach:
 \begin{itemize}
-    \item \textbf{Evidential Multi-Agent Architecture}: We formulate five specialist agents (\texttt{ClimateAgent}, \texttt{SatelliteAgent}, \texttt{LandCoverAgent}, \texttt{AirQualityAgent}, \texttt{DocIntAgent}) emitting Subjective Logic opinions over a shared 4-state discernment frame.
-    \item \textbf{Deterministic SL Conflict Orchestrator}: We design a zero-LLM evidence router that measures Jensen-Shannon conflict divergence and dynamically routes to Weighted Belief Fusion (WBF) or Consensus \& Compromise Fusion (CCF) weighted by Brier-score agent reputation \cite{wang2007formal}.
-    \item \textbf{Monotone Uncertainty Growth Under Missing Data}: We implement formal partial-observable projections \cite{kaplan2015subjective}, proving mathematically and empirically that missing inputs decay into epistemic uncertainty $u$ monotonically.
-    \item \textbf{Accuracy Lead \& Provenance Auditing}: Evaluated on $4,800$ spatio-temporal cell-date instances from Brisbane, Australia, AEGIS achieves \textbf{0.7190 F1-Macro} and \textbf{0.9310 AUROC}, outperforming monolithic fusion and LLM-arbitrated baselines.
+    \item \textbf{H1 (Specialization vs. Monolithic)}: \textit{A multi-agent architecture with low-dimensional evidential opinions matches or outperforms a monolithic late-fusion model on raw F1-Macro while providing calibrated uncertainty and auditability.}
+    \item \textbf{H2 (Evidential Fusion vs. LLM Arbitration)}: \textit{Deterministic Subjective Logic evidence fusion significantly outperforms LLM prompt-based arbitration in F1-Macro ($\Delta \text{F1} > +0.35$) and AUROC by eliminating majority-class bias under conflicting inputs.}
+    \item \textbf{H3 (Missing Modality Uncertainty Monotonicity)}: \textit{Systematically dropping sensory modalities results in strictly monotonic growth in mean epistemic uncertainty $\bar{u}$.}
+    \item \textbf{H4 (Provenance Explanation Quality)}: \textit{Provenance-tagged agent contribution displays improve decision trust ($\Delta\text{Likert} > +0.5$) without degrading decision accuracy.}
 \end{itemize}
+
+\subsection{Contributions of This Paper}
+The specific contributions of this work are fourfold:
+\begin{enumerate}
+    \item \textbf{Hybrid Evidential Head Architecture}: We design a 27-dimensional feature space concatenating an 11-dimensional Subjective Logic opinion tensor with 16 raw multi-modal features, achieving state-of-the-art classification accuracy (\textbf{0.7190 F1-Macro}).
+    \item \textbf{JS-Divergence Operator Router with WBF/CCF}: We build a zero-LLM evidence coordinator that measures pairwise Jensen-Shannon divergence to dynamically route predictions between Weighted Belief Fusion (WBF) and Consensus \& Compromise Fusion (CCF).
+    \item \textbf{Monotone Uncertainty Verification}: We mathematically formulate and empirically verify Kaplan partial-observable projections under 1 to 4 missing modalities.
+    \item \textbf{Provenance-Tagged Dashboard \& Analyst Proxy Study}: We construct a Leaflet dark-mode spatial dashboard and validate explanation quality via an Analyst-Cohort Proxy Evaluation ($N=12$).
+\end{enumerate}
+
+\subsection{Organization}
+The remainder of this paper is organized as follows. Section~\ref{sec:related_work} reviews related work in agentic AI and evidential fusion. Section~\ref{sec:methodology} presents the mathematical foundations of Subjective Logic. Section~\ref{sec:architecture} details the AEGIS architecture. Section~\ref{sec:experimental_setup} outlines the Brisbane 2022 experimental setup. Section~\ref{sec:results} presents main benchmark results and ablations. Section~\ref{sec:discussion} discusses implications, and Section~\ref{sec:conclusion} concludes the paper.

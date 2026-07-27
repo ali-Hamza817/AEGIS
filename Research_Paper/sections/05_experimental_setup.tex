@@ -1,0 +1,45 @@
+\section{Experimental Setup}
+\label{sec:experimental_setup}
+
+\subsection{Study Area and Event Window}
+AEGIS is evaluated on the Brisbane, South-East Queensland (SEQ), Australia extreme flooding event (February 20 to March 15, 2022). The bounding box spans $[152.5^\circ\text{E}, 153.5^\circ\text{E}] \times [28.0^\circ\text{S}, 27.0^\circ\text{S}]$, partitioned into 200 spatial grid cells across 24 daily steps ($4,800$ total spatio-temporal instances).
+
+\subsection{Datasets and Ingest Volume}
+Table~\ref{tab:dataset_manifest} details the multi-source dataset manifest.
+
+\begin{table}[htbp]
+\caption{AEGIS Multi-Source Dataset Manifest}
+\label{tab:dataset_manifest}
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lllll}
+\toprule
+\textbf{Dataset Stream} & \textbf{Source / Version} & \textbf{Spatial Res.} & \textbf{Temporal Cadence} & \textbf{AOI Volume} \\
+\midrule
+Climate & ERA5 Reanalysis \cite{hersbach2020era5} & $0.25^\circ \times 0.25^\circ$ & Hourly / Daily & 24 Daily Tiles \\
+SAR Satellite & Sentinel-1 IW GRD & $10\,\text{m} \times 10\,\text{m}$ & 6 to 12 Days & 8 Orbit Passes \\
+Optical Satellite & Sentinel-2 L2A & $10\,\text{m} \times 10\,\text{m}$ & 5 Days & 5 Clear Scenes \\
+Land Cover / DEM & ESA WorldCover / DEM & $10\,\text{m} / 30\,\text{m}$ & Static (2021) & $100 \times 100$ Grid \\
+Air Quality / Gauge & OpenAQ \& Gauge Array & Station Point & Hourly & 12 Stations \\
+Text Bulletins & QLD Disaster Reports & Regional Text & Event-driven & 14 Bulletins \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{Ground Truth Derivation}
+Ground-truth flood risk states $\mathbf{y} \in \{0, 1, 2, 3\}$ were derived offline from Copernicus Emergency Management Service (EMSR) activation maps cross-referenced with Global Flood Database (GFD v1.1) water extent masks.
+
+\subsection{Baselines}
+We compare AEGIS against three benchmark architectures:
+\begin{itemize}
+    \item \textbf{Baseline 1 (Single Modality - ERA5 Only)}: LightGBM classifier trained exclusively on 5 ERA5 climate features.
+    \item \textbf{Baseline 2 (Monolithic Late Fusion)}: Monolithic LightGBM classifier trained on raw concatenated features across all modalities (16 features).
+    \item \textbf{Baseline 3 (LLM-Arbitrated Agentic)}: Simulates JSON-schema-constrained local 3B LLM prompt arbitration (Qwen2.5-3B-Instruct 4-bit) with logit-weighted soft voting across agent textual output summaries.
+\end{itemize}
+
+\subsection{Metrics}
+Model performance is evaluated across classification metrics (Macro-F1, Weighted-F1, AUROC-Macro), calibration quality via Expected Calibration Error (ECE over 10 reliability bins \cite{guo2017calibration}), epistemic uncertainty ($\bar{u}$), wall-clock latency, and peak RAM consumption.
+
+\subsection{Implementation and Reproducibility}
+AEGIS is implemented in Python 3.12 using DuckDB 1.1, LightGBM 4.3, and PyTorch 2.2 (CPU execution). The entire pipeline executes deterministically with fixed random seed (\texttt{seed=42}) and passes a 34/34 automated test suite contract (\texttt{pytest tests/}).

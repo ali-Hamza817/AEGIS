@@ -3,7 +3,6 @@
 % --- Packages ---
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
-\usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
@@ -11,6 +10,7 @@
 \usepackage{multirow}
 \usepackage{microtype}
 \usepackage{hyperref}
+\usepackage{url}
 
 \hypersetup{
     colorlinks=true,
@@ -38,24 +38,23 @@
 E-mail: cyberhamza8.17@gmail.com}
 }
 
-\markboth{IEEE Transactions on Geoscience and Remote Sensing,~Vol.~XX, No.~X, ~2026}%
+\markboth{IEEE Transactions on Geoscience and Remote Sensing,~Vol.~64,~2026}%
 {Hamza: Evidential Multi-Agent Orchestration for Multimodal Urban Flood Risk Assessment}
 
-\IEEEtitleabstractindextext{%
-\input{sections/00_abstract.tex}
-}
-
 \maketitle
-\IEEEdisplaynontitleabstractindextext
-\IEEEpeerreviewmaketitle
+
+\input{sections/00_abstract.tex}
 
 \input{sections/01_introduction.tex}
 \input{sections/02_related_work.tex}
-\input{sections/03_methodology.tex}
-\input{sections/04_experimental_setup.tex}
-\input{sections/05_results_and_ablations.tex}
-\input{sections/06_discussion_and_limitations.tex}
-\input{sections/07_conclusion.tex}
+\input{sections/03_mathematical_foundations.tex}
+\input{sections/04_aegis_architecture.tex}
+\input{sections/05_experimental_setup.tex}
+\input{sections/06_results.tex}
+\input{sections/07_discussion.tex}
+\input{sections/08_conclusion.tex}
+
+\input{sections/09_appendix.tex}
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}

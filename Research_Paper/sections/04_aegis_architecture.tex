@@ -1,0 +1,84 @@
+\section{AEGIS Architecture}
+\label{sec:architecture}
+
+\subsection{End-to-End Pipeline}
+The overall system architecture of AEGIS comprises six interconnected modules:
+\begin{enumerate}
+    \item \textbf{Data Ingestion Layer}: Ingests heterogeneous spatio-temporal streams into an embedded DuckDB database.
+    \item \textbf{Domain-Specialist Evidential Agents}: Five autonomous agents transform raw modality features into Subjective Logic Dirichlet opinions.
+    \item \textbf{SL Conflict Orchestrator}: Evaluates Jensen-Shannon conflict divergence and performs WBF/CCF evidence fusion.
+    \item \textbf{Hybrid Evidential Head}: Gradient-boosted LightGBM decision trees predicting discrete flood state and continuous water depth.
+    \item \textbf{Explainability \& Lineage Layer}: Generates auditable provenance records for every spatio-temporal grid cell.
+    \item \textbf{Interactive Spatial Dashboard}: A Leaflet dark-mode GIS web interface displaying risk maps and agent contribution panels.
+\end{enumerate}
+
+\subsection{Data Ingestion Layer}
+AEGIS utilizes an embedded DuckDB engine (\texttt{data/duckdb/flood.duckdb}) containing 9 canonical tables:
+\texttt{spatial\_grid}, \texttt{climate\_era5}, \texttt{satellite\_sar}, \texttt{satellite\_optical}, \texttt{landcover\_dem}, \texttt{airquality\_gauges}, \texttt{docint\_bulletins}, \texttt{agent\_opinions\_log}, and \texttt{ground\_truth}.
+
+\subsection{Specialist Agents}
+Table~\ref{tab:agent_catalog} summarizes the five domain-specialist evidential agents.
+
+\begin{table}[htbp]
+\caption{AEGIS Domain-Specialist Agent Catalog}
+\label{tab:agent_catalog}
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+\textbf{Agent Name} & \textbf{Modality Stream} & \textbf{Key Input Features} & \textbf{Internal Head} \\
+\midrule
+\texttt{ClimateAgent} & ERA5 Climate & \text{tp\_mm}, \text{precip\_7d\_sum}, \text{precip\_30d\_anom} & Rule-based Dirichlet \\
+\texttt{SatelliteAgent} & Sentinel-1/2 SAR & \text{sar\_vv\_db}, \text{sar\_vh\_db}, \text{ndwi}, \text{ndvi} & Empirical SAR threshold \\
+\texttt{LandCoverAgent} & ESA WorldCover/DEM & \text{land\_cover}, \text{slope\_deg}, \text{impervious\_frac} & Topographic Lookup \\
+\texttt{AirQualityAgent}& OpenAQ / Rain Gauges & \text{rh\_pct}, \text{rain\_gauge\_mm}, \text{pm25} & Washout Heuristic \\
+\texttt{DocIntAgent} & Text Bulletins & NLP SentenceTransformers Embeddings & Cosine Similarity \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{SL Coordinator Orchestrator}
+Algorithm 1 details the deterministic routing logic of the AEGIS SL Orchestrator.
+
+\begin{table}[htbp]
+\caption{Algorithm 1: AEGIS-SL Routing}
+\label{alg:aegis_routing}
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{ll}
+\toprule
+\multicolumn{2}{l}{\textbf{Algorithm 1: AEGIS-SL Deterministic Routing}} \\
+\midrule
+\textbf{Input:} & Cell ID $c$, Date $t$, Context features $X$, Enabled agents $\mathcal{A}$, $\tau_{\text{low}} = 0.1$ \\
+\textbf{Output:} & Fused Opinion $\omega_{\text{fused}}$, Composite Feature Vector $\mathbf{F} \in \mathbb{R}^{27}$ \\
+\midrule
+1: & \textbf{for each} agent $A_i \in \mathcal{A}$ \textbf{do} \\
+2: & \quad \textbf{if} Modality features present for $A_i$ \textbf{then} \\
+3: & \quad \quad $\omega_{A_i} \leftarrow A_i.\text{emit\_opinion}(c, t, X)$ \\
+4: & \quad \textbf{else} \\
+5: & \quad \quad $\omega_{A_i} \leftarrow \text{KaplanProjection}(\mathbf{a}_{A_i})$ \hfill $\triangleright$ Missing modality decay to $u \to 1$ \\
+6: & \quad \textbf{end if} \\
+7: & \textbf{end for} \\
+8: & $\text{JS}_{\text{max}} \leftarrow \max_{i \ne j} \text{JS}(\mathbf{P}_{A_i}, \mathbf{P}_{A_j})$ \\
+9: & \textbf{if} $\text{JS}_{\text{max}} < \tau_{\text{low}}$ \textbf{then} \\
+10: & \quad $\omega_{\text{fused}} \leftarrow \text{CCF}(\{\omega_{A_i}\})$ \hfill $\triangleright$ High agreement route \\
+11: & \textbf{else} \\
+12: & \quad $\omega_{\text{fused}} \leftarrow \text{WBF}(\{\omega_{A_i}\}, \{\gamma_{A_i}\})$ \hfill $\triangleright$ Conflict route weighted by reputation $\gamma$ \\
+13: & \textbf{end if} \\
+14: & Construct composite vector $\mathbf{F} \leftarrow [\mathbf{b}_{\text{fused}}, u_{\text{fused}}, \text{JS}_{\text{max}}, \boldsymbol{\gamma}, X_{\text{raw}}]$ \\
+15: & \textbf{return} $\omega_{\text{fused}}, \mathbf{F}$ \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{Hybrid Evidential Prediction Head}
+The prediction head consists of two LightGBM models trained on composite vectors $\mathbf{F} \in \mathbb{R}^{27}$:
+\begin{itemize}
+    \item \textbf{LightGBM Classifier}: Configured with \texttt{n\_estimators=100}, \texttt{learning\_rate=0.05}, \texttt{num\_leaves=31}, \texttt{objective='multiclass'}.
+    \item \textbf{LightGBM Depth Regressor}: Configured with \texttt{n\_estimators=100}, \texttt{learning\_rate=0.05}, \texttt{objective='regression'}.
+\end{itemize}
+
+\subsection{Explainability \& Provenance Layer}
+For every cell-date prediction, AEGIS records an immutable provenance log containing per-agent belief contributions $w_i = \gamma_i (1 - u_i)$, JS conflict divergence, and baseline raw inputs, powering the Leaflet spatial GUI.

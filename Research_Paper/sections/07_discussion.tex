@@ -1,0 +1,39 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Why Subjective Logic Coordination Earns Its Place}
+A superficial reading of raw predictive accuracy might view the $+0.0084$ F1-Macro gain of AEGIS-SL ($0.7190$) over monolithic fusion ($0.7106$) as modest. However, our 2$\times$2 mechanistic ablation (§\ref{sec:results}) reveals that the Subjective Logic opinion tensor contributes $+0.0072$ F1 while dynamic Brier credibility tracking adds $+0.0048$ F1. 
+
+More importantly, raw F1 does not reflect the load-bearing architectural advantages of AEGIS-SL:
+\begin{enumerate}
+    \item \textbf{Calibrated Uncertainty}: AEGIS-SL achieves an ECE of $0.0925$ and mean epistemic uncertainty $u=0.0957$. Monolithic models (BL2) provide zero uncertainty bounds.
+    \item \textbf{Missing-Modality Safety}: Under sensor failure, AEGIS-SL exhibits strictly monotonic uncertainty growth (Table~\ref{tab:monotonicity}), whereas monolithic models crash or require uncalibrated zero-filling.
+    \item \textbf{Auditability \& Provenance}: AEGIS-SL generates an immutable log detailing per-agent belief contributions, enabling interactive GUI rendering.
+\end{enumerate}
+
+\subsection{The BL3 Failure Pattern as a General Result}
+The decoupling of AUROC ($0.7127$) and F1-Macro ($0.2256$) in Baseline 3 represents a fundamental failure mode of LLM-as-arbitrator architectures. When agents emit conflicting sensory inputs, LLM prompt aggregation collapses onto the majority class ('Dry'), creating severe class-imbalance failure. This result demonstrates that text-based prompt arbitration is unsuited for safety-critical environmental risk monitoring.
+
+\subsection{Limitations}
+This study has three primary limitations:
+\begin{enumerate}
+    \item \textbf{Single AOI Event}: Evaluation is focused on the Brisbane 2022 event ($200$ cells $\times 24$ days). Spatial and temporal generalization across global flood regimes requires further empirical testing.
+    \item \textbf{Proxy Cohort Size}: The $N=12$ analyst study is directionally supportive ($\Delta\text{Likert} = +0.82$) but statistically underpowered for large-scale usability conclusions.
+    \item \textbf{Hybrid Head Dependency}: The final prediction head relies on LightGBM decision trees rather than propagating Dirichlet evidence end-to-end.
+\end{enumerate}
+
+\subsection{Broader Applicability}
+The AEGIS 5-agent evidential architecture is domain-agnostic and directly transferable to other multi-modal climate disaster domains:
+\begin{itemize}
+    \item \textbf{Wildfire Risk Monitoring}: Fusing thermal infrared, fuel moisture, wind vectors, terrain slope, and satellite active fires.
+    \item \textbf{Deforestation Event Detection}: Fusing optical canopy loss, SAR radar backscatter, road proximity, and indigenous land boundary text notices.
+    \item \textbf{Urban Heat Island \& Air Quality Events}: Fusing thermal sensors, PM2.5 monitoring, traffic densities, and atmospheric inversion warnings.
+\end{itemize}
+
+\subsection{Future Work}
+Future research will explore three directions:
+\begin{enumerate}
+    \item \textbf{Multi-Event Generalization}: Evaluating AEGIS across global benchmark floods (e.g., Auckland January 2023 and Dubai April 2024).
+    \item \textbf{Generative Dirichlet SL Head}: Replacing the LightGBM hybrid head with a fully evidential neural network architecture propagating Dirichlet distributions end-to-end.
+    \item \textbf{Human-in-the-Loop Credibility Seeding}: Allowing domain hydrologists to seed agent credibility priors $\gamma_i$ interactively during unfolding emergencies.
+\end{enumerate}

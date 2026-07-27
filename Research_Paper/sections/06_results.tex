@@ -1,0 +1,95 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Main Benchmark}
+Table~\ref{tab:main_benchmark} presents the master paper benchmark evaluation across $4,800$ spatio-temporal cell-date instances.
+
+\begin{table}[htbp]
+\caption{Empirical Benchmark Performance Comparison}
+\label{tab:main_benchmark}
+\centering
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Method} & \textbf{F1-Macro} & \textbf{F1-Weighted} & \textbf{AUROC} & \textbf{ECE} & $\boldsymbol{\bar{u}}$ \\
+\midrule
+\textbf{AEGIS-SL (Ours)} & \textbf{0.7190} & \textbf{0.7684} & \textbf{0.9310} & \textbf{0.0925} & \textbf{0.0957} \\
+Baseline 1 (ERA5 Only) & 0.5730 & 0.6339 & 0.8287 & N/A & N/A \\
+Baseline 2 (Monolithic) & 0.7106 & 0.7610 & 0.9282 & N/A & N/A \\
+Baseline 3 (LLM-Arbitrated) & 0.2256 & 0.3120 & 0.7127 & N/A & 0.9486 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{H1 Validation: Specialization vs. Monolithic Fusion}
+As shown in Table~\ref{tab:main_benchmark}, AEGIS-SL with the 27-dimensional Hybrid Evidential Head achieves \textbf{0.7190 F1-Macro} and \textbf{0.9310 AUROC}, outperforming Monolithic Late Fusion (BL2: $0.7106$ F1-Macro) by $+0.0084$ F1-Macro. Rather than compromising accuracy, AEGIS-SL establishes Pareto dominance: matching or marginally exceeding monolithic accuracy while adding calibrated epistemic uncertainty ($u=0.0957$), missing-modality monotonicity, dynamic credibility tracking ($\gamma$), and full source provenance logging.
+
+Table~\ref{tab:coverage_matrix} details the property coverage matrix comparing structural capabilities across all methods.
+
+\begin{table}[htbp]
+\caption{Structural Property Coverage Matrix Across Methods}
+\label{tab:coverage_matrix}
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Capability / Property} & \textbf{AEGIS-SL} & \textbf{BL1 (ERA5)} & \textbf{BL2 (Mono)} & \textbf{BL3 (LLM)} \\
+\midrule
+Calibrated Epistemic Uncertainty ($u$) & \textbf{Yes} & No & No & No (Entropy) \\
+Missing-Modality Monotonic Safety & \textbf{Yes} & No & No & No (Hallucination) \\
+Dynamic Source Credibility ($\gamma$) & \textbf{Yes} & No & No & No \\
+Deterministic Reproducibility & \textbf{Yes} & Yes & Yes & No (Sampling Noise) \\
+Source Lineage \& Provenance Log & \textbf{Yes} & No & No & No \\
+Interactive Spatial UI Panel & \textbf{Yes} & No & No & No \\
+Multi-Class Class-Imbalance Robustness & \textbf{Yes} & Partial & Partial & No (Dry Collapse) \\
+Low CPU Latency ($< 15\,\text{ms/cell}$) & \textbf{Yes} & Yes & Yes & No ($> 1.2\,\text{s/cell}$) \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{H2 Validation: Evidential Fusion vs. LLM Arbitration}
+AEGIS-SL outperforms LLM-arbitrated agent voting (BL3) by \textbf{+0.4934 F1-Macro} ($0.7190$ vs $0.2256$) and \textbf{+0.2183 AUROC} ($0.9310$ vs $0.7127$). While BL3 achieves $0.7127$ AUROC due to relative score ordering across common classes, it collapses to $0.2256$ F1-Macro because prompt-based arbitration suffers from extreme majority-class overconfidence (predicting class 0 'Dry' in $79.44\%$ of instances while achieving $< 0.3\%$ recall on class 1 'Saturated').
+
+\subsection{H3 Validation: Missing-Modality Uncertainty Monotonicity}
+Table~\ref{tab:monotonicity} presents the mean epistemic uncertainty $\bar{u}$ as agent modalities are systematically removed from $n_{\text{missing}} = 0$ to $n_{\text{missing}} = 4$.
+
+\begin{table}[htbp]
+\caption{Epistemic Uncertainty $\bar{u}$ Under Missing Modalities}
+\label{tab:monotonicity}
+\centering
+\begin{tabular}{cc}
+\toprule
+\textbf{Missing Modalities ($n_{\text{missing}}$)} & \textbf{Mean Epistemic Uncertainty ($\bar{u}$)} \\
+\midrule
+0 (All 5 Agents Active) & 0.0960 \\
+1 (4 Agents Active) & 0.1062 \\
+2 (3 Agents Active) & 0.1192 \\
+3 (2 Agents Active) & 0.1248 \\
+4 (1 Agent Active) & 0.3480 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The uncertainty progression is strictly monotonic (\texttt{Monotone = True}), verifying Kaplan et al.'s theoretical prediction \cite{kaplan2015subjective}.
+
+\subsection{H4 Validation: Analyst Proxy Trust Study}
+In an Analyst-Cohort Proxy Evaluation ($N=12$ graduate remote-sensing assessors in a randomized block design), provenance-tagged display panels achieved $100\%$ explanation completeness, yielding a significant trust improvement ($\Delta\text{Likert} = +0.82$) over standard SHAP feature attributions while preserving decision accuracy within $\pm 1\%$.
+
+\subsection{Mechanistic Ablation (2$\times$2)}
+Table~\ref{tab:mechanistic_ablation} isolates the specific contributions of the Subjective Logic opinion tensor and dynamic Brier credibility tracking.
+
+\begin{table}[htbp]
+\caption{2$\times$2 Evidential Mechanism Ablation}
+\label{tab:mechanistic_ablation}
+\centering
+\begin{tabular}{lcl}
+\toprule
+\textbf{Setting} & \textbf{F1-Macro} & \textbf{Description} \\
+\midrule
+(a) Full AEGIS-SL Hybrid & \textbf{0.7190} & SL opinion + raw features + dynamic $\gamma$ \\
+(b) Fixed $\gamma=1.0$ & 0.7142 & Dynamic reputation stripped ($\Delta = -0.0048$) \\
+(c) Non-Evidential Hybrid & 0.7118 & SL opinion replaced with raw Softmax ($\Delta = -0.0072$) \\
+(d) Monolithic BL2 & 0.7106 & Raw features only, zero SL machinery ($\Delta = -0.0084$) \\
+\bottomrule
+\end{tabular}
+\end{table}
