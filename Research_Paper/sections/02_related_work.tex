@@ -16,32 +16,32 @@ The present paper introduces AEGIS to address exactly these four unresolved stru
 \caption{Summary of Related Work Across Agentic Environmental AI, Evidential Operators, and Trust Models}
 \label{tab:related_work}
 \centering
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{llll}
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{l c X X}
 \toprule
 \textbf{Author} & \textbf{Year} & \textbf{Key Findings} & \textbf{Limitations} \\
 \midrule
-Nielsen \& Parsons & 2006 & First formal treatment of disagreement between distributed agents; introduced an explicit argumentation scheme for fusing Bayes nets & Foundational Bayesian formalism only; not yet interfaced with physical environmental inference \\
-Wang \& Singh & 2007 & Canonical Brier-score trust model; continuous track-record scoring outperforms binary endorsement under uncertainty & Scalar trust; not yet composable with multi-source fusion algebra \\
-Kaplan et al. & 2015 & Partial-observable projection mathematically guaranteeing that epistemic uncertainty $u$ rises as evidence is absent & Operator algebra alone; not yet deployed inside agentic pipelines \\
-van der Heijden et al. & 2018 & Weighted Belief Fusion and Consensus \& Compromise Fusion operators; provably associative and commutative closure & Disconnected from environmental inference and from discriminative learning layers \\
-Li et al. & 2024 & Adaptive uncertainty-based learning deployed at the discriminative evidential layer for text-based person retrieval & Domain-specific to retrieval; not connected to environmental pipelines \\
-Sun et al. & 2024 & T2MAC --- per-agent credibility propagated through selective communication engagement in MAS & Focused on inter-agent communication; not extended to environmental inference \\
-Liu et al. & 2025 & MERIT --- multi-view evidential learning for reliable, interpretable liver-fibrosis staging & Clinical/liver-fibrosis domain only; not environmental \\
-Chikoti & 2025 & Consolidated conflict-resolution taxonomy across MAS & Taxonomic survey; no operational implementation \\
-Chen et al. & 2025 & Revisited essential versus nonessential settings of evidential deep learning & Theoretical re-examination; no agentic integration demonstrated \\
-Hofmeister et al. & 2023 & Cross-domain flood-risk semantics managed through a dynamic knowledge graph mediating sources and inference nodes & Ontology-mediated only; not yet integrated with computable trust or monotonic missing-modality handling \\
-Sayyad et al. & 2025 & Survey of agentic AI system architectures, autonomy levels, and ethical implications & Architectural survey without formal evidential reasoning focus \\
-Bairam Zadeh et al. & 2025 & Conceptual high-level MAS for wildfire management & Conceptual design only; not operationally deployed \\
-Lee et al. & 2025 & Multi-agent geospatial copilots for remote-sensing workflows & Workflow-focused; not flood-specific \\
-Shabbir et al. & 2025 & ThinkGeo benchmark for tool-augmented remote-sensing agents & Benchmark orientation; no integrated deployment framework \\
-Hofmeister et al. & 2024 & Semantic-agent framework for automated flood assessment using dynamic knowledge graphs & Agent layer in early form; no calibrated uncertainty, per-agent credibility, or monotonic missing-modality handling \\
-Sandeep et al. & 2026 & Context-aware multi-agent architecture for wildfire insights & Wildfire domain only; not flood monitoring \\
-Palanca Cantonjos \& Biswas & 2026 & AgroAskAI agentic framework supporting smallholder-farmer queries globally & Agriculture/query domain; not flood monitoring \\
-Talemi et al. & 2026 & Foundations, taxonomy, and emerging systems of agentic AI in remote sensing & Foundational/taxonomic; no deployed operational framework with calibrated uncertainty \\
-Jiang et al. & 2026 & Flood-LLM: multi-source urban-data property-level flood-risk assessment & Prompt-chained arbitration; minority-class collapse; no calibrated uncertainty, missing-modality monotonicity, credibility, or provenance \\
+Nielsen \& Parsons & 2006 & First formal treatment of disagreement between distributed agents; introduced an explicit argumentation scheme for fusing Bayes nets & Foundational Bayesian formalism only; not yet interfaced with physical environmental inference \\ \addlinespace
+Wang \& Singh & 2007 & Canonical Brier-score trust model; continuous track-record scoring outperforms binary endorsement under uncertainty & Scalar trust; not yet composable with multi-source fusion algebra \\ \addlinespace
+Kaplan et al. & 2015 & Partial-observable projection mathematically guaranteeing that epistemic uncertainty $u$ rises as evidence is absent & Operator algebra alone; not yet deployed inside agentic pipelines \\ \addlinespace
+van der Heijden et al. & 2018 & Weighted Belief Fusion and Consensus \& Compromise Fusion operators; provably associative and commutative closure & Disconnected from environmental inference and from discriminative learning layers \\ \addlinespace
+Li et al. & 2024 & Adaptive uncertainty-based learning deployed at the discriminative evidential layer for text-based person retrieval & Domain-specific to retrieval; not connected to environmental pipelines \\ \addlinespace
+Sun et al. & 2024 & T2MAC --- per-agent credibility propagated through selective communication engagement in MAS & Focused on inter-agent communication; not extended to environmental inference \\ \addlinespace
+Liu et al. & 2025 & MERIT --- multi-view evidential learning for reliable, interpretable liver-fibrosis staging & Clinical/liver-fibrosis domain only; not environmental \\ \addlinespace
+Chikoti & 2025 & Consolidated conflict-resolution taxonomy across MAS & Taxonomic survey; no operational implementation \\ \addlinespace
+Chen et al. & 2025 & Revisited essential versus nonessential settings of evidential deep learning & Theoretical re-examination; no agentic integration demonstrated \\ \addlinespace
+Hofmeister et al. & 2023 & Cross-domain flood-risk semantics managed through a dynamic knowledge graph mediating sources and inference nodes & Ontology-mediated only; not yet integrated with computable trust or monotonic missing-modality handling \\ \addlinespace
+Sayyad et al. & 2025 & Survey of agentic AI system architectures, autonomy levels, and ethical implications & Architectural survey without formal evidential reasoning focus \\ \addlinespace
+Bairam Zadeh et al. & 2025 & Conceptual high-level MAS for wildfire management & Conceptual design only; not operationally deployed \\ \addlinespace
+Lee et al. & 2025 & Multi-agent geospatial copilots for remote-sensing workflows & Workflow-focused; not flood-specific \\ \addlinespace
+Shabbir et al. & 2025 & ThinkGeo benchmark for tool-augmented remote-sensing agents & Benchmark orientation; no integrated deployment framework \\ \addlinespace
+Hofmeister et al. & 2024 & Semantic-agent framework for automated flood assessment using dynamic knowledge graphs & Agent layer in early form; no calibrated uncertainty, per-agent credibility, or monotonic missing-modality handling \\ \addlinespace
+Sandeep et al. & 2026 & Context-aware multi-agent architecture for wildfire insights & Wildfire domain only; not flood monitoring \\ \addlinespace
+Palanca Cantonjos \& Biswas & 2026 & AgroAskAI agentic framework supporting smallholder-farmer queries globally & Agriculture/query domain; not flood monitoring \\ \addlinespace
+Talemi et al. & 2026 & Foundations, taxonomy, and emerging systems of agentic AI in remote sensing & Foundational/taxonomic; no deployed operational framework with calibrated uncertainty \\ \addlinespace
+Jiang et al. & 2026 & Flood-LLM: multi-source urban-data property-level flood-risk assessment & Prompt-chained arbitration; minority-class collapse; no calibrated uncertainty, missing-modality monotonicity, credibility, or provenance \\ \addlinespace
 Redaelli et al. & 2026 & SaferPlaces agentic AI democratising global flood-risk intelligence & Prompt-chained arbitration; no calibrated uncertainty, per-agent credibility propagation, or source-level provenance \\
 \bottomrule
-\end{tabular}%
-}
+\end{tabularx}
 \end{table*}
