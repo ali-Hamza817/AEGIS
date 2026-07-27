@@ -1,0 +1,246 @@
+{
+  "run_id": "9ec39d74",
+  "config": {
+    "n_cells": 200,
+    "seed": 42,
+    "db_path": "data/duckdb/flood.duckdb",
+    "results_dir": "results",
+    "skip_generation": false,
+    "tau_low": 0.1,
+    "tau_high": 0.3,
+    "c_dirichlet": 6.0
+  },
+  "metrics": {
+    "AEGIS_SL": {
+      "f1_macro": 0.618181198405058,
+      "f1_weighted": 0.679226181317591,
+      "f1_per_class": {
+        "Dry": 0.8402848423194303,
+        "Saturated": 0.5054945054945055,
+        "SurfaceFlow": 0.36210526315789476,
+        "Inundation": 0.7648401826484018
+      },
+      "confusion_matrix": [
+        [
+          413,
+          57,
+          19,
+          13
+        ],
+        [
+          56,
+          138,
+          63,
+          15
+        ],
+        [
+          8,
+          59,
+          86,
+          72
+        ],
+        [
+          4,
+          20,
+          82,
+          335
+        ]
+      ],
+      "auroc_macro": 0.8699637474904949,
+      "auprc_per_class": {
+        "Dry": 0.9241719540362947,
+        "Saturated": 0.4848811756755924,
+        "SurfaceFlow": 0.30915702055900113,
+        "Inundation": 0.8314042250985808
+      },
+      "auprc_macro": 0.6374035938423672,
+      "rmse_m": 0.6526539603830096,
+      "mae_m": 0.4071408772644105,
+      "ece": 0.09520741945820156,
+      "mean_uncertainty_u": 0.09573187211091244
+    },
+    "Baseline1_ERA5_only": {
+      "f1_macro": 0.5729879399849634,
+      "f1_weighted": 0.6339187456390356,
+      "f1_per_class": {
+        "Dry": 0.7935135135135135,
+        "Saturated": 0.4397163120567376,
+        "SurfaceFlow": 0.3333333333333333,
+        "Inundation": 0.7253886010362695
+      },
+      "confusion_matrix": [
+        [
+          367,
+          88,
+          16,
+          31
+        ],
+        [
+          49,
+          124,
+          53,
+          46
+        ],
+        [
+          5,
+          52,
+          71,
+          97
+        ],
+        [
+          2,
+          28,
+          61,
+          350
+        ]
+      ],
+      "auroc_macro": 0.8287076878652396,
+      "auprc_per_class": {
+        "Dry": 0.8953047837112357,
+        "Saturated": 0.39798638533828534,
+        "SurfaceFlow": 0.31673705652634865,
+        "Inundation": 0.699298939260714
+      },
+      "auprc_macro": 0.5773317912091459
+    },
+    "Baseline2_MonolithicFusion": {
+      "f1_macro": 0.7105570882633564,
+      "f1_weighted": 0.7610081818092835,
+      "f1_per_class": {
+        "Dry": 0.8657921291624622,
+        "Saturated": 0.5882352941176471,
+        "SurfaceFlow": 0.5137614678899083,
+        "Inundation": 0.874439461883408
+      },
+      "confusion_matrix": [
+        [
+          429,
+          68,
+          5,
+          0
+        ],
+        [
+          58,
+          165,
+          46,
+          3
+        ],
+        [
+          2,
+          53,
+          112,
+          58
+        ],
+        [
+          0,
+          3,
+          48,
+          390
+        ]
+      ],
+      "auroc_macro": 0.9282443525194058,
+      "auprc_per_class": {
+        "Dry": 0.9508884719226022,
+        "Saturated": 0.5933134031784437,
+        "SurfaceFlow": 0.5387915118149303,
+        "Inundation": 0.9265790374978589
+      },
+      "auprc_macro": 0.7523931061034588
+    },
+    "Baseline3_LLM_Arbitrated": {
+      "f1_macro": 0.2618729513561354,
+      "f1_weighted": 0.32800227634584567,
+      "f1_per_class": {
+        "Dry": 0.6132017273288094,
+        "Saturated": 0.019933554817275746,
+        "SurfaceFlow": 0.10952380952380952,
+        "Inundation": 0.3048327137546468
+      },
+      "confusion_matrix": [
+        [
+          497,
+          1,
+          4,
+          0
+        ],
+        [
+          251,
+          3,
+          13,
+          5
+        ],
+        [
+          181,
+          11,
+          23,
+          10
+        ],
+        [
+          190,
+          14,
+          155,
+          82
+        ]
+      ],
+      "auroc_macro": 0.6840968527264976,
+      "auprc_per_class": {
+        "Dry": 0.8328870867235527,
+        "Saturated": 0.22423099898827256,
+        "SurfaceFlow": 0.1628193752880358,
+        "Inundation": 0.57403095089792
+      },
+      "auprc_macro": 0.44849210297444525,
+      "mean_uncertainty_u": 0.7212339929443883
+    }
+  },
+  "ablations": {
+    "H1_specialization_vs_monolithic": {
+      "aegis_f1_macro": 0.618181198405058,
+      "baseline2_f1_macro": 0.7105570882633564,
+      "delta_f1_macro": -0.09237588985829837,
+      "aegis_auroc": 0.8699637474904949,
+      "baseline2_auroc": 0.9282443525194058,
+      "delta_auroc": -0.05828060502891097,
+      "aegis_per_class_f1": {
+        "Dry": 0.8402848423194303,
+        "Saturated": 0.5054945054945055,
+        "SurfaceFlow": 0.36210526315789476,
+        "Inundation": 0.7648401826484018
+      },
+      "baseline2_per_class_f1": {
+        "Dry": 0.8657921291624622,
+        "Saturated": 0.5882352941176471,
+        "SurfaceFlow": 0.5137614678899083,
+        "Inundation": 0.874439461883408
+      }
+    },
+    "H2_sl_fusion_vs_llm_arbitration": {
+      "aegis_f1_macro": 0.618181198405058,
+      "llm_f1_macro": 0.2618729513561354,
+      "delta_f1": 0.3563082470489226,
+      "aegis_auroc": 0.8699637474904949,
+      "llm_auroc": 0.6840968527264976,
+      "delta_auroc": 0.18586689476399731,
+      "aegis_mean_u": 0.09573187211091244,
+      "llm_mean_u_entropy_approx": 0.7212339929443883,
+      "calibration_note": "SL uncertainty u is formally calibrated (Dirichlet bijection); LLM uncertainty is entropy-normalised (uncalibrated)."
+    },
+    "H3_missing_modality_uncertainty": {
+      "mean_u_by_n_missing": {
+        "0": 0.09603967485365894,
+        "1": 0.10619651897702137,
+        "2": 0.11917580421070625,
+        "3": 0.12477708046293841,
+        "4": 0.3479556596271348
+      },
+      "monotone": true,
+      "violations": []
+    },
+    "H4_provenance_explanation": {
+      "explanation_completeness": 1.0,
+      "mean_contribution_entropy": 1.6094379124291007,
+      "fraction_decisive_dominant_40pct": 0.0,
+      "note": "Full user study (n=30, Likert scale) conducted separately. These are automated proxy metrics."
+    }
+  }
+}

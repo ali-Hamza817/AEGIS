@@ -1,0 +1,18 @@
+study_site:
+  name: "Brisbane, Australia (SEQ Flood Event 2022)"
+  bbox: [152.5, -28.0, 153.5, -27.0]
+  crs: "EPSG:4326"
+  target_dates:
+    start: "2022-02-20"
+    end: "2022-03-15"
+  grid:
+    cell_size_m: 100
+    rows: 50
+    cols: 50
+  land_cover_classes:
+    0: "Water"
+    1: "Trees"
+    2: "Grassland"
+    3: "Cropland"
+    4: "Built-up / Impervious"
+    5: "Bare / Sparse vegetation"

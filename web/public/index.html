@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEGIS — Flood Risk Intelligence Dashboard</title>
+    <meta name="description" content="AEGIS: Agentic Evidential Geographic Intelligence for Sustainability. Interactive flood risk assessment with Subjective Logic provenance.">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin="" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #0a0f1c;
+            --bg-secondary: #111827;
+            --bg-card: #1a2235;
+            --bg-card-hover: #1f2a40;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --accent-purple: #8b5cf6;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: #1e293b;
+            --border-light: #334155;
+            --glass-bg: rgba(17, 24, 39, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.15);
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ===== Header ===== */
+        .header {
+            height: 56px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            z-index: 1000;
+            position: relative;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-logo {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 14px;
+            color: white;
+        }
+
+        .header-title {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .header-title span {
+            color: var(--accent-cyan);
+        }
+
+        .header-subtitle {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge-sl {
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--accent-blue);
+        }
+
+        .badge-live {
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--accent-emerald);
+        }
+
+        .badge-live::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-emerald);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* ===== Layout ===== */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            height: calc(100vh - 56px);
+        }
+
+        /* ===== Map ===== */
+        .map-container {
+            position: relative;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            background: var(--bg-primary);
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            z-index: 800;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .map-legend {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 16px;
+            min-width: 180px;
+        }
+
+        .legend-title {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        /* ===== Sidebar ===== */
+        .sidebar {
+            background: var(--bg-secondary);
+            border-left: 1px solid var(--border);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-section {
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--text-muted);
+        }
+
+        .section-badge {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        /* ===== Stat Cards ===== */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .stat-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-light);
+            transform: translateY(-1px);
+        }
+
+        .stat-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .stat-value {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-unit {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .stat-trend {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+
+        .trend-up { color: var(--accent-rose); }
+        .trend-down { color: var(--accent-emerald); }
+
+        /* ===== Opinion Panel ===== */
+        .opinion-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            margin-top: 12px;
+        }
+
+        .opinion-title {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .belief-bar-container {
+            margin-bottom: 10px;
+        }
+
+        .belief-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+
+        .belief-bar-name {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .belief-bar-value {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .belief-bar-track {
+            width: 100%;
+            height: 6px;
+            background: var(--bg-primary);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .belief-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.6s ease;
+        }
+
+        /* ===== Agent Contribution ===== */
+        .agent-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .agent-row {
+            display: grid;
+            grid-template-columns: 10px 1fr 50px 50px;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            transition: all 0.2s ease;
+        }
+
+        .agent-row:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-light);
+        }
+
+        .agent-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .agent-name {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .agent-weight {
+            font-size: 12px;
+            font-weight: 700;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .agent-gamma {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ===== Fusion Badge ===== */
+        .fusion-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .fusion-wbf {
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            color: var(--accent-amber);
+        }
+
+        .fusion-ccf {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--accent-emerald);
+        }
+
+        /* ===== Date Control ===== */
+        .date-control {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .date-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .date-input {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            padding: 6px 10px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .date-input:focus {
+            border-color: var(--accent-blue);
+        }
+
+        .btn-load {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            border: none;
+            border-radius: var(--radius-sm);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 7px 16px;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+        }
+
+        .btn-load:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-load:active { transform: translateY(0); }
+
+        /* ===== Uncertainty Meter ===== */
+        .uncertainty-meter {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .meter-track {
+            flex: 1;
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent-emerald), var(--accent-amber), var(--accent-rose));
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .meter-thumb {
+            position: absolute;
+            top: -4px;
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            border: 2px solid var(--bg-primary);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            transition: left 0.5s ease;
+        }
+
+        .meter-value {
+            font-size: 18px;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            min-width: 48px;
+            text-align: right;
+        }
+
+        /* ===== Scrollbar ===== */
+        .sidebar::-webkit-scrollbar { width: 6px; }
+        .sidebar::-webkit-scrollbar-track { background: transparent; }
+        .sidebar::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
+
+        /* ===== Empty State ===== */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 36px;
+            margin-bottom: 12px;
+            opacity: 0.4;
+        }
+
+        .empty-state-text {
+            font-size: 13px;
+        }
+
+        /* ===== Tooltip ===== */
+        .leaflet-popup-content-wrapper {
+            background: var(--bg-card) !important;
+            color: var(--text-primary) !important;
+            border-radius: var(--radius-sm) !important;
+            border: 1px solid var(--border-light) !important;
+            box-shadow: var(--shadow-glow) !important;
+        }
+        .leaflet-popup-tip { background: var(--bg-card) !important; }
+        .leaflet-popup-content { margin: 12px 16px !important; font-family: 'Inter', sans-serif !important; font-size: 12px !important; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-brand">
+            <div class="header-logo">Æ</div>
+            <div>
+                <div class="header-title"><span>AEGIS</span> Flood Intelligence</div>
+                <div class="header-subtitle">Subjective Logic · Multi-Agent Fusion · Provenance-Aware</div>
+            </div>
+        </div>
+        <div class="header-controls">
+            <div class="header-badge badge-sl">SL Fusion Active</div>
+            <div class="header-badge badge-live">Pipeline Ready</div>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <!-- Map Panel -->
+        <div class="map-container">
+            <div id="map"></div>
+            <div class="map-overlay">
+                <div class="map-legend">
+                    <div class="legend-title">Flood State</div>
+                    <div class="legend-item"><div class="legend-swatch" style="background: #10b981"></div>Dry</div>
+                    <div class="legend-item"><div class="legend-swatch" style="background: #f59e0b"></div>Saturated</div>
+                    <div class="legend-item"><div class="legend-swatch" style="background: #f97316"></div>Surface Flow</div>
+                    <div class="legend-item"><div class="legend-swatch" style="background: #ef4444"></div>Inundation</div>
+                </div>
+                <div class="map-legend">
+                    <div class="legend-title">Uncertainty (u)</div>
+                    <div class="legend-item"><div class="legend-swatch" style="background: rgba(255,255,255,0.9); border: 1px solid #334155;"></div>Low (u &lt; 0.2)</div>
+                    <div class="legend-item"><div class="legend-swatch" style="background: rgba(255,255,255,0.5); border: 1px solid #334155;"></div>Medium</div>
+                    <div class="legend-item"><div class="legend-swatch" style="background: rgba(255,255,255,0.15); border: 1px solid #334155;"></div>High (u &gt; 0.6)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="date-control">
+                <span class="date-label">Date</span>
+                <input type="date" class="date-input" id="dateInput" value="2022-03-01">
+                <button class="btn-load" id="btnLoad">Load Grid</button>
+            </div>
+
+            <!-- Summary Stats -->
+            <div class="sidebar-section">
+                <div class="section-header">
+                    <span class="section-title">AOI Summary</span>
+                    <span class="section-badge badge-sl" id="cellCountBadge">0 cells</span>
+                </div>
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Cells at Risk</div>
+                        <div class="stat-value" id="statAtRisk">—</div>
+                        <div class="stat-trend trend-up" id="trendRisk"></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Mean Uncertainty</div>
+                        <div class="stat-value" id="statMeanU">—</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Inundated</div>
+                        <div class="stat-value" id="statInundated">—</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Fusion Mode</div>
+                        <div class="stat-value" id="statFusion" style="font-size: 16px;">—</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Selected Cell Provenance (H4 demonstration) -->
+            <div class="sidebar-section" id="provenanceSection">
+                <div class="section-header">
+                    <span class="section-title">Cell Provenance</span>
+                    <span id="fusionBadge"></span>
+                </div>
+
+                <div class="empty-state" id="emptyProvenance">
+                    <div class="empty-state-icon">📍</div>
+                    <div class="empty-state-text">Click a cell on the map to inspect its<br>provenance-tagged SL opinion</div>
+                </div>
+
+                <div id="provenanceContent" style="display: none;">
+                    <!-- Fused Opinion Bars -->
+                    <div class="opinion-panel" id="opinionPanel">
+                        <div class="opinion-title">Fused SL Opinion ω<sub>fused</sub></div>
+                        <div id="beliefBars"></div>
+                    </div>
+
+                    <!-- Uncertainty Meter -->
+                    <div class="opinion-panel">
+                        <div class="opinion-title">Epistemic Uncertainty (u)</div>
+                        <div class="uncertainty-meter">
+                            <div class="meter-track">
+                                <div class="meter-thumb" id="meterThumb" style="left: 50%"></div>
+                            </div>
+                            <div class="meter-value" id="meterValue">—</div>
+                        </div>
+                    </div>
+
+                    <!-- Agent Contributions -->
+                    <div style="margin-top: 16px;">
+                        <div class="opinion-title" style="margin-bottom: 10px;">Agent Contributions (provenance-weighted)</div>
+                        <div class="agent-list" id="agentList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+
+    <script>
+        // ===================================================================
+        // AEGIS Dashboard — Client-Side Logic
+        // ===================================================================
+
+        const API_BASE = window.location.origin;
+
+        const FLOOD_COLORS = {
+            0: '#10b981',  // Dry — emerald
+            1: '#f59e0b',  // Saturated — amber
+            2: '#f97316',  // Surface Flow — orange
+            3: '#ef4444',  // Inundation — red
+        };
+
+        const FLOOD_LABELS = ['Dry', 'Saturated', 'SurfaceFlow', 'Inundation'];
+        const AGENT_COLORS = {
+            'climate_agent':    '#3b82f6',
+            'satellite_agent':  '#06b6d4',
+            'landcover_agent':  '#10b981',
+            'airquality_agent': '#f59e0b',
+            'docint_agent':     '#8b5cf6',
+        };
+
+        const AGENT_DISPLAY_NAMES = {
+            'climate_agent':    'Climate (ERA5)',
+            'satellite_agent':  'Satellite (SAR)',
+            'landcover_agent':  'Land Cover',
+            'airquality_agent': 'Air Quality',
+            'docint_agent':     'Doc Intelligence',
+        };
+
+        // ===== Map Setup =====
+        const map = L.map('map', {
+            zoomControl: false,
+        }).setView([-27.47, 153.02], 10);
+
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+        // Dark tile layer
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+            maxZoom: 19,
+        }).addTo(map);
+
+        let cellMarkers = [];
+        let selectedCellId = null;
+
+        // ===== Load Grid =====
+        const btnLoad = document.getElementById('btnLoad');
+        const dateInput = document.getElementById('dateInput');
+
+        btnLoad.addEventListener('click', () => loadGrid());
+
+        async function loadGrid() {
+            const targetDate = dateInput.value;
+            btnLoad.textContent = 'Loading...';
+            btnLoad.disabled = true;
+
+            try {
+                let cells;
+                try {
+                    const resp = await fetch(
+                        `${API_BASE}/grid?n_cells=100&target_date=${targetDate}`
+                    );
+                    const data = await resp.json();
+                    cells = data.cells;
+                } catch {
+                    // Offline mode: generate synthetic demo cells
+                    cells = generateDemoCells(100, targetDate);
+                }
+
+                renderCells(cells);
+                updateSummaryStats(cells);
+                document.getElementById('cellCountBadge').textContent = cells.length + ' cells';
+            } catch (err) {
+                console.error('Grid load error:', err);
+            } finally {
+                btnLoad.textContent = 'Load Grid';
+                btnLoad.disabled = false;
+            }
+        }
+
+        function generateDemoCells(n, dateStr) {
+            // Offline synthetic demo matching Brisbane physical characteristics
+            const rng = mulberry32(42);
+            const dayOffset = Math.floor((new Date(dateStr) - new Date('2022-02-20')) / 86400000);
+            const eventIntensity = Math.max(0, Math.exp(-0.5 * Math.pow((dayOffset - 12) / 4, 2)));
+            const cells = [];
+
+            for (let i = 0; i < n; i++) {
+                const lon = 152.5 + rng() * 1.0;
+                const lat = -28.0 + rng() * 1.0;
+                const floodProne = rng() * eventIntensity;
+                let state;
+                if (floodProne < 0.15) state = 0;
+                else if (floodProne < 0.40) state = 1;
+                else if (floodProne < 0.70) state = 2;
+                else state = 3;
+
+                const u = 0.1 + rng() * 0.5 * (1 - eventIntensity * 0.5);
+                cells.push({
+                    cell_id: i,
+                    lon, lat,
+                    flood_state: state,
+                    flood_state_label: FLOOD_LABELS[state],
+                    uncertainty_u: u,
+                    depth_m: Math.max(0, (state >= 2 ? floodProne * 3 : 0) + (rng() - 0.5) * 0.5),
+                    fusion_operator: rng() > 0.6 ? 'WBF' : 'CCF',
+                });
+            }
+            return cells;
+        }
+
+        // Simple seeded PRNG
+        function mulberry32(a) {
+            return function() {
+                let t = a += 0x6D2B79F5;
+                t = Math.imul(t ^ t >>> 15, t | 1);
+                t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+                return ((t ^ t >>> 14) >>> 0) / 4294967296;
+            }
+        }
+
+        function renderCells(cells) {
+            // Clear existing
+            cellMarkers.forEach(m => map.removeLayer(m));
+            cellMarkers = [];
+
+            cells.forEach(cell => {
+                const color = FLOOD_COLORS[cell.flood_state] || '#6b7280';
+                const opacity = Math.max(0.15, 1.0 - cell.uncertainty_u);
+                const radius = 4 + cell.flood_state * 2;
+
+                const marker = L.circleMarker([cell.lat, cell.lon], {
+                    radius: radius,
+                    fillColor: color,
+                    fillOpacity: opacity,
+                    color: 'rgba(255,255,255,0.15)',
+                    weight: 1,
+                }).addTo(map);
+
+                marker.on('click', () => selectCell(cell));
+
+                const popupContent = document.createElement('div');
+                const stateText = document.createElement('div');
+                stateText.textContent = `${cell.flood_state_label}`;
+                stateText.style.cssText = 'font-weight: 700; font-size: 14px; margin-bottom: 4px;';
+                stateText.style.color = color;
+                popupContent.appendChild(stateText);
+
+                const detailText = document.createElement('div');
+                detailText.textContent = `u = ${cell.uncertainty_u.toFixed(3)} · depth = ${cell.depth_m.toFixed(2)}m`;
+                detailText.style.cssText = 'color: #94a3b8; font-size: 11px;';
+                popupContent.appendChild(detailText);
+
+                marker.bindPopup(popupContent, { closeButton: false });
+                cellMarkers.push(marker);
+            });
+        }
+
+        function updateSummaryStats(cells) {
+            const atRisk = cells.filter(c => c.flood_state >= 1).length;
+            const inundated = cells.filter(c => c.flood_state === 3).length;
+            const meanU = cells.reduce((s, c) => s + c.uncertainty_u, 0) / cells.length;
+            const wbfCount = cells.filter(c => c.fusion_operator === 'WBF').length;
+
+            document.getElementById('statAtRisk').textContent = atRisk;
+            document.getElementById('statInundated').textContent = inundated;
+            document.getElementById('statMeanU').textContent = meanU.toFixed(3);
+            document.getElementById('statFusion').textContent =
+                wbfCount > cells.length / 2 ? 'WBF' : 'CCF';
+
+            const pct = Math.round((atRisk / cells.length) * 100);
+            document.getElementById('trendRisk').textContent = `${pct}% of grid`;
+        }
+
+        // ===== Cell Selection — Provenance Panel (H4) =====
+        async function selectCell(cell) {
+            selectedCellId = cell.cell_id;
+            document.getElementById('emptyProvenance').style.display = 'none';
+            document.getElementById('provenanceContent').style.display = 'block';
+
+            let provData;
+            try {
+                const resp = await fetch(
+                    `${API_BASE}/provenance/${cell.cell_id}/${dateInput.value}`
+                );
+                provData = await resp.json();
+            } catch {
+                // Offline: generate demo provenance
+                provData = generateDemoProvenance(cell);
+            }
+
+            renderProvenance(provData, cell);
+        }
+
+        function generateDemoProvenance(cell) {
+            const rng = mulberry32(cell.cell_id + 1000);
+            const agentNames = Object.keys(AGENT_COLORS);
+            const opinions = agentNames.map(name => {
+                const b = [rng(), rng(), rng(), rng()];
+                const bSum = b.reduce((a, v) => a + v, 0);
+                const u = 0.1 + rng() * 0.5;
+                const scale = (1 - u) / bSum;
+                return {
+                    agent: name,
+                    opinion: {
+                        b: b.map(v => v * scale),
+                        u: u,
+                        frame: FLOOD_LABELS,
+                        projected_prob: b.map(v => v * scale + 0.25 * u),
+                    },
+                    contribution: 0.15 + rng() * 0.2,
+                };
+            });
+
+            // Normalise contributions
+            const cSum = opinions.reduce((s, o) => s + o.contribution, 0);
+            opinions.forEach(o => o.contribution /= cSum);
+
+            const b = [rng() * 0.3, rng() * 0.3, rng() * 0.2, rng() * 0.2];
+            const u = cell.uncertainty_u;
+            const bSum = b.reduce((a, v) => a + v, 0);
+            const scale = (1 - u) / bSum;
+
+            return {
+                cell_id: cell.cell_id,
+                fused_opinion: {
+                    b: b.map(v => v * scale),
+                    u: u,
+                    frame: FLOOD_LABELS,
+                    projected_prob: b.map(v => v * scale + 0.25 * u),
+                },
+                fusion_operator: cell.fusion_operator || 'WBF',
+                max_js_divergence: 0.05 + rng() * 0.3,
+                agent_opinions: opinions,
+                provenance_records: opinions.map(o => ({
+                    agent_name: o.agent,
+                    modality_missing: rng() > 0.85,
+                    credibility_gamma: 0.6 + rng() * 0.4,
+                })),
+            };
+        }
+
+        function renderProvenance(prov, cell) {
+            // Fusion badge
+            const fusionBadge = document.getElementById('fusionBadge');
+            const fusionOp = prov.fusion_operator || 'WBF';
+            const badgeClass = fusionOp === 'CCF' ? 'fusion-ccf' : 'fusion-wbf';
+            fusionBadge.textContent = '';
+            const badge = document.createElement('span');
+            badge.className = `fusion-badge ${badgeClass}`;
+            badge.textContent = `${fusionOp} · JS=${(prov.max_js_divergence || 0).toFixed(3)}`;
+            fusionBadge.appendChild(badge);
+
+            // Belief bars
+            const beliefBars = document.getElementById('beliefBars');
+            beliefBars.replaceChildren();
+            const fop = prov.fused_opinion;
+            const barColors = [FLOOD_COLORS[0], FLOOD_COLORS[1], FLOOD_COLORS[2], FLOOD_COLORS[3]];
+
+            fop.b.forEach((bVal, i) => {
+                const container = document.createElement('div');
+                container.className = 'belief-bar-container';
+
+                const labelRow = document.createElement('div');
+                labelRow.className = 'belief-bar-label';
+
+                const nameSpan = document.createElement('span');
+                nameSpan.className = 'belief-bar-name';
+                nameSpan.textContent = FLOOD_LABELS[i];
+                labelRow.appendChild(nameSpan);
+
+                const valSpan = document.createElement('span');
+                valSpan.className = 'belief-bar-value';
+                valSpan.textContent = bVal.toFixed(3);
+                labelRow.appendChild(valSpan);
+
+                container.appendChild(labelRow);
+
+                const track = document.createElement('div');
+                track.className = 'belief-bar-track';
+                const fill = document.createElement('div');
+                fill.className = 'belief-bar-fill';
+                fill.style.width = `${(bVal * 100).toFixed(1)}%`;
+                fill.style.background = barColors[i];
+                track.appendChild(fill);
+                container.appendChild(track);
+
+                beliefBars.appendChild(container);
+            });
+
+            // Uncertainty meter
+            const u = fop.u;
+            document.getElementById('meterThumb').style.left = `${(u * 100).toFixed(0)}%`;
+            const meterVal = document.getElementById('meterValue');
+            meterVal.textContent = u.toFixed(3);
+            if (u < 0.3) meterVal.style.color = '#10b981';
+            else if (u < 0.6) meterVal.style.color = '#f59e0b';
+            else meterVal.style.color = '#ef4444';
+
+            // Agent contributions
+            const agentList = document.getElementById('agentList');
+            agentList.replaceChildren();
+
+            const agentOpinions = prov.agent_opinions || [];
+            const provRecords = prov.provenance_records || [];
+
+            agentOpinions.forEach((ao, idx) => {
+                const row = document.createElement('div');
+                row.className = 'agent-row';
+
+                const dot = document.createElement('div');
+                dot.className = 'agent-dot';
+                dot.style.background = AGENT_COLORS[ao.agent] || '#6b7280';
+                row.appendChild(dot);
+
+                const name = document.createElement('div');
+                name.className = 'agent-name';
+                let displayName = AGENT_DISPLAY_NAMES[ao.agent] || ao.agent;
+                if (provRecords[idx] && provRecords[idx].modality_missing) {
+                    displayName += ' ⚠️';
+                }
+                name.textContent = displayName;
+                row.appendChild(name);
+
+                const weight = document.createElement('div');
+                weight.className = 'agent-weight';
+                weight.textContent = `${(ao.contribution * 100).toFixed(1)}%`;
+                weight.style.color = AGENT_COLORS[ao.agent] || '#6b7280';
+                row.appendChild(weight);
+
+                const gamma = document.createElement('div');
+                gamma.className = 'agent-gamma';
+                const g = provRecords[idx] ? provRecords[idx].credibility_gamma : 1.0;
+                gamma.textContent = `γ=${g.toFixed(2)}`;
+                row.appendChild(gamma);
+
+                agentList.appendChild(row);
+            });
+        }
+
+        // ===== Auto-load on page open =====
+        window.addEventListener('load', () => {
+            setTimeout(loadGrid, 500);
+        });
+    </script>
+</body>
+</html>

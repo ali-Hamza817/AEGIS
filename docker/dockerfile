@@ -1,0 +1,46 @@
+FROM python:3.11-slim
+
+LABEL maintainer="AEGIS Research Team"
+LABEL description="AEGIS — Agentic Evidential Geographic Intelligence for Sustainability"
+
+WORKDIR /app
+
+# System dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc && \
+    rm -rf /var/lib/apt/lists/*
+
+# Python dependencies (CPU-only, no GPU)
+COPY pyproject.toml .
+RUN pip install --no-cache-dir \
+    duckdb>=1.1.0 \
+    numpy>=1.26.0 \
+    pandas>=2.2.0 \
+    scipy>=1.12.0 \
+    scikit-learn>=1.4.0 \
+    lightgbm>=4.3.0 \
+    xgboost>=2.0.0 \
+    fastapi>=0.110.0 \
+    uvicorn>=0.28.0 \
+    pydantic>=2.6.0 \
+    pyyaml>=6.0
+
+# Copy application code
+COPY configs/ configs/
+COPY src/ src/
+COPY experiments/ experiments/
+COPY web/ web/
+
+# Create data directories
+RUN mkdir -p data/duckdb data/raw results
+
+# Expose FastAPI port
+EXPOSE 8000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')" || exit 1
+
+# Run API server bound to localhost only
+# TODO(security): In production, use a reverse proxy (nginx) in front of uvicorn.
+CMD ["uvicorn", "src.api.app:app", "--host", "127.0.0.1", "--port", "8000", "--workers", "1"]

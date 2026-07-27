@@ -1,0 +1,22 @@
+subjective_logic:
+  dirichlet_C: 6.0
+  tau_low: 0.1
+  tau_high: 0.3
+  reputation:
+    initial: 1.0
+    min: 0.3
+    max: 1.0
+    lr: 0.1
+
+baselines:
+  baseline_1: "Single-Modality (ERA5 LightGBM)"
+  baseline_2: "Monolithic Late-Fusion (Stacked LightGBM)"
+  baseline_3: "LLM-Arbitrated Agentic (Qwen2.5-3B / Rule-based LLM Arbiter)"
+  baseline_4: "Multimodal Hazard Foundation Model (Benchmark)"
+
+ablations:
+  enabled_ablations:
+    - "H1_specialization_vs_monolithic"
+    - "H2_sl_fusion_vs_llm_arbitration"
+    - "H3_missing_modality_uncertainty"
+    - "H4_provenance_trust_retention"
