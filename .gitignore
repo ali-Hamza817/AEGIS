@@ -17,3 +17,7 @@ build/
 dist/
 *.egg-info/
 data/duckdb/
+
+# Submission Folder (Private)
+Submission to ESWA/
+Submission_to_ESWA/
