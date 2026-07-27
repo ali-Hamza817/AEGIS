@@ -2,14 +2,7 @@
 
 \subsection{End-to-end pipeline}
 
-The AEGIS pipeline ingests multi-source environmental streams, routes them through five specialist evidential agents, fuses them through the SL coordinator, produces a calibrated prediction through a hybrid evidential head, and exposes the result through an interactive provenance dashboard. Figure~\ref{fig:aegis_architecture} sketches the end-to-end architecture. Each cell-day evaluation flows from raw observation to opinion to consensus to prediction; every intermediate object is logged to the DuckDB provenance ledger for downstream auditing.
-
-\begin{figure*}[htbp]
-\centering
-\includegraphics[width=\linewidth]{figures/fig1_aegis_architecture.pdf}
-\caption{\textbf{AEGIS System Architecture Flow.} Heterogeneous environmental streams map onto five specialist evidential agents (Climate, Satellite, Land-Cover, Air-Quality/Gauge, Document Intelligence). Active opinion streams $\omega_i$ route through the SL Coordinator (with JS divergence signal $\tau_{\text{low}}=0.1$) to produce fused opinion $\mathbf{F}=(\mathbf{b}, u, \mathbf{a})$. The 27-dimensional composite space feeds the Hybrid LightGBM Head while logging provenance to DuckDB and powering the Leaflet dark-mode dashboard.}
-\label{fig:aegis_architecture}
-\end{figure*}
+The AEGIS pipeline ingests multi-source environmental streams, routes them through five specialist evidential agents, fuses them through the SL coordinator, produces a calibrated prediction through a hybrid evidential head, and exposes the result through an interactive provenance dashboard. Each cell-day evaluation flows from raw observation to opinion to consensus to prediction; every intermediate object is logged to the DuckDB provenance ledger for downstream auditing.
 
 \subsection{Data ingestion substrate}
 
