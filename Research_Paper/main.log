@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  27 JUL 2026 11:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  27 JUL 2026 11:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -972,7 +972,41 @@ Overfull \hbox (7.07556pt too wide) in paragraph at lines 55--56
 l
  []
 
-) (./main.bbl [3]
+) (./sections/04_aegis_architecture.tex [3]
+LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
+(Font)              scaled to size 8.50006pt on input line 9.
+
+Overfull \hbox (31.52853pt too wide) in paragraph at lines 9--10
+\T1/stix/m/n/10 re-la-tional ta-bles --- \T1/zi4/m/n/10 climate_daily\T1/stix/m
+/n/10 , \T1/zi4/m/n/10 satellite_sar\T1/stix/m/n/10 , \T1/zi4/m/n/10 satellite_
+optical\T1/stix/m/n/10 ,
+ []
+
+
+Overfull \hbox (14.75978pt too wide) in paragraph at lines 9--10
+\T1/zi4/m/n/10 landcover_static\T1/stix/m/n/10 , \T1/zi4/m/n/10 dem_static\T1/s
+tix/m/n/10 , \T1/zi4/m/n/10 airquality_hourly\T1/stix/m/n/10 , \T1/zi4/m/n/10 g
+auges_hourly\T1/stix/m/n/10 ,
+ []
+
+
+Overfull \hbox (5.49469pt too wide) in paragraph at lines 49--50
+[]\T1/stix/m/n/10 The hy-brid ev-i-den-tial head is a sin-gle Light-GBM gradien
+t-
+ []
+
+
+Underfull \hbox (badness 1117) in paragraph at lines 49--50
+\T1/stix/m/n/10 depth re-gres-sor shar-ing the same in-put. The com-pos-ite
+ []
+
+) (./main.bbl [4
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.30 
+     ]
 Underfull \hbox (badness 1365) in paragraph at lines 65--71
 []\T1/stix/m/n/8 C. Lee, V. Para-manayakam, A. Karatzas, C. Karak-izi, N. Dim-i
 triou,
@@ -1002,7 +1036,7 @@ Underfull \hbox (badness 1210) in paragraph at lines 105--112
 n and man-
  []
 
-) [4] (./main.aux)
+) [5] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1011,31 +1045,31 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18701 strings out of 476182
- 295180 string characters out of 5795595
+ 18745 strings out of 476182
+ 295997 string characters out of 5795595
  1955975 words of memory out of 5000000
- 40336 multiletter control sequences out of 15000+600000
- 657784 words of font info for 169 fonts, out of 8000000 for 9000
+ 40366 multiletter control sequences out of 15000+600000
+ 665698 words of font info for 185 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,9n,93p,1452b,577s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,11n,93p,1452b,583s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4
 r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pf
-b></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/stix/stix-mathbb.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/stix/stix-mathcal.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/stix/stix-mathex.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/stix/stix-mathit-bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/stix/stix-mathit.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/st
-ix/stix-mathrm-bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/
-stix-mathrm.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mat
-hscr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb
->
-Output written on main.pdf (4 pages, 243179 bytes).
+b></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfsx0900.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/stix/stix-mathbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/stix/stix-mathcal.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sti
+x/stix-mathex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-m
+athit-bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-math
+it.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb>
+Output written on main.pdf (5 pages, 276243 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 189 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
+ 264 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
+ 50 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
