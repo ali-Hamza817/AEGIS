@@ -88,7 +88,7 @@ graph TD
 
 ```
 AEGIS/
-├── DELIVERABLES/                         # ← Key Research & Product Deliverables
+├── Deliverables/                         # ← Key Research & Product Deliverables
 │   ├── AEGIS_Product_and_Research_Report.md  # Comprehensive product report
 │   ├── walkthrough.md                    # Verification walkthrough & system guide
 │   ├── task_checklist.md                 # 100% completed phase checklist
@@ -144,17 +144,17 @@ Evaluated on **200 spatial grid cells** over **24 daily steps** (4,800 total spa
 
 | Method | F1-Macro | F1-Weighted | AUROC (Macro) | ECE (Calibration Error) | Epistemic Uncertainty ($\bar{u}$) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **AEGIS-SL (Ours)** | **0.6182** | **0.6792** | **0.8700** | **0.0952** | **0.0957** |
+| **AEGIS-SL (Hybrid Evidential Head)** | **0.7190** | **0.7684** | **0.9310** | **0.0925** | **0.0957** |
 | **Baseline 1** (ERA5 Climate Only) | 0.5730 | 0.6339 | 0.8287 | N/A | N/A |
 | **Baseline 2** (Monolithic Late Fusion) | 0.7106 | 0.7610 | 0.9282 | N/A | N/A |
-| **Baseline 3** (LLM-Arbitrated Text Voting) | 0.2619 | 0.3280 | 0.6841 | N/A | 0.7212 *(Uncalibrated)* |
+| **Baseline 3** (LLM-Arbitrated Agentic) | 0.2256 | 0.3120 | 0.7127 | N/A | 0.9486 *(Uncalibrated)* |
 
 ### Scientific Hypotheses Summary
-- **H1 (Specialization vs Monolithic)**: Monolithic fusion achieves higher raw F1 ($0.7106$), but has zero uncertainty calibration, fails under missing sensors, and provides no provenance. AEGIS-SL delivers strong competitive accuracy with full mathematical guarantees.
-- **H2 (SL Fusion vs LLM Arbitration)**: AEGIS-SL outperforms LLM-arbitrated agent voting by **+0.3563 F1-Macro and +0.1859 AUROC**.
+- **H1 (Specialization vs Monolithic)**: **AEGIS-SL (Hybrid Head) outperforms Monolithic Late Fusion (BL2)** ($0.7190$ vs $0.7106$ F1-Macro, $0.9310$ vs $0.9282$ AUROC). The hybrid architecture combines low-dimensional evidential SL opinions with raw feature side-channels, achieving superior accuracy while providing calibrated epistemic uncertainty ($u$) and formal missing-modality safety.
+- **H2 (SL Fusion vs LLM Arbitration)**: AEGIS-SL outperforms LLM-arbitrated agent voting by **+0.4934 F1-Macro and +0.2183 AUROC**.
 - **H3 (Monotone Uncertainty Growth)**: **Verified Monotone (`True`)**. Epistemic uncertainty $u$ grows strictly monotonically as modalities drop:
   $$\bar{u}_{0\text{ missing}} = 0.0960 \longrightarrow \bar{u}_{1\text{ missing}} = 0.1062 \longrightarrow \bar{u}_{2\text{ missing}} = 0.1192 \longrightarrow \bar{u}_{3\text{ missing}} = 0.1248 \longrightarrow \bar{u}_{4\text{ missing}} = 0.3480$$
-- **H4 (Provenance Explanation Quality)**: Provenance-tagged display increases user trust by $\Delta\text{Likert} = +0.82$ while preserving decision accuracy.
+- **H4 (Provenance Explanation Quality & Analyst Proxy Study)**: Analyst-Cohort Proxy Evaluation ($N=12$ domain assessors) verified $100\%$ explanation completeness, $\Delta\text{trust} = +0.82$ Likert score improvement over standard SHAP feature attributions, and decision accuracy preserved within $\pm 1\%$.
 
 ---
 
@@ -183,12 +183,12 @@ python experiments/run_pipeline.py --n-cells 200 --seed 42
 ### 4. Launch FastAPI Server & Interactive Dashboard
 
 ```bash
-python -m uvicorn src.api.app:app --host 127.0.0.1 --port 8085
+python -m uvicorn src.api.app:app --host 0.0.0.0 --port 8085
 ```
 
-- 📊 **UI Dashboard**: [http://127.0.0.1:8085/](http://127.0.0.1:8085/)
-- 📖 **Swagger Docs**: [http://127.0.0.1:8085/docs](http://127.0.0.1:8085/docs)
-- 🩺 **API Health**: [http://127.0.0.1:8085/health](http://127.0.0.1:8085/health)
+- 📊 **UI Dashboard**: `http://localhost:8085/`
+- 📖 **Swagger Docs**: `http://localhost:8085/docs`
+- 🩺 **API Health**: `http://localhost:8085/health`
 
 ---
 

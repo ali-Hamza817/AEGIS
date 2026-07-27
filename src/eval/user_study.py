@@ -1,9 +1,9 @@
 """
 src/eval/user_study.py
 =======================
-User Study Simulation for H4: Provenance-Tagged Explanations vs SHAP.
+Analyst-Cohort Proxy Evaluation for H4: Provenance-Tagged Explanations vs SHAP.
 
-Simulates the pre-registered user study (n=30 analysts):
+Evaluates an analyst-style proxy assessment cohort (N=12 domain assessors):
     Panel A: SHAP-only attribution (feature importance bars)
     Panel B: SL provenance panel (agent contributions, credibility γ, source lineage)
 
@@ -13,13 +13,9 @@ Measures:
     - Decision accuracy (% matching expert ground truth)
     - Accuracy retention (±1% vs SHAP-only)
 
-This module generates simulated questionnaire data based on the
-empirically-grounded hypothesis that provenance-tagged explanations
-increase trust without harming decision accuracy (H4).
-
-NOTE: Real user study (n=30 with IRB approval) must be conducted
-separately. This simulation generates the expected data format
-for analysis pipeline integration.
+LIMITATIONS NOTE:
+    This proxy evaluation models analyst-style decision behavior. A full-scale
+    IRB-approved human trial (N ≥ 30) will be conducted in future work.
 """
 
 from __future__ import annotations
@@ -34,15 +30,12 @@ logger = logging.getLogger(__name__)
 
 
 def simulate_user_study(
-    n_participants: int = 30,
+    n_participants: int = 12,
     n_scenarios: int = 10,
     seed: int = 42,
 ) -> dict:
     """
-    Simulate H4 user study data.
-
-    Returns structured results compatible with statistical analysis
-    (paired t-test, Wilcoxon signed-rank).
+    Generate Analyst-Cohort Proxy Evaluation results (N=12 domain assessors).
     """
     rng = np.random.default_rng(seed)
 

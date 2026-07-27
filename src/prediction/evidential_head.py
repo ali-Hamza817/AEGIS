@@ -42,19 +42,26 @@ FEATURE_NAMES = [
 N_FEATURES = len(FEATURE_NAMES)
 
 
+RAW_FEATURE_KEYS = [
+    ("era5_row", ["tp_mm", "precip_7d_sum", "precip_30d_anom", "t2m_c", "ssrd_mj"]),
+    ("sar_row", ["sar_vv_db", "sar_vh_db", "water_index_sar", "ndwi", "ndvi"]),
+    ("lc_row", ["land_cover", "slope_deg", "impervious_frac", "elevation_m"]),
+    ("aq_row", ["rh_pct", "rain_gauge_mm"]),
+]
+
+
 def opinion_to_feature_vector(
     orchestrator_result: Any,
     credibility_dict: dict[str, float] | None = None,
+    raw_context: dict[str, Any] | None = None,
 ) -> np.ndarray:
     """
-    Convert an OrchestratorResult to a fixed-length feature vector.
+    Convert an OrchestratorResult (+ optional raw context) to a feature vector.
 
-    Args:
-        orchestrator_result : OrchestratorResult from SLOrchestrator.route()
-        credibility_dict    : Optional override for per-agent gamma values.
-
-    Returns:
-        np.ndarray of shape (11,)
+    Hybrid mode (when raw_context is provided):
+        Concatenates [11-dim fused opinion tensor + 16-dim raw features] = 27 dims.
+    Standard mode (when raw_context is None):
+        11-dim fused opinion tensor.
     """
     op = orchestrator_result.fused_opinion
     feats = list(op.b) + [op.u, orchestrator_result.max_js]
@@ -68,6 +75,19 @@ def opinion_to_feature_vector(
 
     for agent_name in agent_order:
         feats.append(float(prov_map.get(agent_name, 0.5)))
+
+    # Append raw features if context is provided (Hybrid Evidential Head)
+    if raw_context is not None:
+        for row_key, feat_cols in RAW_FEATURE_KEYS:
+            row_dict = raw_context.get(row_key) or {}
+            for col in feat_cols:
+                val = row_dict.get(col)
+                if val is None:
+                    # Default values for missing features
+                    default_val = 50.0 if col == "rh_pct" else 0.0
+                    feats.append(float(default_val))
+                else:
+                    feats.append(float(val))
 
     return np.array(feats, dtype=np.float64)
 

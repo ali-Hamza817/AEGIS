@@ -1,5 +1,5 @@
 {
-  "run_id": "9ec39d74",
+  "run_id": "1007334b",
   "config": {
     "n_cells": 200,
     "seed": 42,
@@ -12,51 +12,51 @@
   },
   "metrics": {
     "AEGIS_SL": {
-      "f1_macro": 0.618181198405058,
-      "f1_weighted": 0.679226181317591,
+      "f1_macro": 0.7190394348867111,
+      "f1_weighted": 0.7694757820923661,
       "f1_per_class": {
-        "Dry": 0.8402848423194303,
-        "Saturated": 0.5054945054945055,
-        "SurfaceFlow": 0.36210526315789476,
-        "Inundation": 0.7648401826484018
+        "Dry": 0.8746238716148446,
+        "Saturated": 0.6010544815465729,
+        "SurfaceFlow": 0.5190476190476191,
+        "Inundation": 0.8814317673378076
       },
       "confusion_matrix": [
         [
-          413,
-          57,
-          19,
-          13
-        ],
-        [
-          56,
-          138,
+          436,
           63,
-          15
+          3,
+          0
         ],
         [
-          8,
+          57,
+          171,
+          41,
+          3
+        ],
+        [
+          1,
           59,
-          86,
-          72
+          109,
+          56
         ],
         [
+          1,
           4,
-          20,
-          82,
-          335
+          42,
+          394
         ]
       ],
-      "auroc_macro": 0.8699637474904949,
+      "auroc_macro": 0.9310475332839007,
       "auprc_per_class": {
-        "Dry": 0.9241719540362947,
-        "Saturated": 0.4848811756755924,
-        "SurfaceFlow": 0.30915702055900113,
-        "Inundation": 0.8314042250985808
+        "Dry": 0.956655014872421,
+        "Saturated": 0.59853384167527,
+        "SurfaceFlow": 0.5433743949794994,
+        "Inundation": 0.9372422122842574
       },
-      "auprc_macro": 0.6374035938423672,
-      "rmse_m": 0.6526539603830096,
-      "mae_m": 0.4071408772644105,
-      "ece": 0.09520741945820156,
+      "auprc_macro": 0.758951365952862,
+      "rmse_m": 0.43917769114474375,
+      "mae_m": 0.2676068802992599,
+      "ece": 0.09250297091869303,
       "mean_uncertainty_u": 0.09573187211091244
     },
     "Baseline1_ERA5_only": {
@@ -148,64 +148,64 @@
       "auprc_macro": 0.7523931061034588
     },
     "Baseline3_LLM_Arbitrated": {
-      "f1_macro": 0.2618729513561354,
-      "f1_weighted": 0.32800227634584567,
+      "f1_macro": 0.2255804946356064,
+      "f1_weighted": 0.2814495974338085,
       "f1_per_class": {
-        "Dry": 0.6132017273288094,
-        "Saturated": 0.019933554817275746,
-        "SurfaceFlow": 0.10952380952380952,
-        "Inundation": 0.3048327137546468
+        "Dry": 0.5978128797083839,
+        "Saturated": 0.0,
+        "SurfaceFlow": 0.13473684210526315,
+        "Inundation": 0.16977225672877846
       },
       "confusion_matrix": [
         [
-          497,
-          1,
-          4,
+          492,
+          0,
+          10,
           0
         ],
         [
-          251,
-          3,
-          13,
-          5
-        ],
-        [
-          181,
-          11,
-          23,
-          10
+          241,
+          0,
+          31,
+          0
         ],
         [
           190,
-          14,
-          155,
-          82
+          2,
+          32,
+          1
+        ],
+        [
+          221,
+          2,
+          177,
+          41
         ]
       ],
-      "auroc_macro": 0.6840968527264976,
+      "auroc_macro": 0.7126679822998857,
       "auprc_per_class": {
-        "Dry": 0.8328870867235527,
-        "Saturated": 0.22423099898827256,
-        "SurfaceFlow": 0.1628193752880358,
-        "Inundation": 0.57403095089792
+        "Dry": 0.8200068559690353,
+        "Saturated": 0.23272575197263265,
+        "SurfaceFlow": 0.17326880592466531,
+        "Inundation": 0.6705161007701893
       },
-      "auprc_macro": 0.44849210297444525,
-      "mean_uncertainty_u": 0.7212339929443883
+      "auprc_macro": 0.47412937865913063,
+      "mean_uncertainty_u": 0.9485852931407913
     }
   },
   "ablations": {
     "H1_specialization_vs_monolithic": {
-      "aegis_f1_macro": 0.618181198405058,
+      "aegis_f1_macro": 0.7190394348867111,
       "baseline2_f1_macro": 0.7105570882633564,
-      "delta_f1_macro": -0.09237588985829837,
-      "aegis_auroc": 0.8699637474904949,
+      "delta_f1_macro": 0.008482346623354675,
+      "aegis_auroc": 0.9310475332839007,
       "baseline2_auroc": 0.9282443525194058,
-      "delta_auroc": -0.05828060502891097,
+      "delta_auroc": 0.002803180764494817,
       "aegis_per_class_f1": {
-        "Dry": 0.8402848423194303,
-        "Saturated": 0.5054945054945055,
-        "SurfaceFlow": 0.36210526315789476,
-        "Inundation": 0.7648401826484018
+        "Dry": 0.8746238716148446,
+        "Saturated": 0.6010544815465729,
+        "SurfaceFlow": 0.5190476190476191,
+        "Inundation": 0.8814317673378076
       },
       "baseline2_per_class_f1": {
         "Dry": 0.8657921291624622,
@@ -215,14 +215,14 @@
       }
     },
     "H2_sl_fusion_vs_llm_arbitration": {
-      "aegis_f1_macro": 0.618181198405058,
-      "llm_f1_macro": 0.2618729513561354,
-      "delta_f1": 0.3563082470489226,
-      "aegis_auroc": 0.8699637474904949,
-      "llm_auroc": 0.6840968527264976,
-      "delta_auroc": 0.18586689476399731,
+      "aegis_f1_macro": 0.7190394348867111,
+      "llm_f1_macro": 0.2255804946356064,
+      "delta_f1": 0.4934589402511047,
+      "aegis_auroc": 0.9310475332839007,
+      "llm_auroc": 0.7126679822998857,
+      "delta_auroc": 0.21837955098401496,
       "aegis_mean_u": 0.09573187211091244,
-      "llm_mean_u_entropy_approx": 0.7212339929443883,
+      "llm_mean_u_entropy_approx": 0.9485852931407913,
       "calibration_note": "SL uncertainty u is formally calibrated (Dirichlet bijection); LLM uncertainty is entropy-normalised (uncalibrated)."
     },
     "H3_missing_modality_uncertainty": {

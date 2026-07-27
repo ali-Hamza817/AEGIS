@@ -230,7 +230,7 @@ def main():
     ]:
         for cell_id, dt, ctx, _, _ in split_data:
             orch_result = orchestrator.route(cell_id, dt, ctx)
-            fv = opinion_to_feature_vector(orch_result)
+            fv = opinion_to_feature_vector(orch_result, raw_context=ctx)
             pred_dict = orch_result.to_dict()
             pred_dict["fused_opinion_obj"] = orch_result.fused_opinion
             split_results.append(pred_dict)
