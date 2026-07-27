@@ -12,18 +12,18 @@ Table~\ref{tab:main_benchmark} presents the master benchmark comparison across a
 \caption{Empirical Benchmark Performance Comparison Across Methods}
 \label{tab:main_benchmark}
 \centering
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{lcccccc}
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{X c c c c c c}
 \toprule
 \textbf{Method} & \textbf{F1-Macro} & \textbf{F1-Weighted} & \textbf{AUROC (ovr)} & \textbf{ECE (10-bin)} & \textbf{Latency (s)} & \textbf{RAM peak (MB)} \\
 \midrule
-\textbf{AEGIS-SL (full)} & \textbf{0.7190} & \textbf{0.7240} & \textbf{0.9310} & \textbf{0.043} & 14.7 & 612 \\
-BL2 --- monolithic raw-feature late fusion & 0.7106 & 0.7150 & 0.9189 & 0.087 & 11.2 & 588 \\
-BL1 --- ERA5-only LightGBM & 0.5880 & 0.6210 & 0.7820 & 0.214 & 2.1 & 248 \\
+\textbf{AEGIS-SL (full)} & \textbf{0.7190} & \textbf{0.7240} & \textbf{0.9310} & \textbf{0.043} & 14.7 & 612 \\ \addlinespace[0.4em]
+BL2 --- monolithic raw-feature late fusion & 0.7106 & 0.7150 & 0.9189 & 0.087 & 11.2 & 588 \\ \addlinespace[0.4em]
+BL1 --- ERA5-only LightGBM & 0.5880 & 0.6210 & 0.7820 & 0.214 & 2.1 & 248 \\ \addlinespace[0.4em]
 BL3 --- LLM-arbitrated (Qwen2.5-3B-Instruct 4-bit) & 0.6238 & 0.6891 & 0.8410 & --- & 86.4 & 1,820 \\
 \bottomrule
-\end{tabular}%
-}
+\end{tabularx}
 \end{table*}
 
 AEGIS-SL attains the highest F1-Macro, highest AUROC, and lowest ECE on the same evaluation fold. The margin over BL2 --- the strongest alternative --- is statistically modest in F1 (+0.0084) but substantial in calibration (ECE 0.043 vs 0.087, a 50.6\% improvement). BL1 trails because reanalysis precipitation alone cannot resolve fine-scale surface inundation patterns; BL3 trails because LLM-arbitration incurs a $\sim 6\times$ wall-clock cost relative to AEGIS-SL while producing worse majority-class precision, and the ECE column is reported as a null since BL3 emits non-probabilistic decisions. These results support H1.
@@ -32,23 +32,23 @@ AEGIS-SL attains the highest F1-Macro, highest AUROC, and lowest ECE on the same
 
 Table~\ref{tab:bl3_diagnostic} details the class-wise precision and recall breakdown across BL3, BL2, and AEGIS-SL.
 
-\begin{table}[htbp]
+\begin{table*}[htbp]
 \caption{BL3 Minority-Class Collapse Diagnostic}
 \label{tab:bl3_diagnostic}
 \centering
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lcccc}
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{X c c c c}
 \toprule
 \textbf{Class} & \textbf{BL3 precision} & \textbf{BL3 recall} & \textbf{BL2 recall} & \textbf{AEGIS-SL recall} \\
 \midrule
-dry & 0.92 & 0.94 & 0.96 & 0.95 \\
-saturated & 0.84 & 0.21 & 0.58 & 0.61 \\
-surface & 0.71 & 0.09 & 0.49 & 0.52 \\
+dry & 0.92 & 0.94 & 0.96 & 0.95 \\ \addlinespace[0.4em]
+saturated & 0.84 & 0.21 & 0.58 & 0.61 \\ \addlinespace[0.4em]
+surface & 0.71 & 0.09 & 0.49 & 0.52 \\ \addlinespace[0.4em]
 inundation & 0.89 & 0.18 & 0.71 & 0.73 \\
 \bottomrule
-\end{tabular}%
-}
-\end{table}
+\end{tabularx}
+\end{table*}
 
 The LLM-arbitrated baseline exhibits the precise failure mode predicted by the structural analysis in Section 1 --- moderate-to-strong ranking quality on the majority class but severe collapse on the minority classes that operationally matter most: saturated (0.21 recall), surface (0.09), and inundation (0.18). The error is not random; it is systematic suppression. Both BL2 and AEGIS-SL preserve substantially higher minority-class recall, with AEGIS-SL retaining a small but consistent edge over BL2 across all three minority classes. These results support H2 and confirm that prompt-chained arbitration is structurally vulnerable to confident-but-wrong majority-class skew for the classes that drive evacuation decisions.
 
@@ -56,23 +56,23 @@ The LLM-arbitrated baseline exhibits the precise failure mode predicted by the s
 
 Table~\ref{tab:monotonic_u} reports the distribution of epistemic uncertainty $u$ as modalities are systematically removed.
 
-\begin{table}[htbp]
+\begin{table*}[htbp]
 \caption{Monotonic Epistemic Uncertainty $u$ Under Modality Dropout}
 \label{tab:monotonic_u}
 \centering
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{cccccc}
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{c c c c c c}
 \toprule
 \textbf{Modalities dropped} & \textbf{Mean $u$} & \textbf{Median $u$} & \textbf{Min $u$} & \textbf{Max $u$} & \textbf{Std $u$} \\
 \midrule
-0 (full) & 0.12 & 0.11 & 0.03 & 0.41 & 0.06 \\
-1 & 0.34 & 0.33 & 0.18 & 0.58 & 0.09 \\
-2 & 0.61 & 0.62 & 0.41 & 0.84 & 0.10 \\
+0 (full) & 0.12 & 0.11 & 0.03 & 0.41 & 0.06 \\ \addlinespace[0.4em]
+1 & 0.34 & 0.33 & 0.18 & 0.58 & 0.09 \\ \addlinespace[0.4em]
+2 & 0.61 & 0.62 & 0.41 & 0.84 & 0.10 \\ \addlinespace[0.4em]
 3 & 0.83 & 0.85 & 0.66 & 1.00 & 0.09 \\
 \bottomrule
-\end{tabular}%
-}
-\end{table}
+\end{tabularx}
+\end{table*}
 
 Mean $u$ rises monotonically from 0.12 to 0.83 across the progression 0 $\to$ 1 $\to$ 2 $\to$ 3 dropped modalities; the median tracks the mean within 0.02 across all four levels; the minimum-$u$ floor also rises (0.03 $\to$ 0.66) confirming that every cell becomes more uncertain under dropout, never fewer. No dropouts in the evaluation fold produced a non-monotone $u$ value, satisfying the partial-observable projection invariant from Section 3.2 \citep{kaplan2015partial}. These results support H3 and demonstrate that missing-modality events can be detected through a monotonic $u$ increase logged to the provenance ledger --- a property that distinguishes AEGIS from the surveyed agentic pipelines which silently recover or hallucinate under dropout.
 
@@ -80,24 +80,24 @@ Mean $u$ rises monotonically from 0.12 to 0.83 across the progression 0 $\to$ 1 
 
 Per-cell provenance queries issued through the dashboard return the full manifest: agent identity, evidence weight $C$, base-rate $\mathbf{a}$, SL coordinator's measured Jensen--Shannon divergence value, the operator selected, the resulting fused $\mathbf{b}/u/\mathbf{a}$ tuple, and the LightGBM head's 27-dimensional feature snapshot at evaluation time. The 24-day mean per-agent credibility trajectory converges within the first seven days to stable final reputation values, as reported in Table~\ref{tab:agent_credibility}.
 
-\begin{table}[htbp]
+\begin{table*}[htbp]
 \caption{24-Day Mean Per-Agent Credibility Trajectory and Reputation}
 \label{tab:agent_credibility}
 \centering
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lccc}
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{X c c c}
 \toprule
 \textbf{Agent} & \textbf{Final $\gamma$ (24-day mean)} & \textbf{Initial $\gamma_0$} & \textbf{Brier score mean} \\
 \midrule
-Satellite (S) & 0.91 & 0.50 & 0.14 \\
-Climate (C) & 0.86 & 0.50 & 0.17 \\
-Document (D) & 0.81 & 0.50 & 0.20 \\
-Land-Cover (L) & 0.78 & 0.50 & 0.22 \\
+Satellite (S) & 0.91 & 0.50 & 0.14 \\ \addlinespace[0.4em]
+Climate (C) & 0.86 & 0.50 & 0.17 \\ \addlinespace[0.4em]
+Document (D) & 0.81 & 0.50 & 0.20 \\ \addlinespace[0.4em]
+Land-Cover (L) & 0.78 & 0.50 & 0.22 \\ \addlinespace[0.4em]
 Air-Quality / Gauge (A) & 0.74 & 0.50 & 0.24 \\
 \bottomrule
-\end{tabular}%
-}
-\end{table}
+\end{tabularx}
+\end{table*}
 
 Per-source contribution to the fused opinion, summarised as mean share of evidence weight across the full dataset, places satellite imagery (41.2\%) and climate forecasts (28.4\%) as the dominant contributors, with land-cover (11.5\%), air-quality (9.7\%), and document intelligence (9.2\%) acting as listening-secondarily corroborators. Importantly, when an agent drops a modality in the H3 progression, contribution does not silently redistribute: the partial projection $u$ expansion is recorded and the unreliable agent's reputation decays through $\gamma$ tracking rather than being silently zeroed out \citep{wang2007formal}. These results support H4 and demonstrate that an analyst can audit which sensor or document drove each contribution and detect which source was stale, missing, or uncalibrated after the fact.
 
@@ -105,22 +105,22 @@ Per-source contribution to the fused opinion, summarised as mean share of eviden
 
 To isolate where the marginal accuracy comes from, we run a 2$\times$2 ablation on the AEGIS-SL framework by toggling whether the SL opinion tensor $(\mathbf{b}, u, \mathbf{a})$ is fed into the 27-dimensional composite feature space and whether the credibility tracker $\gamma$ is active in WBF weighting. Table~\ref{tab:mechanistic_ablation} summarizes the configuration results.
 
-\begin{table}[htbp]
+\begin{table*}[htbp]
 \caption{Mechanistic 2$\times$2 Ablation of AEGIS-SL Components}
 \label{tab:mechanistic_ablation}
 \centering
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lccccc}
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{X c c c c c}
 \toprule
 \textbf{Configuration} & \textbf{SL opinion tensor} & \textbf{Credibility $\gamma$} & \textbf{F1-Macro} & \textbf{AUROC} & \textbf{ECE} \\
 \midrule
-Full AEGIS-SL & ON & ON & \textbf{0.7190} & \textbf{0.9310} & \textbf{0.043} \\
-SL only & ON & OFF & 0.7051 & 0.9210 & 0.058 \\
-Credibility only & OFF & ON & 0.6988 & 0.9142 & 0.082 \\
+Full AEGIS-SL & ON & ON & \textbf{0.7190} & \textbf{0.9310} & \textbf{0.043} \\ \addlinespace[0.4em]
+SL only & ON & OFF & 0.7051 & 0.9210 & 0.058 \\ \addlinespace[0.4em]
+Credibility only & OFF & ON & 0.6988 & 0.9142 & 0.082 \\ \addlinespace[0.4em]
 Neither (BL2-like) & OFF & OFF & 0.6678 & 0.8980 & 0.094 \\
 \bottomrule
-\end{tabular}%
-}
-\end{table}
+\end{tabularx}
+\end{table*}
 
 The SL opinion tensor carries the larger marginal contribution: enabling SL alone yields +0.0373 F1-Macro and +0.0230 AUROC over the BL2-like baseline, while enabling credibility alone yields +0.0310 F1-Macro and +0.0162 AUROC. The two components are synergistic --- their joint activation produces the highest accuracy and lowest calibration error, exceeding either component in isolation. Removing both components collapses the framework to monolithic late-fusion performance (F1-Macro 0.6678, AUROC 0.8980), providing internal evidence that the methodological contribution of the AEGIS framework is structurally attributed to the evidential machinery and not to an incidental architectural detail \citep{vanderheijden2018multisource, wang2007formal, hofmeister2024semantic}.

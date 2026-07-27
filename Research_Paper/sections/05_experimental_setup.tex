@@ -12,23 +12,23 @@ The spatial substrate is discretised into a regular grid of 200 cells $\times$ 2
 \caption{AEGIS Dataset Ingest Manifest and Spatial-Temporal Resolution}
 \label{tab:dataset_manifest}
 \centering
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{lllll}
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{p{3.2cm} p{2.8cm} c c X}
 \toprule
 \textbf{Dataset} & \textbf{Version} & \textbf{Spatial resolution} & \textbf{Temporal cadence} & \textbf{AOI volume} \\
 \midrule
-ERA5 reanalysis & ERA5-Land daily & 0.1° & daily & 24 daily rasters \\
-Sentinel-1 SAR & GRD IW & 10 m & 6-day & 50 scenes \\
-Sentinel-2 optical & L2A & 10 m & 5-day & 60 scenes \\
-ESA WorldCover & v200 & 10 m & static & 1 raster \\
-Copernicus DEM & GLO-30 & 30 m & static & 1 raster \\
-OpenAQ PM2.5 & real-time feed & station & hourly & 8 stations $\times$ 24 d \\
-Gauge network & BOM ALERT & station & 15-min & 12 stations $\times$ 24 d \\
-Hydrological bulletins & BOM XML/JSON & AOI & daily & 24 documents \\
+ERA5 reanalysis & ERA5-Land daily & 0.1° & daily & 24 daily rasters \\ \addlinespace[0.4em]
+Sentinel-1 SAR & GRD IW & 10 m & 6-day & 50 scenes \\ \addlinespace[0.4em]
+Sentinel-2 optical & L2A & 10 m & 5-day & 60 scenes \\ \addlinespace[0.4em]
+ESA WorldCover & v200 & 10 m & static & 1 raster \\ \addlinespace[0.4em]
+Copernicus DEM & GLO-30 & 30 m & static & 1 raster \\ \addlinespace[0.4em]
+OpenAQ PM2.5 & real-time feed & station & hourly & 8 stations $\times$ 24 d \\ \addlinespace[0.4em]
+Gauge network & BOM ALERT & station & 15-min & 12 stations $\times$ 24 d \\ \addlinespace[0.4em]
+Hydrological bulletins & BOM XML/JSON & AOI & daily & 24 documents \\ \addlinespace[0.4em]
 EMSR + GFD v1.1 labels & Copernicus EMSR / GFD & 90 m & event-day & 442 polygons \\
 \bottomrule
-\end{tabular}%
-}
+\end{tabularx}
 \end{table*}
 
 \subsection{Ground-truth derivation}

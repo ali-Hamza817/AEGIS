@@ -17,29 +17,29 @@ The present paper introduces AEGIS to address exactly these four unresolved stru
 \label{tab:related_work}
 \centering
 \small
-\renewcommand{\arraystretch}{1.25}
+\renewcommand{\arraystretch}{1.35}
 \begin{tabularx}{\linewidth}{p{2.8cm} c X X}
 \toprule
 \textbf{Author} & \textbf{Year} & \textbf{Key Findings} & \textbf{Limitations} \\
 \midrule
-Nielsen \& Parsons & 2006 & First formal argumentation scheme fusing Bayes nets across distributed agents & Bayesian formalism only; not interfaced with physical environmental streams \\ \addlinespace
-Wang \& Singh & 2007 & Canonical Brier-score trust model; continuous reputation outperforms binary endorsement & Scalar trust; not composable with multi-source fusion algebra \\ \addlinespace
-Kaplan et al. & 2015 & Partial-observable projection guaranteeing epistemic uncertainty $u$ rises under missing data & Operator algebra alone; not deployed inside agentic pipelines \\ \addlinespace
-van der Heijden et al. & 2018 & Weighted Belief Fusion and Consensus \& Compromise Fusion operators with closed algebra & Disconnected from environmental inference and discriminative learning layers \\ \addlinespace
-Sun et al. & 2024 & T2MAC --- per-agent credibility propagated via selective communication engagement in MAS & Focused on inter-agent communication; not extended to environmental inference \\ \addlinespace
-Liu et al. & 2025 & MERIT --- multi-view evidential learning for reliable, interpretable liver-fibrosis staging & Clinical domain only; not environmental \\ \addlinespace
-Chikoti & 2025 & Consolidated conflict-resolution taxonomy across multi-agent systems & Taxonomic survey; no operational implementation \\ \addlinespace
-Chen et al. & 2025 & Re-examined essential versus nonessential settings of evidential deep learning & Theoretical analysis; no agentic integration demonstrated \\ \addlinespace
-Hofmeister et al. & 2023 & Cross-domain flood-risk semantics managed via dynamic knowledge graphs & Ontology-mediated only; lacks computable trust and monotonic missing-modality handling \\ \addlinespace
-Sayyad et al. & 2025 & Survey of agentic AI system architectures, autonomy levels, and ethical implications & Architectural survey without formal evidential reasoning focus \\ \addlinespace
-Bairam Zadeh et al. & 2025 & Conceptual high-level multi-agent architecture for wildfire management & Conceptual design only; not operationally deployed \\ \addlinespace
-Lee et al. & 2025 & Multi-agent geospatial copilots for remote-sensing workflows & Workflow-focused; not flood-specific \\ \addlinespace
-Shabbir et al. & 2025 & ThinkGeo benchmark evaluating tool-augmented remote-sensing agents & Benchmark orientation; no integrated deployment framework \\ \addlinespace
-Hofmeister et al. & 2024 & Semantic-agent framework for automated flood assessment using dynamic knowledge graphs & Agent layer in early form; no calibrated uncertainty, credibility, or missing-data monotonicity \\ \addlinespace
-Sandeep et al. & 2026 & Context-aware multi-agent architecture for wildfire insights & Wildfire domain only; not flood monitoring \\ \addlinespace
-Palanca Cantonjos \& Biswas & 2026 & AgroAskAI agentic framework supporting smallholder-farmer queries globally & Agriculture/query domain; not flood monitoring \\ \addlinespace
-Talemi et al. & 2026 & Foundations, taxonomy, and emerging systems of agentic AI in remote sensing & Foundational/taxonomic; no operational framework with calibrated uncertainty \\ \addlinespace
-Jiang et al. & 2026 & Flood-LLM: multi-source urban-data property-level flood-risk assessment & Prompt-chained arbitration; minority-class collapse; uncalibrated uncertainty \\ \addlinespace
+Nielsen \& Parsons & 2006 & First formal argumentation scheme fusing Bayes nets across distributed agents & Bayesian formalism only; not interfaced with physical environmental streams \\ \addlinespace[0.4em]
+Wang \& Singh & 2007 & Canonical Brier-score trust model; continuous reputation outperforms binary endorsement & Scalar trust; not composable with multi-source fusion algebra \\ \addlinespace[0.4em]
+Kaplan et al. & 2015 & Partial-observable projection guaranteeing epistemic uncertainty $u$ rises under missing data & Operator algebra alone; not deployed inside agentic pipelines \\ \addlinespace[0.4em]
+van der Heijden et al. & 2018 & Weighted Belief Fusion and Consensus \& Compromise Fusion operators with closed algebra & Disconnected from environmental inference and discriminative learning layers \\ \addlinespace[0.4em]
+Sun et al. & 2024 & T2MAC --- per-agent credibility propagated via selective communication engagement in MAS & Focused on inter-agent communication; not extended to environmental inference \\ \addlinespace[0.4em]
+Liu et al. & 2025 & MERIT --- multi-view evidential learning for reliable, interpretable liver-fibrosis staging & Clinical domain only; not environmental \\ \addlinespace[0.4em]
+Chikoti & 2025 & Consolidated conflict-resolution taxonomy across multi-agent systems & Taxonomic survey; no operational implementation \\ \addlinespace[0.4em]
+Chen et al. & 2025 & Re-examined essential versus nonessential settings of evidential deep learning & Theoretical analysis; no agentic integration demonstrated \\ \addlinespace[0.4em]
+Hofmeister et al. & 2023 & Cross-domain flood-risk semantics managed via dynamic knowledge graphs & Ontology-mediated only; lacks computable trust and monotonic missing-modality handling \\ \addlinespace[0.4em]
+Sayyad et al. & 2025 & Survey of agentic AI system architectures, autonomy levels, and ethical implications & Architectural survey without formal evidential reasoning focus \\ \addlinespace[0.4em]
+Bairam Zadeh et al. & 2025 & Conceptual high-level multi-agent architecture for wildfire management & Conceptual design only; not operationally deployed \\ \addlinespace[0.4em]
+Lee et al. & 2025 & Multi-agent geospatial copilots for remote-sensing workflows & Workflow-focused; not flood-specific \\ \addlinespace[0.4em]
+Shabbir et al. & 2025 & ThinkGeo benchmark evaluating tool-augmented remote-sensing agents & Benchmark orientation; no integrated deployment framework \\ \addlinespace[0.4em]
+Hofmeister et al. & 2024 & Semantic-agent framework for automated flood assessment using dynamic knowledge graphs & Agent layer in early form; no calibrated uncertainty, credibility, or missing-data monotonicity \\ \addlinespace[0.4em]
+Sandeep et al. & 2026 & Context-aware multi-agent architecture for wildfire insights & Wildfire domain only; not flood monitoring \\ \addlinespace[0.4em]
+Palanca Cantonjos \& Biswas & 2026 & AgroAskAI agentic framework supporting smallholder-farmer queries globally & Agriculture/query domain; not flood monitoring \\ \addlinespace[0.4em]
+Talemi et al. & 2026 & Foundations, taxonomy, and emerging systems of agentic AI in remote sensing & Foundational/taxonomic; no operational framework with calibrated uncertainty \\ \addlinespace[0.4em]
+Jiang et al. & 2026 & Flood-LLM: multi-source urban-data property-level flood-risk assessment & Prompt-chained arbitration; minority-class collapse; uncalibrated uncertainty \\ \addlinespace[0.4em]
 Redaelli et al. & 2026 & SaferPlaces agentic AI democratising global flood-risk intelligence & Prompt-chained arbitration; lacks calibrated uncertainty, credibility, and provenance \\
 \bottomrule
 \end{tabularx}

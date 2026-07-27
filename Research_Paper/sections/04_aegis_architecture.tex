@@ -16,19 +16,19 @@ Each of the five specialist agents maps a physical modality onto the shared four
 \caption{AEGIS Specialist Agent Catalog and Modality Mappings}
 \label{tab:agent_catalog}
 \centering
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{llll}
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{\linewidth}{p{2.8cm} p{3.2cm} X p{3.2cm}}
 \toprule
 \textbf{Agent} & \textbf{Input modality} & \textbf{Feature set} & \textbf{Opinion emission} \\
 \midrule
-Climate (C) & ERA5 total precipitation & 7-day rolling precipitation sum, 30-day anomaly, soil-moisture column & Per cell-day $\omega_C$ \\
-Satellite (S) & Sentinel-1 SAR + Sentinel-2 optical & VV, VH, VV/VH ratio, NDWI, NDVI & Per cell-day $\omega_S$ \\
-Land-Cover (L) & ESA WorldCover + Copernicus DEM & Static class index, slope, elevation & Per pass $\omega_L$ \\
-Air-Quality / Gauge (A) & OpenAQ PM2.5 + gauge network & PM2.5 washout signal, relative humidity, gauge precipitation & Per hour-aggregated cell-day $\omega_A$ \\
+Climate (C) & ERA5 total precipitation & 7-day rolling precipitation sum, 30-day anomaly, soil-moisture column & Per cell-day $\omega_C$ \\ \addlinespace[0.4em]
+Satellite (S) & Sentinel-1 SAR + Sentinel-2 optical & VV, VH, VV/VH ratio, NDWI, NDVI & Per cell-day $\omega_S$ \\ \addlinespace[0.4em]
+Land-Cover (L) & ESA WorldCover + Copernicus DEM & Static class index, slope, elevation & Per pass $\omega_L$ \\ \addlinespace[0.4em]
+Air-Quality / Gauge (A) & OpenAQ PM2.5 + gauge network & PM2.5 washout signal, relative humidity, gauge precipitation & Per hour-aggregated cell-day $\omega_A$ \\ \addlinespace[0.4em]
 Document Intelligence (D) & Hydrological bulletins & SentenceTransformer embeddings of severity-tagged sentences & $\omega_D$ over bulletin-day pair \\
 \bottomrule
-\end{tabular}%
-}
+\end{tabularx}
 \end{table*}
 
 Climate, Satellite, Land-Cover and Air-Quality agents emit a Dirichlet posterior over the four states; the Document agent emits a soft categorical verdict that is converted to a four-state opinion through the same base-rate prior for algebra compatibility. Each agent independently computes its evidence weight $C$ and is responsible for the partial-observable projection when its modality is unavailable --- a property that propagates the monotone-$u$ invariant downstream without further coordination \citep{kaplan2015partial}.
