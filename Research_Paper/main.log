@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  27 JUL 2026 12:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  27 JUL 2026 12:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1078,7 +1078,24 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.103 
-      ]) (./main.bbl
+      ]) (./sections/07_conclusion.tex
+Underfull \hbox (badness 1484) in paragraph at lines 9--10
+[]\T1/stix/m/n/10 The frame-work is cur-rently single-event: the eval-u-
+ []
+
+
+Overfull \hbox (6.9047pt too wide) in paragraph at lines 9--10
+\T1/stix/m/n/10 LLM ar-bi-tra-tor base-line was re-stricted to a 3-billion-para
+meter
+ []
+
+) (./main.bbl [7
+pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.14 
+     ]
 Underfull \hbox (badness 1365) in paragraph at lines 65--71
 []\T1/stix/m/n/8 C. Lee, V. Para-manayakam, A. Karatzas, C. Karak-izi, N. Dim-i
 triou,
@@ -1108,13 +1125,7 @@ Underfull \hbox (badness 1210) in paragraph at lines 105--112
 n and man-
  []
 
-) [7
-pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.84 \end{document}
-                   ] (./main.aux)
+) [8] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1123,13 +1134,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18887 strings out of 476182
- 298881 string characters out of 5795595
- 1960975 words of memory out of 5000000
- 40469 multiletter control sequences out of 15000+600000
+ 18900 strings out of 476182
+ 299133 string characters out of 5795595
+ 1956975 words of memory out of 5000000
+ 40472 multiletter control sequences out of 15000+600000
  686912 words of font info for 229 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,11n,93p,1452b,491s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,11n,93p,1452b,577s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4
 r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pf
@@ -1144,10 +1155,10 @@ it.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on main.pdf (7 pages, 303388 bytes).
+Output written on main.pdf (8 pages, 307616 bytes).
 PDF statistics:
- 332 PDF objects out of 1000 (max. 8388607)
- 288 compressed objects within 3 object streams
- 73 named destinations out of 1000 (max. 500000)
+ 353 PDF objects out of 1000 (max. 8388607)
+ 307 compressed objects within 4 object streams
+ 80 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
