@@ -1,0 +1,11 @@
+\section{Related Work}
+\label{sec:related_work}
+
+\subsection{Multimodal Urban Flood Risk Assessment}
+Machine learning methods for flood assessment range from single-source hydraulic models to deep learning on Sentinel SAR imagery \cite{redaelli2026saferplaces}. However, traditional monolithic models require all feature inputs to be present simultaneously, failing gracefully when cloud cover masks optical bands or sensors experience dropout.
+
+\subsection{Agentic LLMs in Environmental Intelligence}
+Recent frameworks like Flood-LLM \cite{jiang2026floodllm} and SaferPlaces \cite{redaelli2026saferplaces} utilize LLM agents for natural language reasoning. While LLMs excel at qualitative text parsing, they lack mathematical calibration, producing arbitrary confidence values that cannot be interpreted as calibrated probabilities or epistemic uncertainty bounds.
+
+\subsection{Subjective Logic & Evidential Multi-Source Fusion}
+Subjective Logic \cite{josang2016subjective} extends Dempster-Shafer theory by explicitly separating belief mass $\mathbf{b}$ from epistemic uncertainty $u$ via a bijective mapping to Dirichlet distributions. van der Heijden et al. \cite{heijden2018distributed} established WBF and CCF fusion operators, while Kaplan et al. \cite{kaplan2015subjective} formalized partial observability. AEGIS is the first framework to integrate Subjective Logic opinion fusion within a domain-specialist multi-agent geographic intelligence system.

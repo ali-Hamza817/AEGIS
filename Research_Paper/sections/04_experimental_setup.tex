@@ -1,0 +1,13 @@
+\section{Experimental Setup}
+\label{sec:experimental_setup}
+
+\subsection{Study Site \& Spatio-Temporal Dataset}
+AEGIS is evaluated on the Brisbane, Australia South-East Queensland (SEQ) extreme flooding event (February 20 to March 15, 2022). The AOI spans $[152.5^\circ\text{E}, 153.5^\circ\text{E}] \times [28.0^\circ\text{S}, 27.0^\circ\text{S}]$, gridded into 200 spatial cells over 24 daily steps ($4,800$ total spatio-temporal instances).
+
+\subsection{Baselines for Comparison}
+We benchmark AEGIS against three representative baseline architectures:
+\begin{itemize}
+    \item \textbf{Baseline 1 (Single Modality - ERA5 Only)}: Standard LightGBM trained exclusively on ERA5 climate features ($5$ features).
+    \item \textbf{Baseline 2 (Monolithic Late Fusion)}: LightGBM trained on raw concatenated features across all modalities ($16$ features).
+    \item \textbf{Baseline 3 (LLM-Arbitrated Agentic)}: Simulates JSON-schema-constrained local 3B LLM prompt arbitration (e.g., Qwen2.5-3B) with logit-weighted soft voting across agent textual outputs.
+\end{itemize}

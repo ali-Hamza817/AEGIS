@@ -1,0 +1,19 @@
+\section{Introduction}
+\label{sec:intro}
+
+Urban flood risk assessment requires integrating heterogeneous, multi-rate, and multi-resolution environmental sensory data, including numerical precipitation forecasts (ERA5), synthetic aperture radar backscatter (Sentinel-1 SAR), optical vegetation indices (Sentinel-2), topographic digital elevation models (Copernicus DEM), ground sensor arrays (OpenAQ, rain gauges), and unstructured text bulletins.
+
+Recent advances in agentic AI \cite{dubey2025agentic, jiang2026floodllm} propose assigning specialist agents to individual data modalities and using LLMs as central arbiters. However, LLM-driven prompt arbitration exhibits critical vulnerabilities:
+\begin{enumerate}
+    \item \textbf{Uncalibrated Confidence \& Majority Skew}: LLM prompt aggregation lacks formal Dirichlet evidence representation, causing models to collapse onto majority classes (e.g., ``Dry'') while ignoring high-risk minority flood states.
+    \item \textbf{Hallucination Under Missing Inputs}: When satellite optical imagery is obscured by heavy cloud cover, LLMs fill missing context with ungrounded heuristics rather than propagating uncertainty.
+    \item \textbf{Opacity of Post-Hoc Feature Attributions}: Standard post-hoc tools such as SHAP or LIME output feature importance scores but fail to provide an auditable lineage detailing which agent emitted which evidence mass.
+\end{enumerate}
+
+To overcome these structural limitations, we introduce \textbf{AEGIS} (\textit{Agentic Evidential Geographic Intelligence for Sustainability}). AEGIS grounds multi-agent decision support in Subjective Logic (SL) \cite{josang2016subjective}, mapping domain features directly to Dirichlet evidence vectors. The main contributions of this work are fourfold:
+\begin{itemize}
+    \item \textbf{Evidential Multi-Agent Architecture}: We formulate five specialist agents (\texttt{ClimateAgent}, \texttt{SatelliteAgent}, \texttt{LandCoverAgent}, \texttt{AirQualityAgent}, \texttt{DocIntAgent}) emitting Subjective Logic opinions over a shared 4-state discernment frame.
+    \item \textbf{Deterministic SL Conflict Orchestrator}: We design a zero-LLM evidence router that measures Jensen-Shannon conflict divergence and dynamically routes to Weighted Belief Fusion (WBF) or Consensus \& Compromise Fusion (CCF) weighted by Brier-score agent reputation \cite{wang2007formal}.
+    \item \textbf{Monotone Uncertainty Growth Under Missing Data}: We implement formal partial-observable projections \cite{kaplan2015subjective}, proving mathematically and empirically that missing inputs decay into epistemic uncertainty $u$ monotonically.
+    \item \textbf{Accuracy Lead \& Provenance Auditing}: Evaluated on $4,800$ spatio-temporal cell-date instances from Brisbane, Australia, AEGIS achieves \textbf{0.7190 F1-Macro} and \textbf{0.9310 AUROC}, outperforming monolithic fusion and LLM-arbitrated baselines.
+\end{itemize}

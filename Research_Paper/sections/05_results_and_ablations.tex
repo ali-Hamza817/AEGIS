@@ -1,0 +1,89 @@
+\section{Results and Empirical Ablations}
+\label{sec:results}
+
+\subsection{Benchmark Performance Comparison}
+Table~\ref{tab:benchmark} presents the master paper benchmark comparison. AEGIS-SL with the 27-dimensional Hybrid Evidential Head achieves \textbf{0.7190 F1-Macro} and \textbf{0.9310 AUROC}, outperforming Monolithic Late Fusion (BL2) by $+0.0084$ F1-Macro while providing calibrated epistemic uncertainty ($u$) and formal missing-modality safety.
+
+\begin{table}[htbp]
+\caption{Empirical Benchmark Performance Comparison}
+\label{tab:benchmark}
+\centering
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Method} & \textbf{F1-Macro} & \textbf{F1-Weighted} & \textbf{AUROC} & \textbf{ECE} & $\boldsymbol{\bar{u}}$ \\
+\midrule
+\textbf{AEGIS-SL (Ours)} & \textbf{0.7190} & \textbf{0.7684} & \textbf{0.9310} & \textbf{0.0925} & \textbf{0.0957} \\
+Baseline 1 (ERA5 Only) & 0.5730 & 0.6339 & 0.8287 & N/A & N/A \\
+Baseline 2 (Monolithic) & 0.7106 & 0.7610 & 0.9282 & N/A & N/A \\
+Baseline 3 (LLM-Arbitrated) & 0.2256 & 0.3120 & 0.7127 & N/A & 0.9486 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Structural Property Coverage Matrix}
+Table~\ref{tab:properties} highlights the structural advantages of AEGIS-SL compared to black-box ML and LLM prompt chaining.
+
+\begin{table}[htbp]
+\caption{Structural Property Coverage Matrix}
+\label{tab:properties}
+\centering
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Property / Capability} & \textbf{AEGIS-SL} & \textbf{BL1 (ERA5)} & \textbf{BL2 (Mono)} & \textbf{BL3 (LLM)} \\
+\midrule
+Calibrated Uncertainty ($u$) & \textbf{Yes} & No & No & No (Entropy) \\
+Missing-Modality Monotonicity & \textbf{Yes} & No & No & No (Hallucination) \\
+Dynamic Credibility ($\gamma$) & \textbf{Yes} & No & No & No \\
+Deterministic Reproducibility & \textbf{Yes} & Yes & Yes & No \\
+Source Lineage & \textbf{Yes} & No & No & No \\
+Interactive Spatial UI & \textbf{Yes} & No & No & No \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsection{2$\times$2 Evidential Mechanism Ablation}
+Table~\ref{tab:2x2_ablation} isolates the incremental contributions of the Subjective Logic opinion tensor and dynamic credibility tracking.
+
+\begin{table}[htbp]
+\caption{2$\times$2 Evidential Mechanism Ablation}
+\label{tab:2x2_ablation}
+\centering
+\begin{tabular}{lcl}
+\toprule
+\textbf{Ablation Setting} & \textbf{F1-Macro} & \textbf{Description} \\
+\midrule
+(a) Full AEGIS-SL Hybrid & \textbf{0.7190} & Opinion + Raw Features + Brier $\gamma$ \\
+(b) Fixed Credibility ($\gamma=1.0$) & 0.7142 & Removes dynamic agent reputation ($\Delta = -0.0048$) \\
+(c) Non-Evidential Hybrid & 0.7118 & Replaces SL Opinion with raw Softmax ($\Delta = -0.0072$) \\
+(d) Monolithic BL2 & 0.7106 & Raw features only, zero SL machinery ($\Delta = -0.0084$) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Diagnostic Breakdown of LLM Arbitration Baseline (BL3)}
+Table~\ref{tab:bl3_diag} analyzes why LLM prompt arbitration achieves $0.7127$ AUROC yet collapses to $0.2256$ F1-Macro.
+
+\begin{table}[htbp]
+\caption{LLM Arbitration Baseline (BL3) Diagnostic Statistics}
+\label{tab:bl3_diag}
+\centering
+\begin{tabular}{lc}
+\toprule
+\textbf{Diagnostic Statistic} & \textbf{Value / Distribution} \\
+\midrule
+JSON Parse Failure Rate & $0.0\%$ (Strict JSON Schema) \\
+Predicted Class Distribution & Dry: $79.44\%$, SurfaceFlow: $17.36\%$, Inundation: $2.92\%$, Sat.: $0.28\%$ \\
+Mean Normalized Entropy & $0.9486$ (Uncalibrated) \\
+Primary Failure Mode & Majority-class overconfidence; minority flood state recall $< 0.3\%$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{H3 Missing Modality Uncertainty Monotonicity}
+As sensory modalities are systematically dropped from $n_{\text{missing}} = 0$ to $n_{\text{missing}} = 4$, epistemic uncertainty grows strictly monotonically:
+\begin{equation}
+\bar{u}_0 = 0.0960 \longrightarrow \bar{u}_1 = 0.1062 \longrightarrow \bar{u}_2 = 0.1192 \longrightarrow \bar{u}_3 = 0.1248 \longrightarrow \bar{u}_4 = 0.3480
+\end{equation}
+monotonically verifying Kaplan et al.'s theoretical prediction \cite{kaplan2015subjective}.
