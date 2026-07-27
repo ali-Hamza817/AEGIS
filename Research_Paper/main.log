@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  27 JUL 2026 13:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  27 JUL 2026 13:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1062,12 +1062,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
                                                   \__shipout_drop_firstpage_...
 l.1 \section
             {AEGIS Architecture}\label{sec:architecture}]
-<figures/fig1_aegis_architecture.pdf, id=163, 715.47299pt x 339.66899pt>
+<figures/fig1_aegis_architecture.pdf, id=163, 377.7312pt x 241.6227pt>
 File: figures/fig1_aegis_architecture.pdf Graphic file (type pdf)
 <use figures/fig1_aegis_architecture.pdf>
 Package pdftex.def Info: figures/fig1_aegis_architecture.pdf  used on input lin
 e 9.
-(pdftex.def)             Requested size: 494.50888pt x 234.76575pt.
+(pdftex.def)             Requested size: 494.50888pt x 316.32895pt.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 8.50006pt on input line 16.
 
@@ -1141,28 +1141,27 @@ s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.57 
-      <./figures/fig2_opinion_pipeline.pdf>])
-(./sections/05_experimental_setup.tex [6
+      <./figures/fig2_opinion_pipeline.pdf>] [6
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1 \section
-            {Experimental Setup}\label{sec:experimental_setup}
+l.57 
+     
 pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1 \section
-            {Experimental Setup}\label{sec:experimental_setup} <./figures/fig1_
-aegis_architecture.pdf>]
+l.57 
+      <./figures/fig1_aegis_architecture.pdf>])
+(./sections/05_experimental_setup.tex
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 )
-<figures/fig3_brisbane_aoi_grid.pdf, id=440, 627.02383pt x 363.1054pt>
+<figures/fig3_brisbane_aoi_grid.pdf, id=298, 627.02383pt x 363.1054pt>
 File: figures/fig3_brisbane_aoi_grid.pdf Graphic file (type pdf)
 <use figures/fig3_brisbane_aoi_grid.pdf>
 Package pdftex.def Info: figures/fig3_brisbane_aoi_grid.pdf  used on input line
@@ -1174,21 +1173,28 @@ Underfull \hbox (badness 1783) in paragraph at lines 43--44
 \T1/stix/m/n/10 the Coper-ni-cus Emer-gency Man-age-ment Ser-vice Rapid
  []
 
-[7
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.48 
-     {/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc} <./figur
-es/fig3_brisbane_aoi_grid.pdf>]) (./sections/06_results.tex
-<figures/fig9_composite_summary_panel.pdf, id=536, 787.73863pt x 606.2487pt>
+) (./sections/06_results.tex [7{/usr/share/texlive/texmf-dist/fonts/enc/dvips/s
+tix/stix-ts1.enc}]
+<figures/fig9_composite_summary_panel.pdf, id=326, 787.73863pt x 606.2487pt>
 File: figures/fig9_composite_summary_panel.pdf Graphic file (type pdf)
 <use figures/fig9_composite_summary_panel.pdf>
 Package pdftex.def Info: figures/fig9_composite_summary_panel.pdf  used on inpu
 t line 9.
 (pdftex.def)             Requested size: 494.50888pt x 380.57886pt.
-
+ [8
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.12 \end{figure*}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.12 \end{figure*}
+                  {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} 
+<./figures/fig3_brisbane_aoi_grid.pdf>]
 Underfull \hbox (badness 1430) in paragraph at lines 16--17
 []\T1/stix/m/n/10 Table [][]4[][] presents the mas-ter bench-mark com-par-i-son
 
@@ -1239,39 +1245,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 33--33
 \T1/cmss/m/n/9 Qwen2.5-3B-
  []
 
-[8
-pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.37 
-     {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [9
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.37 
-     
-pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.37 
-      <./figures/fig9_composite_summary_panel.pdf>]
-<figures/fig5_calibration_reliability.pdf, id=641, 441.25163pt x 369.33516pt>
+<figures/fig5_calibration_reliability.pdf, id=407, 441.25163pt x 369.33516pt>
 File: figures/fig5_calibration_reliability.pdf Graphic file (type pdf)
 <use figures/fig5_calibration_reliability.pdf>
 Package pdftex.def Info: figures/fig5_calibration_reliability.pdf  used on inpu
 t line 40.
 (pdftex.def)             Requested size: 238.25444pt x 199.4211pt.
-<figures/fig6_per_class_recall.pdf, id=644, 535.18321pt x 325.52806pt>
+<figures/fig6_per_class_recall.pdf, id=410, 535.18321pt x 325.52806pt>
 File: figures/fig6_per_class_recall.pdf Graphic file (type pdf)
 <use figures/fig6_per_class_recall.pdf>
 Package pdftex.def Info: figures/fig6_per_class_recall.pdf  used on input line 
 71.
 (pdftex.def)             Requested size: 238.25444pt x 144.92162pt.
 LaTeX Font Info:    Calculating math sizes for size <11> on input line 76.
-<figures/fig4_monotonic_u_progression.pdf, id=649, 499.46475pt x 318.30984pt>
+[9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.96 \end{table*}
+                  <./figures/fig9_composite_summary_panel.pdf>] [10
+pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.96 \end{table*}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.96 \end{table*}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.96 \end{table*}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.96 \end{table*}
+                  <./figures/fig5_calibration_reliability.pdf> <./figures/fig6_
+per_class_recall.pdf>]
+<figures/fig4_monotonic_u_progression.pdf, id=672, 499.46475pt x 318.30984pt>
 File: figures/fig4_monotonic_u_progression.pdf Graphic file (type pdf)
 <use figures/fig4_monotonic_u_progression.pdf>
 Package pdftex.def Info: figures/fig4_monotonic_u_progression.pdf  used on inpu
@@ -1282,27 +1301,7 @@ Underfull \hbox (badness 1502) in paragraph at lines 109--110
 \T1/stix/m/n/10 board re-turn the full man-i-fest: agent iden-tity, ev-i-dence
  []
 
-[10
-pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.110 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.110 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.110 
-       <./figures/fig5_calibration_reliability.pdf> <./figures/fig6_per_class_r
-ecall.pdf>]
-<figures/fig7_agent_credibility_trajectory.pdf, id=819, 570.96938pt x 324.27711
+<figures/fig7_agent_credibility_trajectory.pdf, id=675, 570.96938pt x 324.27711
 pt>
 File: figures/fig7_agent_credibility_trajectory.pdf Graphic file (type pdf)
 <use figures/fig7_agent_credibility_trajectory.pdf>
@@ -1321,59 +1320,58 @@ Overfull \hbox (4.6255pt too wide) in paragraph at lines 137--138
 4%)
  []
 
-[11
-pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.138 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.138 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.138 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.138 
-       <./figures/fig4_monotonic_u_progression.pdf> <./figures/fig7_agent_credi
-bility_trajectory.pdf>]
-<figures/fig8_source_contribution_distribution.pdf, id=1005, 502.49907pt x 286.
-04927pt>
+<figures/fig8_source_contribution_distribution.pdf, id=679, 502.49907pt x 286.0
+4927pt>
 File: figures/fig8_source_contribution_distribution.pdf Graphic file (type pdf)
 
 <use figures/fig8_source_contribution_distribution.pdf>
 Package pdftex.def Info: figures/fig8_source_contribution_distribution.pdf  use
 d on input line 141.
 (pdftex.def)             Requested size: 202.51772pt x 115.28625pt.
-) (./sections/07_conclusion.tex)
+[11
+pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.149 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.149 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.149 
+       <./figures/fig4_monotonic_u_progression.pdf> <./figures/fig7_agent_credi
+bility_trajectory.pdf>]) (./sections/07_conclusion.tex [12
+pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.10 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{table.8}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.10 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.10 
+      <./figures/fig8_source_contribution_distribution.pdf>])
 (./sections/08_declarations.tex
 Underfull \hbox (badness 2181) in paragraph at lines 4--5
 \T1/stix/m/n/10 Sentinel-1/2 remote-sensing im-agery, ESA World-Cover,
  []
 
-[12
-pdfTeX warning (ext4): destination with the same identifier (name{table.8}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.5 
-    
-pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.5 
-     <./figures/fig8_source_contribution_distribution.pdf>]
+
 Underfull \hbox (badness 1348) in paragraph at lines 10--11
 \T1/stix/m/n/10 tech-nolo-gies were used solely for lin-guis-tic re-fine-ment,
  []
@@ -1429,7 +1427,7 @@ Here is how much of TeX's memory you used:
  40595 multiletter control sequences out of 15000+600000
  698176 words of font info for 251 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,12n,93p,2185b,512s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,12n,93p,2185b,557s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4
 r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pf
@@ -1445,10 +1443,10 @@ exlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on main.pdf (13 pages, 554729 bytes).
+Output written on main.pdf (13 pages, 732943 bytes).
 PDF statistics:
- 1184 PDF objects out of 1200 (max. 8388607)
- 491 compressed objects within 5 object streams
+ 1043 PDF objects out of 1200 (max. 8388607)
+ 463 compressed objects within 5 object streams
  98 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

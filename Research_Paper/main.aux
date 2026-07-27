@@ -77,7 +77,6 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.4}SL coordinator and routing logic}{5}{subsection.4.4}\protected@file@percent }
 \newlabel{eq:js_divergence}{{6}{5}{SL coordinator and routing logic}{equation.4.6}{}}
 \newlabel{eq:js_divergence@cref}{{[equation][6][]6}{[1][5][]5}}
-\citation{hofmeister2024semantic,talemi2026agentic,lee2025multiagent,sandeep2026contextaware,bairamzadeh2025conceptual}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {AEGIS System Architecture Flow.} Heterogeneous environmental streams map onto five specialist evidential agents (Climate, Satellite, Land-Cover, Air-Quality/Gauge, Document Intelligence). Active opinion streams $\omega _i$ route through the SL Coordinator (with JS divergence signal $\tau _{\text  {low}}=0.1$) to produce fused opinion $\mathbf  {F}=(\mathbf  {b}, u, \mathbf  {a})$. The 27-dimensional composite space feeds the Hybrid LightGBM Head while logging provenance to DuckDB and powering the Leaflet dark-mode dashboard.}}{6}{figure.2}\protected@file@percent }
 \newlabel{fig:aegis_architecture}{{2}{6}{\textbf {AEGIS System Architecture Flow.} Heterogeneous environmental streams map onto five specialist evidential agents (Climate, Satellite, Land-Cover, Air-Quality/Gauge, Document Intelligence). Active opinion streams $\omega _i$ route through the SL Coordinator (with JS divergence signal $\tau _{\text {low}}=0.1$) to produce fused opinion $\mathbf {F}=(\mathbf {b}, u, \mathbf {a})$. The 27-dimensional composite space feeds the Hybrid LightGBM Head while logging provenance to DuckDB and powering the Leaflet dark-mode dashboard}{figure.2}{}}
 \newlabel{fig:aegis_architecture@cref}{{[figure][2][]2}{[1][5][]6}}
@@ -85,11 +84,10 @@
 \newlabel{tab:agent_catalog}{{2}{6}{AEGIS Specialist Agent Catalog and Modality Mappings}{table.2}{}}
 \newlabel{tab:agent_catalog@cref}{{[table][2][]2}{[1][5][]6}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Hybrid evidential prediction head}{6}{subsection.4.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Provenance and explainability layer}{6}{subsection.4.6}\protected@file@percent }
+\citation{hofmeister2024semantic,talemi2026agentic,lee2025multiagent,sandeep2026contextaware,bairamzadeh2025conceptual}
 \citation{hofmeister2023cross,hofmeister2024semantic}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textbf  {Brisbane Study Area, Spatial Substrate Grid, and 24-Day Event Timeline.} Spatial grid discretisation across the Brisbane Metropolitan AOI ($152.5^\circ \text  {E}\text  {--}153.5^\circ \text  {E}, 27^\circ \text  {S}\text  {--}28^\circ \text  {S}$) over 200 regular cells with 12 BOM ALERT gauge stations overlaid. Lower panel displays the 24-day precipitation timeline (2022-02-20 to 2022-03-15) highlighting the 1-in-100-year peak rainfall event (Feb 24--27).}}{7}{figure.3}\protected@file@percent }
-\newlabel{fig:brisbane_grid_timeline}{{3}{7}{\textbf {Brisbane Study Area, Spatial Substrate Grid, and 24-Day Event Timeline.} Spatial grid discretisation across the Brisbane Metropolitan AOI ($152.5^\circ \text {E}\text {--}153.5^\circ \text {E}, 27^\circ \text {S}\text {--}28^\circ \text {S}$) over 200 regular cells with 12 BOM ALERT gauge stations overlaid. Lower panel displays the 24-day precipitation timeline (2022-02-20 to 2022-03-15) highlighting the 1-in-100-year peak rainfall event (Feb 24--27)}{figure.3}{}}
-\newlabel{fig:brisbane_grid_timeline@cref}{{[figure][3][]3}{[1][7][]7}}
+\citation{vanderheijden2018multisource}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6}Provenance and explainability layer}{7}{subsection.4.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5}Experimental Setup}{7}{section.5}\protected@file@percent }
 \newlabel{sec:experimental_setup}{{5}{7}{Experimental Setup}{section.5}{}}
 \newlabel{sec:experimental_setup@cref}{{[section][5][]5}{[1][7][]7}}
@@ -97,63 +95,64 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Spatial-temporal substrate and dataset manifest}{7}{subsection.5.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Ground-truth derivation}{7}{subsection.5.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Baselines}{7}{subsection.5.4}\protected@file@percent }
-\citation{vanderheijden2018multisource}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Metrics}{7}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Implementation and reproducibility}{7}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{7}{section.6}\protected@file@percent }
+\newlabel{sec:results}{{6}{7}{Results}{section.6}{}}
+\newlabel{sec:results@cref}{{[section][6][]6}{[1][7][]7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Hypothesis summary}{7}{subsection.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces \textbf  {Brisbane Study Area, Spatial Substrate Grid, and 24-Day Event Timeline.} Spatial grid discretisation across the Brisbane Metropolitan AOI ($152.5^\circ \text  {E}\text  {--}153.5^\circ \text  {E}, 27^\circ \text  {S}\text  {--}28^\circ \text  {S}$) over 200 regular cells with 12 BOM ALERT gauge stations overlaid. Lower panel displays the 24-day precipitation timeline (2022-02-20 to 2022-03-15) highlighting the 1-in-100-year peak rainfall event (Feb 24--27).}}{8}{figure.3}\protected@file@percent }
+\newlabel{fig:brisbane_grid_timeline}{{3}{8}{\textbf {Brisbane Study Area, Spatial Substrate Grid, and 24-Day Event Timeline.} Spatial grid discretisation across the Brisbane Metropolitan AOI ($152.5^\circ \text {E}\text {--}153.5^\circ \text {E}, 27^\circ \text {S}\text {--}28^\circ \text {S}$) over 200 regular cells with 12 BOM ALERT gauge stations overlaid. Lower panel displays the 24-day precipitation timeline (2022-02-20 to 2022-03-15) highlighting the 1-in-100-year peak rainfall event (Feb 24--27)}{figure.3}{}}
+\newlabel{fig:brisbane_grid_timeline@cref}{{[figure][3][]3}{[1][7][]8}}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces AEGIS Dataset Ingest Manifest and Spatial-Temporal Resolution}}{8}{table.3}\protected@file@percent }
 \newlabel{tab:dataset_manifest}{{3}{8}{AEGIS Dataset Ingest Manifest and Spatial-Temporal Resolution}{table.3}{}}
 \newlabel{tab:dataset_manifest@cref}{{[table][3][]3}{[1][7][]8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Metrics}{8}{subsection.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Implementation and reproducibility}{8}{subsection.5.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6}Results}{8}{section.6}\protected@file@percent }
-\newlabel{sec:results}{{6}{8}{Results}{section.6}{}}
-\newlabel{sec:results@cref}{{[section][6][]6}{[1][8][]8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Hypothesis summary}{8}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}H1: Benchmark comparison}{8}{subsection.6.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces \textbf  {AEGIS Empirical Evaluation Master Composite Panel.} 2$\times $2 small-multiple panel summarizing the core empirical findings: (A) Overall accuracy (H1); (B) Monotonic epistemic uncertainty $u$ (H3); (C) Per-agent credibility convergence (H4); and (D) Mean source evidence shares.}}{9}{figure.4}\protected@file@percent }
 \newlabel{fig:composite_summary_panel}{{4}{9}{\textbf {AEGIS Empirical Evaluation Master Composite Panel.} 2$\times $2 small-multiple panel summarizing the core empirical findings: (A) Overall accuracy (H1); (B) Monotonic epistemic uncertainty $u$ (H3); (C) Per-agent credibility convergence (H4); and (D) Mean source evidence shares}{figure.4}{}}
 \newlabel{fig:composite_summary_panel@cref}{{[figure][4][]4}{[1][8][]9}}
-\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Empirical Benchmark Performance Comparison Across Methods}}{9}{table.4}\protected@file@percent }
-\newlabel{tab:main_benchmark}{{4}{9}{Empirical Benchmark Performance Comparison Across Methods}{table.4}{}}
-\newlabel{tab:main_benchmark@cref}{{[table][4][]4}{[1][8][]9}}
-\citation{kaplan2015partial}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}H1: Benchmark comparison}{9}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}H2: BL3 minority-class collapse diagnostic}{9}{subsection.6.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Empirical Benchmark Performance Comparison Across Methods}}{10}{table.4}\protected@file@percent }
+\newlabel{tab:main_benchmark}{{4}{10}{Empirical Benchmark Performance Comparison Across Methods}{table.4}{}}
+\newlabel{tab:main_benchmark@cref}{{[table][4][]4}{[1][9][]10}}
 \@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces BL3 Minority-Class Collapse Diagnostic}}{10}{table.5}\protected@file@percent }
 \newlabel{tab:bl3_diagnostic}{{5}{10}{BL3 Minority-Class Collapse Diagnostic}{table.5}{}}
-\newlabel{tab:bl3_diagnostic@cref}{{[table][5][]5}{[1][10][]10}}
+\newlabel{tab:bl3_diagnostic@cref}{{[table][5][]5}{[1][9][]10}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {Calibration Reliability Diagram Across Baselines (H1).} Bin-wise predicted confidence vs observed positive fraction over 10 equal-width bins. AEGIS-SL (ECE 0.043) closely tracks the ideal $y=x$ diagonal, outperforming monolithic BL2 (ECE 0.087) and ERA5-only BL1 (ECE 0.214).}}{10}{figure.5}\protected@file@percent }
 \newlabel{fig:calibration_reliability}{{5}{10}{\textbf {Calibration Reliability Diagram Across Baselines (H1).} Bin-wise predicted confidence vs observed positive fraction over 10 equal-width bins. AEGIS-SL (ECE 0.043) closely tracks the ideal $y=x$ diagonal, outperforming monolithic BL2 (ECE 0.087) and ERA5-only BL1 (ECE 0.214)}{figure.5}{}}
-\newlabel{fig:calibration_reliability@cref}{{[figure][5][]5}{[1][10][]10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}H2: BL3 minority-class collapse diagnostic}{10}{subsection.6.3}\protected@file@percent }
+\newlabel{fig:calibration_reliability@cref}{{[figure][5][]5}{[1][9][]10}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \textbf  {Per-Class Recall \& LLM Minority-Class Collapse Diagnostic (H2).} Grouped recall comparison across flood classes. Prompt-chained LLM arbitration (BL3) collapses on minority classes (saturated 0.21, surface 0.09, inundation 0.18), whereas AEGIS-SL maintains strong recall across all states.}}{10}{figure.6}\protected@file@percent }
 \newlabel{fig:per_class_recall}{{6}{10}{\textbf {Per-Class Recall \& LLM Minority-Class Collapse Diagnostic (H2).} Grouped recall comparison across flood classes. Prompt-chained LLM arbitration (BL3) collapses on minority classes (saturated 0.21, surface 0.09, inundation 0.18), whereas AEGIS-SL maintains strong recall across all states}{figure.6}{}}
-\newlabel{fig:per_class_recall@cref}{{[figure][6][]6}{[1][10][]10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}H3: Monotonic-$u$ progression under modality dropout}{10}{subsection.6.4}\protected@file@percent }
+\newlabel{fig:per_class_recall@cref}{{[figure][6][]6}{[1][9][]10}}
+\citation{kaplan2015partial}
 \citation{wang2007formal}
 \@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Monotonic Epistemic Uncertainty $u$ Under Modality Dropout}}{11}{table.6}\protected@file@percent }
 \newlabel{tab:monotonic_u}{{6}{11}{Monotonic Epistemic Uncertainty $u$ Under Modality Dropout}{table.6}{}}
-\newlabel{tab:monotonic_u@cref}{{[table][6][]6}{[1][10][]11}}
-\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces 24-Day Mean Per-Agent Credibility Trajectory and Reputation}}{11}{table.7}\protected@file@percent }
-\newlabel{tab:agent_credibility}{{7}{11}{24-Day Mean Per-Agent Credibility Trajectory and Reputation}{table.7}{}}
-\newlabel{tab:agent_credibility@cref}{{[table][7][]7}{[1][11][]11}}
+\newlabel{tab:monotonic_u@cref}{{[table][6][]6}{[1][9][]11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}H3: Monotonic-$u$ progression under modality dropout}{11}{subsection.6.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces \textbf  {Monotonic Epistemic Uncertainty $u$ Under Sensor Dropout (H3).} Distribution of cell-wise $u$ values across 0, 1, 2, and 3 dropped modalities. Mean $u$ (red overlay) rises strictly monotonically ($0.12 \to 0.34 \to 0.61 \to 0.83$) without false-confidence subtraction, verifying Theorem 1.}}{11}{figure.7}\protected@file@percent }
 \newlabel{fig:monotonic_u_progression}{{7}{11}{\textbf {Monotonic Epistemic Uncertainty $u$ Under Sensor Dropout (H3).} Distribution of cell-wise $u$ values across 0, 1, 2, and 3 dropped modalities. Mean $u$ (red overlay) rises strictly monotonically ($0.12 \to 0.34 \to 0.61 \to 0.83$) without false-confidence subtraction, verifying Theorem 1}{figure.7}{}}
-\newlabel{fig:monotonic_u_progression@cref}{{[figure][7][]7}{[1][10][]11}}
+\newlabel{fig:monotonic_u_progression@cref}{{[figure][7][]7}{[1][11][]11}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.5}H4: Provenance, credibility, and per-source contribution}{11}{subsection.6.5}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces \textbf  {24-Day Per-Agent Credibility Trajectory \& Online Convergence (H4 Part 1).} Online Brier-score reputation update ($\gamma _i \in [0.10, 1.0]$) for five specialist agents starting from neutral $\gamma _0=0.50$. All agents converge within the initial 7-day window to stable reputation scores.}}{11}{figure.8}\protected@file@percent }
 \newlabel{fig:agent_credibility_trajectory}{{8}{11}{\textbf {24-Day Per-Agent Credibility Trajectory \& Online Convergence (H4 Part 1).} Online Brier-score reputation update ($\gamma _i \in [0.10, 1.0]$) for five specialist agents starting from neutral $\gamma _0=0.50$. All agents converge within the initial 7-day window to stable reputation scores}{figure.8}{}}
 \newlabel{fig:agent_credibility_trajectory@cref}{{[figure][8][]8}{[1][11][]11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Mechanistic 2$\times $2 ablation}{11}{subsection.6.6}\protected@file@percent }
 \citation{vanderheijden2018multisource,wang2007formal,hofmeister2024semantic}
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces 24-Day Mean Per-Agent Credibility Trajectory and Reputation}}{12}{table.7}\protected@file@percent }
+\newlabel{tab:agent_credibility}{{7}{12}{24-Day Mean Per-Agent Credibility Trajectory and Reputation}{table.7}{}}
+\newlabel{tab:agent_credibility@cref}{{[table][7][]7}{[1][11][]12}}
 \@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Mechanistic 2$\times $2 Ablation of AEGIS-SL Components}}{12}{table.8}\protected@file@percent }
 \newlabel{tab:mechanistic_ablation}{{8}{12}{Mechanistic 2$\times $2 Ablation of AEGIS-SL Components}{table.8}{}}
 \newlabel{tab:mechanistic_ablation@cref}{{[table][8][]8}{[1][12][]12}}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces \textbf  {Mean Share of Total Evidence Weight Across AOI (H4 Part 2).} Relative evidence contribution across the 24-day evaluation window: Satellite Imagery (41.2\%), Climate Forecasts (28.4\%), Land-Cover (11.5\%), Air-Quality/Gauge (9.7\%), and Document Intelligence (9.2\%).}}{12}{figure.9}\protected@file@percent }
 \newlabel{fig:source_contribution_distribution}{{9}{12}{\textbf {Mean Share of Total Evidence Weight Across AOI (H4 Part 2).} Relative evidence contribution across the 24-day evaluation window: Satellite Imagery (41.2\%), Climate Forecasts (28.4\%), Land-Cover (11.5\%), Air-Quality/Gauge (9.7\%), and Document Intelligence (9.2\%)}{figure.9}{}}
-\newlabel{fig:source_contribution_distribution@cref}{{[figure][9][]9}{[1][12][]12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Mechanistic 2$\times $2 ablation}{12}{subsection.6.6}\protected@file@percent }
+\newlabel{fig:source_contribution_distribution@cref}{{[figure][9][]9}{[1][11][]12}}
 \@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{12}{section.7}\protected@file@percent }
 \newlabel{sec:conclusion}{{7}{12}{Conclusion}{section.7}{}}
 \newlabel{sec:conclusion@cref}{{[section][7][]7}{[1][12][]12}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Summary}{12}{subsection.7.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Limitations}{12}{subsection.7.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Future work}{12}{subsection.7.3}\protected@file@percent }
 \bibstyle{plainnat}
 \bibdata{references}
 \bibcite{bairamzadeh2025conceptual}{{1}{2025}{{Bairam~Zadeh et~al.}}{{Bairam~Zadeh, Elmi, and Moghaddam}}}
@@ -176,4 +175,5 @@
 \bibcite{vanderheijden2018multisource}{{18}{2018}{{van~der Heijden et~al.}}{{van~der Heijden, Kopp, and Kargl}}}
 \bibcite{wang2007formal}{{19}{2007}{{Wang and Singh}}{{}}}
 \csxdef{lastpage}{13}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Future work}{13}{subsection.7.3}\protected@file@percent }
 \gdef \@abspage@last{13}
