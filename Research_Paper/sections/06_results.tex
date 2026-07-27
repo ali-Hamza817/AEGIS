@@ -14,7 +14,7 @@ Table~\ref{tab:main_benchmark} presents the master benchmark comparison across a
 \centering
 \small
 \renewcommand{\arraystretch}{1.35}
-\begin{tabularx}{\linewidth}{X c c c c c c}
+\begin{tabularx}{\linewidth}{X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
 \toprule
 \textbf{Method} & \textbf{F1-Macro} & \textbf{F1-Weighted} & \textbf{AUROC (ovr)} & \textbf{ECE (10-bin)} & \textbf{Latency (s)} & \textbf{RAM peak (MB)} \\
 \midrule
@@ -38,7 +38,7 @@ Table~\ref{tab:bl3_diagnostic} details the class-wise precision and recall break
 \centering
 \small
 \renewcommand{\arraystretch}{1.35}
-\begin{tabularx}{\linewidth}{X c c c c}
+\begin{tabularx}{\linewidth}{X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
 \toprule
 \textbf{Class} & \textbf{BL3 precision} & \textbf{BL3 recall} & \textbf{BL2 recall} & \textbf{AEGIS-SL recall} \\
 \midrule
@@ -62,7 +62,7 @@ Table~\ref{tab:monotonic_u} reports the distribution of epistemic uncertainty $u
 \centering
 \small
 \renewcommand{\arraystretch}{1.35}
-\begin{tabularx}{\linewidth}{c c c c c c}
+\begin{tabularx}{\linewidth}{>{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
 \toprule
 \textbf{Modalities dropped} & \textbf{Mean $u$} & \textbf{Median $u$} & \textbf{Min $u$} & \textbf{Max $u$} & \textbf{Std $u$} \\
 \midrule
@@ -86,7 +86,7 @@ Per-cell provenance queries issued through the dashboard return the full manifes
 \centering
 \small
 \renewcommand{\arraystretch}{1.35}
-\begin{tabularx}{\linewidth}{X c c c}
+\begin{tabularx}{\linewidth}{X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
 \toprule
 \textbf{Agent} & \textbf{Final $\gamma$ (24-day mean)} & \textbf{Initial $\gamma_0$} & \textbf{Brier score mean} \\
 \midrule
@@ -111,7 +111,7 @@ To isolate where the marginal accuracy comes from, we run a 2$\times$2 ablation 
 \centering
 \small
 \renewcommand{\arraystretch}{1.35}
-\begin{tabularx}{\linewidth}{X c c c c c}
+\begin{tabularx}{\linewidth}{X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X >{\centering\arraybackslash}X}
 \toprule
 \textbf{Configuration} & \textbf{SL opinion tensor} & \textbf{Credibility $\gamma$} & \textbf{F1-Macro} & \textbf{AUROC} & \textbf{ECE} \\
 \midrule
