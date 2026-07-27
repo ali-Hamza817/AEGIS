@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  27 JUL 2026 12:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  27 JUL 2026 12:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -967,62 +967,62 @@ Underfull \hbox (badness 1540) in paragraph at lines 11--12
  []
 
 [2]
-Underfull \hbox (badness 1005) in paragraph at lines 44--44
-[]|\T1/cmss/m/n/9 Foundational Bayesian for-mal-ism only;
+Underfull \hbox (badness 1043) in paragraph at lines 46--46
+[]|\T1/cmss/m/n/9 First for-mal ar-gu-men-ta-tion scheme fus-ing
  []
 
 
-Underfull \hbox (badness 3396) in paragraph at lines 44--44
-[]|\T1/cmss/m/n/9 Consolidated conflict-resolution tax-on-
+Underfull \hbox (badness 1194) in paragraph at lines 46--46
+[]|\T1/cmss/m/n/9 Scalar trust; not com-pos-able with multi-
  []
 
 
-Underfull \hbox (badness 2042) in paragraph at lines 44--44
-[]|\T1/cmss/m/n/9 Revisited es-sen-tial ver-sus nonessen-tial
+Underfull \hbox (badness 6876) in paragraph at lines 46--46
+[]|\T1/cmss/m/n/9 Partial-observable pro-jec-tion guar-an-tee-ing
  []
 
 
-Underfull \hbox (badness 3000) in paragraph at lines 44--44
-[]|\T1/cmss/m/n/9 Agent layer in early form; no cal-i-
+Underfull \hbox (badness 6510) in paragraph at lines 46--46
+[]|\T1/cmss/m/n/9 Consolidated conflict-resolution tax-on-omy
  []
 
 
-Underfull \hbox (badness 1521) in paragraph at lines 44--44
-[]|\T1/cmss/m/n/9 Context-aware multi-agent ar-chi-tec-ture
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]|\T1/cmss/m/n/9 ThinkGeo bench-mark eval-u-at-ing tool-
  []
 
 
-Underfull \hbox (badness 5893) in paragraph at lines 44--44
-[]|\T1/cmss/m/n/9 Agriculture/query do-main; not flood
+Underfull \hbox (badness 2503) in paragraph at lines 46--46
+[]|\T1/cmss/m/n/9 Semantic-agent frame-work for au-to-mated
  []
 
 
-Underfull \hbox (badness 1502) in paragraph at lines 44--44
-[]|\T1/cmss/m/n/9 Foundations, tax-on-omy, and emerg-ing
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]|\T1/cmss/m/n/9 Palanca Can-ton-jos
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--44
+Underfull \hbox (badness 3492) in paragraph at lines 46--46
+[]|\T1/cmss/m/n/9 AgroAskAI agen-tic frame-work sup-port-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
+[]|\T1/cmss/m/n/9 Foundational/taxonomic; no op-er-a-tional
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 46--46
 []|\T1/cmss/m/n/9 Flood-LLM: multi-source urban-data
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--44
-[]|\T1/cmss/m/n/9 Prompt-chained ar-bi-tra-tion; minority-
+Underfull \hbox (badness 5077) in paragraph at lines 46--46
+[]|\T1/cmss/m/n/9 Prompt-chained ar-bi-tra-tion; minority-class
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--44
-\T1/cmss/m/n/9 missing-modality mono-tonic-ity,
- []
-
-
-Underfull \hbox (badness 3724) in paragraph at lines 44--44
-[]|\T1/cmss/m/n/9 SaferPlaces agen-tic AI democratis-ing
- []
-
-
-LaTeX Warning: Float too large for page by 49.67763pt on input line 45.
+LaTeX Warning: Float too large for page by 21.72696pt on input line 47.
 
 ) (./sections/03_mathematical_foundations.tex
 Overfull \hbox (7.07556pt too wide) in paragraph at lines 55--56
@@ -1204,7 +1204,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  18906 strings out of 476182
  299247 string characters out of 5795595
- 1962975 words of memory out of 5000000
+ 1963975 words of memory out of 5000000
  40476 multiletter control sequences out of 15000+600000
  686912 words of font info for 229 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -1223,7 +1223,7 @@ it.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on main.pdf (9 pages, 314195 bytes).
+Output written on main.pdf (9 pages, 314125 bytes).
 PDF statistics:
  359 PDF objects out of 1000 (max. 8388607)
  312 compressed objects within 4 object streams
