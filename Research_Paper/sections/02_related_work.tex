@@ -10,4 +10,38 @@ The first attempts to apply this machinery to physical environmental inference e
 
 The agentic environmental-AI wave accelerated between 2025 and 2026. Foundational surveys catalogued the architecture space \citep{sayyad2025agentic, talemi2026agentic}, and domain-specific deployments followed rapidly across fire and flood applications: \citet{bairamzadeh2025conceptual} proposed a conceptual high-level MAS for wildfire management; \citet{lee2025multiagent} built multi-agent geospatial copilots for remote-sensing workflows; \citet{shabbir2025thinkgeo} benchmarked tool-augmented agents through ThinkGeo; \citet{sandeep2026contextaware} framed context-aware MAS for wildfire insights; \citet{palancacantonjos2026agroaskai} deployed AgroAskAI for smallholder-farmer queries; \citet{jiang2026floodllm} introduced Flood-LLM, fusing multi-source urban data for property-level flood-risk assessment; and \citet{redaelli2026saferplaces} operationalised the SaferPlaces agentic AI for global flood-risk intelligence. Every one of these systems, however, relies on prompt-chained arbitration: an LLM receives agent summaries and emits a decision. None of them delivers calibrated uncertainty, monotonic missing-modality handling, per-agent credibility, or source-level provenance.
 
-The present paper introduces AEGIS to address exactly these four unresolved structural limitations. By interfacing the agentic architectural intuitions \citep{hofmeister2024semantic, talemi2026agentic} with the formal Subjective Logic operator algebra \citep{kaplan2015partial, vanderheijden2018multisource}, the canonical trust model \citep{wang2007formal}, and the credibility-aware communication work of \citet{sun2024t2mac} and \citet{chikoti2025conflict}, AEGIS fuses five specialist agents over a shared Dirichlet frame, propagates calibrated epistemic uncertainty under arbitrary sensor dropout, and exposes a per-cell provenance manifest through a DuckDB-backed dashboard. We show on the Brisbane February--March 2022 case study that the resulting framework matches monolithic accuracy (F1-Macro 0.7190 vs 0.7106) while uniquely providing calibrated uncertainty, missing-modality monotonicity, and per-agent reputational weighting.
+The present paper introduces AEGIS to address exactly these four unresolved structural limitations. By interfacing the agentic architectural intuitions \citep{hofmeister2024semantic, talemi2026agentic} with the formal Subjective Logic operator algebra \citep{kaplan2015partial, vanderheijden2018multisource}, the canonical trust model \citep{wang2007formal}, and the credibility-aware communication work of \citet{sun2024t2mac} and \citet{chikoti2025conflict}, AEGIS fuses five specialist agents over a shared Dirichlet frame, propagates calibrated epistemic uncertainty under arbitrary sensor dropout, and exposes a per-cell provenance manifest through a DuckDB-backed dashboard. We show on the Brisbane February--March 2022 case study that the resulting framework matches monolithic accuracy (F1-Macro 0.7190 vs 0.7106) while uniquely providing calibrated uncertainty, missing-modality monotonicity, and per-agent reputational weighting. A comprehensive summary of related work across agentic environmental AI, evidential operators, and trust models is presented in Table~\ref{tab:related_work}.
+
+\begin{table*}[htbp]
+\caption{Summary of Related Work Across Agentic Environmental AI, Evidential Operators, and Trust Models}
+\label{tab:related_work}
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{llll}
+\toprule
+\textbf{Author} & \textbf{Year} & \textbf{Key Findings} & \textbf{Limitations} \\
+\midrule
+Nielsen \& Parsons & 2006 & First formal treatment of disagreement between distributed agents; introduced an explicit argumentation scheme for fusing Bayes nets & Foundational Bayesian formalism only; not yet interfaced with physical environmental inference \\
+Wang \& Singh & 2007 & Canonical Brier-score trust model; continuous track-record scoring outperforms binary endorsement under uncertainty & Scalar trust; not yet composable with multi-source fusion algebra \\
+Kaplan et al. & 2015 & Partial-observable projection mathematically guaranteeing that epistemic uncertainty $u$ rises as evidence is absent & Operator algebra alone; not yet deployed inside agentic pipelines \\
+van der Heijden et al. & 2018 & Weighted Belief Fusion and Consensus \& Compromise Fusion operators; provably associative and commutative closure & Disconnected from environmental inference and from discriminative learning layers \\
+Li et al. & 2024 & Adaptive uncertainty-based learning deployed at the discriminative evidential layer for text-based person retrieval & Domain-specific to retrieval; not connected to environmental pipelines \\
+Sun et al. & 2024 & T2MAC --- per-agent credibility propagated through selective communication engagement in MAS & Focused on inter-agent communication; not extended to environmental inference \\
+Liu et al. & 2025 & MERIT --- multi-view evidential learning for reliable, interpretable liver-fibrosis staging & Clinical/liver-fibrosis domain only; not environmental \\
+Chikoti & 2025 & Consolidated conflict-resolution taxonomy across MAS & Taxonomic survey; no operational implementation \\
+Chen et al. & 2025 & Revisited essential versus nonessential settings of evidential deep learning & Theoretical re-examination; no agentic integration demonstrated \\
+Hofmeister et al. & 2023 & Cross-domain flood-risk semantics managed through a dynamic knowledge graph mediating sources and inference nodes & Ontology-mediated only; not yet integrated with computable trust or monotonic missing-modality handling \\
+Sayyad et al. & 2025 & Survey of agentic AI system architectures, autonomy levels, and ethical implications & Architectural survey without formal evidential reasoning focus \\
+Bairam Zadeh et al. & 2025 & Conceptual high-level MAS for wildfire management & Conceptual design only; not operationally deployed \\
+Lee et al. & 2025 & Multi-agent geospatial copilots for remote-sensing workflows & Workflow-focused; not flood-specific \\
+Shabbir et al. & 2025 & ThinkGeo benchmark for tool-augmented remote-sensing agents & Benchmark orientation; no integrated deployment framework \\
+Hofmeister et al. & 2024 & Semantic-agent framework for automated flood assessment using dynamic knowledge graphs & Agent layer in early form; no calibrated uncertainty, per-agent credibility, or monotonic missing-modality handling \\
+Sandeep et al. & 2026 & Context-aware multi-agent architecture for wildfire insights & Wildfire domain only; not flood monitoring \\
+Palanca Cantonjos \& Biswas & 2026 & AgroAskAI agentic framework supporting smallholder-farmer queries globally & Agriculture/query domain; not flood monitoring \\
+Talemi et al. & 2026 & Foundations, taxonomy, and emerging systems of agentic AI in remote sensing & Foundational/taxonomic; no deployed operational framework with calibrated uncertainty \\
+Jiang et al. & 2026 & Flood-LLM: multi-source urban-data property-level flood-risk assessment & Prompt-chained arbitration; minority-class collapse; no calibrated uncertainty, missing-modality monotonicity, credibility, or provenance \\
+Redaelli et al. & 2026 & SaferPlaces agentic AI democratising global flood-risk intelligence & Prompt-chained arbitration; no calibrated uncertainty, per-agent credibility propagation, or source-level provenance \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
