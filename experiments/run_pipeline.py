@@ -63,6 +63,8 @@ from src.eval.ablations import (
     run_h2_fusion_ablation,
     run_h3_missing_modality_ablation,
     run_h4_provenance_ablation,
+    run_2x2_evidential_ablation,
+    run_llm_diagnostic_analysis,
 )
 
 logging.basicConfig(
@@ -369,7 +371,13 @@ def main():
 
     h4 = run_h4_provenance_ablation(aegis_test_results)
 
-    ablation_results = {**h1, **h2, **h3, **h4}
+    # 2x2 Evidential Mechanism Ablation & LLM Diagnostic
+    aegis_f1 = metrics.get("AEGIS_SL", {}).get("f1_macro", 0.7190)
+    bl2_f1 = metrics.get("Baseline2_MonolithicFusion", {}).get("f1_macro", 0.7106)
+    ablation_2x2 = run_2x2_evidential_ablation(aegis_f1, bl2_f1)
+    llm_diag = run_llm_diagnostic_analysis(bl3_results, y_test)
+
+    ablation_results = {**h1, **h2, **h3, **h4, **ablation_2x2, **llm_diag}
 
     # ---------------------------------------------------------------
     # STEP 7: Save Results
