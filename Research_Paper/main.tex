@@ -1,62 +1,76 @@
-\documentclass[10pt,journal,compsoc]{IEEEtran}
+\documentclass[a4paper,fleqn]{cas-dc}
 
-% --- Packages ---
-\usepackage{cite}
-\usepackage{amsmath,amssymb,amsfonts}
+% Packages
+\usepackage[authoryear]{natbib}
+\usepackage{amsmath,amssymb}
 \usepackage{graphicx}
-\usepackage{textcomp}
-\usepackage{xcolor}
 \usepackage{booktabs}
+\usepackage{tabularx}
 \usepackage{multirow}
-\usepackage{microtype}
-\usepackage{hyperref}
-\usepackage{url}
+\usepackage{array}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{afterpage}
+\usepackage{stfloats}
+\usepackage{indentfirst}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage[nameinlink]{cleveref}
 
 \hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    citecolor=blue,
-    urlcolor=blue
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
 }
 
-% --- Mathematical Definitions ---
-\newcommand{\SL}{\text{SL}}
-\newcommand{\WBF}{\text{WBF}}
-\newcommand{\CCF}{\text{CCF}}
-\newcommand{\opinion}{\boldsymbol{\omega}}
-\newcommand{\belief}{\mathbf{b}}
-\newcommand{\uncertainty}{u}
-\newcommand{\prior}{\mathbf{a}}
-\newcommand{\frameX}{\mathbb{X}}
+\crefname{table}{Table}{Tables}
+\Crefname{table}{Table}{Tables}
+
+\def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
+\tsc{WGM}
+\tsc{QE}
+
+\let\printorcid\relax
 
 \begin{document}
 
-\title{Evidential Multi-Agent Orchestration for Multimodal Urban Flood Risk Assessment: A Subjective Logic Framework with Provenance-Aware Explanations}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{0.001}
 
-\author{Ali~Hamza
-\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem A. Hamza is with the Department of Environmental Intelligence \& Computer Science.\protect\\
-E-mail: cyberhamza8.17@gmail.com}
-}
+\shorttitle{Evidential Multi-Agent Orchestration for Urban Flood Assessment}
 
-\markboth{IEEE Transactions on Geoscience and Remote Sensing,~Vol.~64,~2026}%
-{Hamza: Evidential Multi-Agent Orchestration for Multimodal Urban Flood Risk Assessment}
+\title[mode=title]{Evidential Multi-Agent Orchestration for Multimodal Urban Flood Risk Assessment: A Subjective Logic Framework with Provenance-Aware Explanations}
+
+\shortauthors{Ali Hamza et al.}
+
+\author[1]{Ali Hamza}
+\cormark[1]
+\ead{ahamza.msse25mcs@student.nust.edu.pk}
+
+\author[2]{Ghulam Mujtaba}
+
+\address[1]{National University of Sciences and Technology (NUST), Islamabad, Pakistan}
+
+\address[2]{National University of Computer and Emerging Sciences (FAST-NUCES), Islamabad, Pakistan}
+
+\cortext[cor1]{Corresponding author}
+
+\begin{abstract}
+Urban flooding is among the most economically destructive categories of natural hazard, with the February--March 2022 south-east Queensland event ranking as one of Australia's costliest flood episodes of recent decades. Effective operational decision-support requires fusing heterogeneous streams --- satellite radar, multi-spectral optical imagery, reanalysis precipitation, terrain and land-cover layers, gauge and air-quality stations, and unstructured hydrological bulletins --- that arrive at irregular cadences with frequent inter-source disagreement and mutual sensor outages. The downstream decision demands not only a class prediction but also a calibrated, auditable account of which sensors contributed, which were absent, and how strongly the system believes each candidate outcome.
+\end{abstract}
+
+\begin{keywords}
+Multimodal Machine Learning
+\sep Decision-Level Fusion
+\sep Subjective Logic
+\sep Multi-Agent Systems
+\sep Urban Flood Assessment
+\end{keywords}
 
 \maketitle
 
-\input{sections/00_abstract.tex}
-
 \input{sections/01_introduction.tex}
-\input{sections/02_related_work.tex}
-\input{sections/03_mathematical_foundations.tex}
-\input{sections/04_aegis_architecture.tex}
-\input{sections/05_experimental_setup.tex}
-\input{sections/06_results.tex}
-\input{sections/07_discussion.tex}
-\input{sections/08_conclusion.tex}
-
-\input{sections/09_appendix.tex}
-
-\bibliographystyle{IEEEtran}
-\bibliography{references}
 
 \end{document}
