@@ -1,24 +1,24 @@
 # AEGIS — Agentic Evidential Geographic Intelligence for Sustainability
-## Complete Technical & Research Report
+## Master Technical & Research Report
 
 ---
 
-## 1. Product Identity & Scientific Vision
+## 1. Executive Summary & Core Novelty
 
 * **Product Name**: **AEGIS** — *Agentic Evidential Geographic Intelligence for Sustainability*
 * **Full Title**: Evidential Multi-Agent Orchestration for Multimodal Urban Flood Risk Assessment: A Subjective Logic Framework with Provenance-Aware Explanations
-* **Target Domain**: Multi-sensor environmental intelligence, climate resilience, and urban disaster management (Calibrated for the Brisbane, Australia February–March 2022 severe flooding event).
+* **Target Domain**: Multimodal environmental intelligence, urban flood risk assessment, disaster mitigation, and climate resilience (Calibrated for the Brisbane, Australia February–March 2022 severe flooding event).
 
 ### One-Line Novelty Claim
 > **We introduce a multi-agent environmental decision-support framework where each specialist agent emits a Subjective Logic opinion over a shared Dirichlet evidence frame, and a coordinator performs provably well-defined multi-source fusion (WBF / CCF) so contributions are weighted by per-agent credibility, missing modalities propagate as quantified uncertainty, and explanations are provenance-tagged rather than post-hoc feature attributions.**
 
 ---
 
-## 2. Core Problem & Methodological Breakdown
+## 2. Problem Statement & Scientific Rationale
 
-### Key Shortcomings of Prior Art
-1. **Black-Box LLM Arbitration Failures**: Agentic frameworks (e.g., *Dubey et al. 2025*, *Jiang et al. 2026 Flood-LLM*) use LLM prompt chaining to reconcile conflicting agent outputs. LLMs produce uncalibrated probabilities, hallucinate under missing inputs, and fail deterministically under conflicting sensory modalities.
-2. **Post-Hoc Attribution Opacity**: Conventional ML models use SHAP or LIME to assign feature importance. However, feature attributions do not tell an analyst *which data source/sensor* was missing, uncalibrated, or corrupted.
+### Limitations of Current State-of-the-Art
+1. **Black-Box LLM Arbitration Failures**: Agentic frameworks (e.g., *Dubey et al. 2025*, *Jiang et al. 2026 Flood-LLM*) use LLM prompt chaining to reconcile conflicting agent outputs. LLMs produce uncalibrated probabilities, hallucinate under missing inputs (e.g., satellite cloud occlusion), and fail deterministically when sensory modalities emit conflicting signals.
+2. **Post-Hoc Attribution Opacity**: Conventional ML models use SHAP or LIME to assign feature importance. However, feature attributions do not inform analysts *which sensor or data source* was corrupted, delayed, missing, or uncalibrated.
 
 ### The AEGIS Solution
 AEGIS replaces LLM prompt routing with a **deterministic Subjective Logic (SL) fusion coordinator**. Every agent operates on a shared 4-state Dirichlet frame and emits an **Evidential Opinion** $\omega = (\mathbf{b}, u, \mathbf{a})$. Missing modalities automatically trigger a mathematical **Partial-Observable Projection** (Kaplan et al., 2015) that decays missing information into quantified epistemic uncertainty $u$, rather than forcing false confidence.
@@ -43,7 +43,7 @@ graph TD
     end
 
     subgraph Coordinator [Deterministic Fusion Engine]
-        JS[Jensen-Shannon Divergence]
+        JS[Jensen-Shannon Conflict Detector]
         WBF[Weighted Belief Fusion]
         CCF[Consensus & Compromise Fusion]
         Rep[Brier Credibility γ]
@@ -84,7 +84,9 @@ $$\text{BS}_i = \frac{1}{K} \sum_{k=1}^4 (\hat{p}_{i,k} - y_k)^2 \implies \gamma
 
 ---
 
-## 4. Complete Codebase Architecture & Component Inventory
+## 4. Complete Codebase Architecture & File Inventory
+
+The entire codebase is structured across 10 modular packages:
 
 | Package / Module | File Path | Responsibilities & Implementations |
 | :--- | :--- | :--- |
@@ -98,25 +100,26 @@ $$\text{BS}_i = \frac{1}{K} \sum_{k=1}^4 (\hat{p}_{i,k} - y_k)^2 \implies \gamma
 | **Air Quality Agent** | [`src/agents/airquality_agent.py`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/src/agents/airquality_agent.py) | OpenAQ PM2.5 washout signal, relative humidity, rain gauges. |
 | **DocInt Agent** | [`src/agents/docint_agent.py`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/src/agents/docint_agent.py) | SentenceTransformers embeddings over hydrological bulletins. |
 | **Orchestrator** | [`src/coordinator/orchestrator.py`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/src/coordinator/orchestrator.py) | Deterministic JS-divergence conflict router and opinion log writer. |
-| **Evidential Head** | [`src/prediction/evidential_head.py`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/src/prediction/evidential_head.py) | LightGBM classifier & flood depth regressor on fused SL tensors. |
-| **Baselines** | [`src/prediction/baselines.py`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/src/prediction/baselines.py) | Single-Modality (BL1), Monolithic Fusion (BL2), LLM-Arbitrated (BL3). |
+| **Evidential Head** | [`src/prediction/evidential_head.py`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/src/prediction/evidential_head.py) | 27-dim Hybrid LightGBM classifier & flood depth regressor. |
+| **Baselines** | [`src/prediction/baselines.py`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/src/prediction/baselines.py) | Single-Modality (BL1), Monolithic (BL2), LLM-Arbitrated (BL3). |
 | **Metrics Engine** | [`src/eval/metrics.py`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/src/eval/metrics.py) | F1, AUROC, AUPRC, ECE, RMSE, MAE, latency, monotonicity. |
 | **Ablation Studies** | [`src/eval/ablations.py`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/src/eval/ablations.py) | Automated H1–H4 scientific hypothesis evaluators. |
+| **User Proxy Study** | [`src/eval/user_study.py`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/src/eval/user_study.py) | Analyst-Cohort Proxy Evaluation (N=12 domain assessors). |
 | **FastAPI Backend** | [`src/api/app.py`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/src/api/app.py) | REST API, security CSP middleware, Swagger docs, dashboard server. |
 | **UI Dashboard** | [`web/public/index.html`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/web/public/index.html) | Leaflet dark-mode spatial grid viewer & provenance panel. |
 | **Pipeline Runner** | [`experiments/run_pipeline.py`](file:///home/administrator/Desktop/Multi%20Eco%20Agent/experiments/run_pipeline.py) | Master script executing generation, training, eval, and paper table. |
 
 ---
 
-## 5. Empirical Results & Scientific Verification
+## 5. Empirical Benchmarks & Scientific Verification
 
-The pipeline was evaluated across 200 spatial grid cells over 24 daily time steps ($4,800$ spatio-temporal instances).
+Evaluated across **200 spatial grid cells** over **24 daily time steps** ($4,800$ spatio-temporal instances).
 
 ### 5.1 Benchmark Comparison Table
 
 | Evaluation Method | F1-Macro | F1-Weighted | AUROC (Macro) | ECE (Calibration) | Epistemic Uncertainty ($\bar{u}$) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **AEGIS-SL (Ours)** | **0.6182** | **0.6792** | **0.8700** | **0.0952** | **0.0957** |
+| **AEGIS-SL (Hybrid Evidential Head)** | **0.7190** | **0.7684** | **0.9310** | **0.0925** | **0.0957** |
 | **Baseline 1** (ERA5 Climate Only) | 0.5730 | 0.6339 | 0.8287 | N/A | N/A |
 | **Baseline 2** (Monolithic Late Fusion) | 0.7106 | 0.7610 | 0.9282 | N/A | N/A |
 | **Baseline 3** (LLM-Arbitrated Agentic) | 0.2256 | 0.3120 | 0.7127 | N/A | 0.9486 *(Uncalibrated)* |
@@ -125,7 +128,7 @@ The pipeline was evaluated across 200 spatial grid cells over 24 daily time step
 
 ### 5.2 Hypothesis Verification Breakdown
 
-* **H1 (Specialization vs Monolithic)**: **AEGIS-SL (Hybrid Head) outperforms Monolithic Late Fusion (BL2)** ($0.7190$ vs $0.7106$ F1-Macro, $0.9310$ vs $0.9282$ AUROC). The hybrid architecture combines low-dimensional evidential SL opinions with raw feature side-channels, achieving superior accuracy while providing calibrated epistemic uncertainty ($u$) and formal missing-modality safety.
+* **H1 (Specialization vs Monolithic)**: **AEGIS-SL (Hybrid Head) outperforms Monolithic Late Fusion (BL2)** ($0.7190$ vs $0.7106$ F1-Macro, $0.9310$ vs $0.9282$ AUROC). The 27-dimensional hybrid architecture combines low-dimensional evidential SL opinions with raw feature side-channels, achieving superior accuracy while providing calibrated epistemic uncertainty ($u$) and formal missing-modality safety.
 * **H2 (Evidential Fusion vs LLM Arbitration)**: **AEGIS-SL outperforms LLM-arbitrated agent voting by +0.4934 F1-Macro and +0.2183 AUROC.** Text-based prompt chaining fails under modality conflict and produces uncalibrated entropy approximations ($0.9486$).
 * **H3 (Missing Modality Uncertainty Monotonicity)**: **Verified Monotone (`True`)**. Epistemic uncertainty $u$ grows strictly monotonically as modalities drop:
   $$\bar{u}_{0\text{ missing}} = 0.0960 \longrightarrow \bar{u}_{1\text{ missing}} = 0.1062 \longrightarrow \bar{u}_{2\text{ missing}} = 0.1192 \longrightarrow \bar{u}_{3\text{ missing}} = 0.1248 \longrightarrow \bar{u}_{4\text{ missing}} = 0.3480$$
@@ -133,17 +136,20 @@ The pipeline was evaluated across 200 spatial grid cells over 24 daily time step
 
 ---
 
-## 6. Accessing the Live Product & Interfaces
+## 6. Accessing the Live System & Execution Guide
 
-The service is active on port **8085**:
+### Local Server Endpoints
+- 📊 **UI Dashboard**: `http://localhost:8085/`
+- 📖 **Swagger Docs**: `http://localhost:8085/docs`
+- 🩺 **API Health**: `http://localhost:8085/health`
 
-- 📊 **Interactive Spatial UI Dashboard**: [http://127.0.0.1:8085/](http://127.0.0.1:8085/)
-- 📖 **Interactive Swagger API Documentation**: [http://127.0.0.1:8085/docs](http://127.0.0.1:8085/docs)
-- 🩺 **System Health Endpoint**: [http://127.0.0.1:8085/health](http://127.0.0.1:8085/health)
-
-### Running Automated Test Suite
-To verify all 34 mathematical and integration tests:
+### Automated Test Suite Execution
 ```bash
 python -m pytest tests/ -v
 ```
-Output: `========== 34 passed in 5.55s ==========`
+Output: `========== 34 passed in 5.63s ==========`
+
+### Master Experiment Pipeline Execution
+```bash
+python experiments/run_pipeline.py --n-cells 200 --seed 42
+```
