@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  27 JUL 2026 19:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  27 JUL 2026 20:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -833,81 +833,81 @@ tim
 \openout4 = `main.abs'.
 
 LaTeX Font Info:    Trying to load font information for LS1+stixscr on input li
-ne 77.
+ne 78.
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixscr.fd
 File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixex on input lin
-e 77.
+e 78.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixex.fd
 File: ls2stixex.fd 2015/04/17 v1.1.2-latex STIX extentions LS2 font definitions
 
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 77.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 77.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input l
-ine 77.
+ine 78.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixfrak.fd
 File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixbb on input lin
-e 77.
+e 78.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixbb.fd
 File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixcal on input li
-ne 77.
+ne 78.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixcal.fd
 File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definiti
 ons
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixsf on input lin
-e 77.
+e 78.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixsf.fd
 File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixtt on input lin
-e 77.
+e 78.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixtt.fd
 File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 
 )
-Overfull \hbox (123.62721pt too wide) detected at line 77
+Overfull \hbox (123.62721pt too wide) detected at line 78
 []
  []
 
 (./main.abs)
 
-Package hyperref Warning: Ignoring empty anchor on input line 77.
+Package hyperref Warning: Ignoring empty anchor on input line 78.
 
 
-Package hyperref Warning: Ignoring empty anchor on input line 77.
+Package hyperref Warning: Ignoring empty anchor on input line 78.
 
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 77
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 78
 .
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 6.80005pt on input line 77.
+(Font)              scaled to size 6.80005pt on input line 78.
 
 (./sections/01_introduction.tex
 Underfull \hbox (badness 1048) in paragraph at lines 5--6
@@ -1118,7 +1118,13 @@ Underfull \hbox (badness 6741) in paragraph at lines 31--31
 []|$\LS1/stix/m/it/9 ![]$ \T1/cmss/m/n/9 over bulletin-day
  []
 
-
+[5
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.46 
+      <./figures/fig2_opinion_pipeline.pdf>]
 Overfull \hbox (5.49469pt too wide) in paragraph at lines 49--50
 []\T1/stix/m/n/10 The hy-brid ev-i-den-tial head is a sin-gle Light-GBM gradien
 t-
@@ -1129,21 +1135,14 @@ Underfull \hbox (badness 1117) in paragraph at lines 49--50
 \T1/stix/m/n/10 depth re-gres-sor shar-ing the same in-put. The com-pos-ite
  []
 
-[5
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.50 
-      <./figures/fig2_opinion_pipeline.pdf>])
-(./sections/05_experimental_setup.tex
+) (./sections/05_experimental_setup.tex
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 )
-<figures/fig3_brisbane_aoi_grid.pdf, id=288, 627.02383pt x 363.1054pt>
+<figures/fig3_brisbane_aoi_grid.pdf, id=287, 627.02383pt x 363.1054pt>
 File: figures/fig3_brisbane_aoi_grid.pdf Graphic file (type pdf)
 <use figures/fig3_brisbane_aoi_grid.pdf>
 Package pdftex.def Info: figures/fig3_brisbane_aoi_grid.pdf  used on input line
@@ -1411,10 +1410,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19035 strings out of 476182
- 303429 string characters out of 5795595
+ 19036 strings out of 476182
+ 303459 string characters out of 5795595
  1964975 words of memory out of 5000000
- 40586 multiletter control sequences out of 15000+600000
+ 40587 multiletter control sequences out of 15000+600000
  698176 words of font info for 251 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  90i,12n,93p,2185b,595s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1433,7 +1432,7 @@ exlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on main.pdf (13 pages, 517462 bytes).
+Output written on main.pdf (13 pages, 517505 bytes).
 PDF statistics:
  1038 PDF objects out of 1200 (max. 8388607)
  460 compressed objects within 5 object streams
