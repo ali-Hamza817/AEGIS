@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  27 JUL 2026 12:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  27 JUL 2026 12:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1022,7 +1022,14 @@ Underfull \hbox (badness 5077) in paragraph at lines 45--45
  []
 
 ) (./sections/03_mathematical_foundations.tex
-Overfull \hbox (7.07556pt too wide) in paragraph at lines 55--56
+<figures/fig2_opinion_pipeline.pdf, id=110, 787.80138pt x 261.71375pt>
+File: figures/fig2_opinion_pipeline.pdf Graphic file (type pdf)
+<use figures/fig2_opinion_pipeline.pdf>
+Package pdftex.def Info: figures/fig2_opinion_pipeline.pdf  used on input line 
+23.
+(pdftex.def)             Requested size: 494.50888pt x 164.28151pt.
+
+Overfull \hbox (7.07556pt too wide) in paragraph at lines 62--63
 []\T1/stix/m/n/10 The ev-i-den-tial pre-dic-tion head con-sumes a 27-dimensiona
 l
  []
@@ -1034,177 +1041,283 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
                                                   \__shipout_drop_firstpage_...
 l.1 \section
             {AEGIS Architecture}]
+<figures/fig1_aegis_architecture.pdf, id=152, 722.7pt x 361.35pt>
+File: figures/fig1_aegis_architecture.pdf Graphic file (type pdf)
+<use figures/fig1_aegis_architecture.pdf>
+Package pdftex.def Info: figures/fig1_aegis_architecture.pdf  used on input lin
+e 9.
+(pdftex.def)             Requested size: 494.50888pt x 247.25308pt.
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 8.50006pt on input line 9.
+(Font)              scaled to size 8.50006pt on input line 16.
 
-Overfull \hbox (31.52853pt too wide) in paragraph at lines 9--10
+Overfull \hbox (31.52853pt too wide) in paragraph at lines 16--17
 \T1/stix/m/n/10 re-la-tional ta-bles --- \T1/zi4/m/n/10 climate_daily\T1/stix/m
 /n/10 , \T1/zi4/m/n/10 satellite_sar\T1/stix/m/n/10 , \T1/zi4/m/n/10 satellite_
 optical\T1/stix/m/n/10 ,
  []
 
 
-Overfull \hbox (14.75978pt too wide) in paragraph at lines 9--10
+Overfull \hbox (14.75978pt too wide) in paragraph at lines 16--17
 \T1/zi4/m/n/10 landcover_static\T1/stix/m/n/10 , \T1/zi4/m/n/10 dem_static\T1/s
 tix/m/n/10 , \T1/zi4/m/n/10 airquality_hourly\T1/stix/m/n/10 , \T1/zi4/m/n/10 g
 auges_hourly\T1/stix/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 2181) in paragraph at lines 31--31
+Underfull \hbox (badness 2181) in paragraph at lines 38--38
 []|\T1/cmss/m/n/9 ERA5 to-tal pre-cip-i-ta-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--31
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []|\T1/cmss/m/n/9 Sentinel-1 SAR +
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--31
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []|\T1/cmss/m/n/9 ESA World-Cover +
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--31
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []|\T1/cmss/m/n/9 OpenAQ PM2.5 +
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--31
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []|\T1/cmss/m/n/9 Per hour-aggregated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 31--31
+Underfull \hbox (badness 10000) in paragraph at lines 38--38
 []|\T1/cmss/m/n/9 Document
  []
 
 
-Underfull \hbox (badness 1009) in paragraph at lines 31--31
+Underfull \hbox (badness 1009) in paragraph at lines 38--38
 []|\T1/cmss/m/n/9 SentenceTransformer em-bed-dings of severity-
  []
 
 
-Underfull \hbox (badness 6741) in paragraph at lines 31--31
+Underfull \hbox (badness 6741) in paragraph at lines 38--38
 []|$\LS1/stix/m/it/9 ![]$ \T1/cmss/m/n/9 over bulletin-day
  []
 
 
-Overfull \hbox (5.49469pt too wide) in paragraph at lines 49--50
+Overfull \hbox (5.49469pt too wide) in paragraph at lines 56--57
 []\T1/stix/m/n/10 The hy-brid ev-i-den-tial head is a sin-gle Light-GBM gradien
 t-
  []
 
 
-Underfull \hbox (badness 1117) in paragraph at lines 49--50
+Underfull \hbox (badness 1117) in paragraph at lines 56--57
 \T1/stix/m/n/10 depth re-gres-sor shar-ing the same in-put. The com-pos-ite
  []
 
-) (./sections/05_experimental_setup.tex
+[5
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.57 
+      <./figures/fig2_opinion_pipeline.pdf>])
+(./sections/05_experimental_setup.tex [6
+pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1 \section
+            {Experimental Setup}
+pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1 \section
+            {Experimental Setup} <./figures/fig1_aegis_architecture.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
-) [5{/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc}]
+)
+<figures/fig3_brisbane_aoi_grid.pdf, id=420, 625.09474pt x 365.95561pt>
+File: figures/fig3_brisbane_aoi_grid.pdf Graphic file (type pdf)
+<use figures/fig3_brisbane_aoi_grid.pdf>
+Package pdftex.def Info: figures/fig3_brisbane_aoi_grid.pdf  used on input line
+ 9.
+(pdftex.def)             Requested size: 494.50888pt x 289.51497pt.
+
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmss.fd)
-Underfull \hbox (badness 1783) in paragraph at lines 36--37
+Underfull \hbox (badness 1783) in paragraph at lines 43--44
 \T1/stix/m/n/10 the Coper-ni-cus Emer-gency Man-age-ment Ser-vice Rapid
  []
 
-[6
-pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
- been already used, duplicate ignored
+[7
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
+s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.41 
-     
-pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.41 
-     {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}])
-(./sections/06_results.tex
-Underfull \hbox (badness 1430) in paragraph at lines 9--10
+l.48 
+     {/usr/share/texlive/texmf-dist/fonts/enc/dvips/stix/stix-ts1.enc} <./figur
+es/fig3_brisbane_aoi_grid.pdf>]) (./sections/06_results.tex
+<figures/fig9_composite_summary_panel.pdf, id=547, 787.52654pt x 605.0423pt>
+File: figures/fig9_composite_summary_panel.pdf Graphic file (type pdf)
+<use figures/fig9_composite_summary_panel.pdf>
+Package pdftex.def Info: figures/fig9_composite_summary_panel.pdf  used on inpu
+t line 9.
+(pdftex.def)             Requested size: 494.50888pt x 379.93231pt.
+
+Underfull \hbox (badness 1430) in paragraph at lines 16--17
 []\T1/stix/m/n/10 Table [][]4[][] presents the mas-ter bench-mark com-par-i-son
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--26
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
 []|\T1/cmss/bx/n/9 AEGIS-SL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--26
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
 []|\T1/cmss/m/n/9 BL2 ---
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--26
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
 \T1/cmss/m/n/9 mono-lithic
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--26
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
 \T1/cmss/m/n/9 raw-feature
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--26
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
 \T1/cmss/m/n/9 arbitrated
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 26--26
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
 \T1/cmss/m/n/9 (Qwen2.5-3B-
  []
 
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 55.
+[8
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.37 
+     {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [9
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.37 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.37 
+      <./figures/fig9_composite_summary_panel.pdf>]
+<figures/fig5_calibration_reliability.pdf, id=665, 433.62pt x 361.35pt>
+File: figures/fig5_calibration_reliability.pdf Graphic file (type pdf)
+<use figures/fig5_calibration_reliability.pdf>
+Package pdftex.def Info: figures/fig5_calibration_reliability.pdf  used on inpu
+t line 40.
+(pdftex.def)             Requested size: 238.25444pt x 198.54462pt.
+<figures/fig6_per_class_recall.pdf, id=668, 542.025pt x 325.215pt>
+File: figures/fig6_per_class_recall.pdf Graphic file (type pdf)
+<use figures/fig6_per_class_recall.pdf>
+Package pdftex.def Info: figures/fig6_per_class_recall.pdf  used on input line 
+71.
+(pdftex.def)             Requested size: 238.25444pt x 142.95113pt.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 76.
+<figures/fig4_monotonic_u_progression.pdf, id=673, 505.89pt x 325.215pt>
+File: figures/fig4_monotonic_u_progression.pdf Graphic file (type pdf)
+<use figures/fig4_monotonic_u_progression.pdf>
+Package pdftex.def Info: figures/fig4_monotonic_u_progression.pdf  used on inpu
+t line 102.
+(pdftex.def)             Requested size: 238.25444pt x 153.1637pt.
 
-Underfull \hbox (badness 1502) in paragraph at lines 81--82
+Underfull \hbox (badness 1502) in paragraph at lines 109--110
 \T1/stix/m/n/10 board re-turn the full man-i-fest: agent iden-tity, ev-i-dence
  []
 
+[10
+pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.110 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.110 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.110 
+       <./figures/fig5_calibration_reliability.pdf> <./figures/fig6_per_class_r
+ecall.pdf>]
+<figures/fig7_agent_credibility_trajectory.pdf, id=856, 578.16pt x 325.215pt>
+File: figures/fig7_agent_credibility_trajectory.pdf Graphic file (type pdf)
+<use figures/fig7_agent_credibility_trajectory.pdf>
+Package pdftex.def Info: figures/fig7_agent_credibility_trajectory.pdf  used on
+ input line 132.
+(pdftex.def)             Requested size: 238.25444pt x 134.01389pt.
 
-Overfull \hbox (1.46635pt too wide) in paragraph at lines 102--103
+Overfull \hbox (1.46635pt too wide) in paragraph at lines 137--138
 []\T1/stix/m/n/10 Per-source con-tri-bu-tion to the fused opin-ion, sum-marised
 
  []
 
 
-Overfull \hbox (4.6255pt too wide) in paragraph at lines 102--103
+Overfull \hbox (4.6255pt too wide) in paragraph at lines 137--138
 \T1/stix/m/n/10 places satel-lite im-agery (41.2%) and cli-mate fore-casts (28.
 4%)
  []
 
-[7] [8
-pdfTeX warning (ext4): destination with the same identifier (name{table.4}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.103 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{table.5}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.103 
-      
+[11
 pdfTeX warning (ext4): destination with the same identifier (name{table.6}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.103 
+l.138 
       
 pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.103 
-      ]) (./sections/07_conclusion.tex
+l.138 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.138 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.138 
+       <./figures/fig4_monotonic_u_progression.pdf> <./figures/fig7_agent_credi
+bility_trajectory.pdf>]
+<figures/fig8_source_contribution_distribution.pdf, id=1038, 433.62pt x 361.35p
+t>
+File: figures/fig8_source_contribution_distribution.pdf Graphic file (type pdf)
+
+<use figures/fig8_source_contribution_distribution.pdf>
+Package pdftex.def Info: figures/fig8_source_contribution_distribution.pdf  use
+d on input line 141.
+(pdftex.def)             Requested size: 202.51772pt x 168.76485pt.
+) (./sections/07_conclusion.tex
 Underfull \hbox (badness 1484) in paragraph at lines 9--10
 []\T1/stix/m/n/10 The frame-work is cur-rently single-event: the eval-u-
  []
@@ -1215,13 +1328,19 @@ Overfull \hbox (6.9047pt too wide) in paragraph at lines 9--10
 meter
  []
 
-) [9
+[12
 pdfTeX warning (ext4): destination with the same identifier (name{table.8}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.86 
-     ] (./main.bbl
+l.14 
+     
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.14 
+      <./figures/fig8_source_contribution_distribution.pdf>]) (./main.bbl
 Underfull \hbox (badness 1365) in paragraph at lines 65--71
 []\T1/stix/m/n/8 C. Lee, V. Para-manayakam, A. Karatzas, C. Karak-izi, N. Dim-i
 triou,
@@ -1251,7 +1370,7 @@ Underfull \hbox (badness 1210) in paragraph at lines 98--105
 n and man-
  []
 
-) [10] (./main.aux)
+) [13] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -1260,31 +1379,32 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 18899 strings out of 476182
- 299057 string characters out of 5795595
- 1963975 words of memory out of 5000000
- 40469 multiletter control sequences out of 15000+600000
- 686912 words of font info for 229 fonts, out of 8000000 for 9000
+ 19021 strings out of 476182
+ 303297 string characters out of 5795595
+ 1964975 words of memory out of 5000000
+ 40578 multiletter control sequences out of 15000+600000
+ 698176 words of font info for 251 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,12n,93p,2192b,489s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,12n,93p,2192b,512s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4
 r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Regular.pf
-b></usr/share/texmf/fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/
-fonts/type1/public/cm-super/sfsx0900.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/stix/stix-mathbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/stix/stix-mathcal.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/sti
-x/stix-mathex.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-m
-athit-bold.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-math
-it.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on main.pdf (10 pages, 313808 bytes).
+b></usr/share/texmf/fonts/type1/public/cm-super/sfss0800.pfb></usr/share/texmf/
+fonts/type1/public/cm-super/sfss0900.pfb></usr/share/texmf/fonts/type1/public/c
+m-super/sfsx0900.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/sti
+x-mathbb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathca
+l.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathex.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit-bold.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/stix/stix-mathit.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/stix/stix-mathsf.pfb>
+Output written on main.pdf (13 pages, 578579 bytes).
 PDF statistics:
- 360 PDF objects out of 1000 (max. 8388607)
- 312 compressed objects within 4 object streams
- 82 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1263 PDF objects out of 1440 (max. 8388607)
+ 434 compressed objects within 5 object streams
+ 94 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

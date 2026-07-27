@@ -18,6 +18,13 @@ P(x_k) = b_k + a_k \cdot u
 
 which reduces to a standard probability vector when $u = 0$ and to a diffuse vacuous distribution as $u \to 1$.
 
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig2_opinion_pipeline.pdf}
+\caption{\textbf{Subjective Logic Opinion Mapping \& Partial Projection Pipeline.} Bijective transformation from Dirichlet evidence parameters $\boldsymbol{\alpha} = (\alpha_1, \alpha_2, \alpha_3, \alpha_4)$ onto opinion tuple $\omega = (\mathbf{b}, u, \mathbf{a})$ and projected expected probability $P(x_k) = b_k + a_k \cdot u$. When a modality drops, the partial-observable projection rule ($\alpha_k^{\text{proj}} = C \cdot a_k$) forces belief mass $b_k \to 0$ and raises epistemic uncertainty $u \to 1.0$ monotonically.}
+\label{fig:opinion_pipeline}
+\end{figure*}
+
 \subsection{Partial-observable projection}
 
 When a sensor or modality yields no observation, the agent formally projects its evidence onto the unobserved dimensions rather than imputing synthetic values. Following the projection rule of \citet{kaplan2015partial}, the projected Dirichlet parameters are $\alpha_k^{\text{proj}} = C \cdot a_k$. This forces $b_k \to 0$ for all $k$ and $u \to 1.0$, yielding the monotonicity property that the AEGIS framework exploits throughout:
@@ -26,7 +33,7 @@ When a sensor or modality yields no observation, the agent formally projects its
 \noindent\textbf{Theorem.} \textit{When an observing agent loses one or more modalities, the projected epistemic uncertainty $u$ is a strictly non-decreasing function of the count of missing modalities \citep{kaplan2015partial, vanderheijden2018multisource}.}
 \vspace{0.3em}
 
-Operationally, this guarantee means missing data produces auditable quantification rather than silent hallucination --- every dropout event is detectable through a monotonic $u$ increase recorded in the provenance ledger, and is therefore distinguishable from confident-but-wrong prediction patterns.
+Operationally, this guarantee means missing data produces auditable quantification rather than silent hallucination --- every dropout event is detectable through a monotonic $u$ increase recorded in the provenance ledger, and is therefore distinguishable from confident-but-wrong prediction patterns. Figure~\ref{fig:opinion_pipeline} illustrates this mapping pipeline visually.
 
 \subsection{Multi-source fusion: WBF and CCF}
 

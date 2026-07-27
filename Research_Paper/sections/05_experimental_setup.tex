@@ -4,6 +4,13 @@
 
 The evaluation is anchored on the Brisbane February--March 2022 south-east Queensland flood event, an Australian Insurance Council Class-A national disaster and a canonical benchmark for the recent agentic environmental-AI literature. The Area of Interest spans 152.5°E--153.5°E and 27°S--28°S, covering the metropolitan flood-prone river corridors of the Brisbane River and its tributaries. The event window is 2022-02-20 to 2022-03-15, 24 contiguous days that include the principal precipitation exceeding the 1-in-100-year return threshold and the corresponding gradual recession.
 
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/fig3_brisbane_aoi_grid.pdf}
+\caption{\textbf{Brisbane Study Area, Spatial Substrate Grid, and 24-Day Event Timeline.} Spatial grid discretisation across the Brisbane Metropolitan AOI ($152.5^\circ\text{E}\text{--}153.5^\circ\text{E}, 27^\circ\text{S}\text{--}28^\circ\text{S}$) over 200 regular cells with 12 BOM ALERT gauge stations overlaid. Lower panel displays the 24-day precipitation timeline (2022-02-20 to 2022-03-15) highlighting the 1-in-100-year peak rainfall event (Feb 24--27).}
+\label{fig:brisbane_grid_timeline}
+\end{figure*}
+
 \subsection{Spatial-temporal substrate and dataset manifest}
 
 The spatial substrate is discretised into a regular grid of 200 cells $\times$ 24 daily time stamps, yielding 4,800 spatio-temporal instances per evaluation run. The dataset ingest manifest is summarised in Table~\ref{tab:dataset_manifest}.
@@ -33,7 +40,7 @@ EMSR + GFD v1.1 labels & Copernicus EMSR / GFD & 90 m & event-day & 442 polygons
 
 \subsection{Ground-truth derivation}
 
-The realised four-state label per cell-day is derived from the Copernicus Emergency Management Service Rapid Mapping and the Global Flood Database v1.1. Each cell receives a $y \in \{\text{dry}, \text{saturated}, \text{surface}, \text{inundation}\}$ class determined by an offline assignment procedure that intersects the cell with EMSR/GFD polygons and propagates class membership through the daily inset map. Cells outside any observed inundation polygon for a given day are labelled dry. Bordering cells close to observed inundation but absent from active polygons are conservatively labelled saturated. The 442 EMSR/GFD polygons cleanly identify the realised inundation timeline \citep{hofmeister2023cross, hofmeister2024semantic}.
+The realised four-state label per cell-day is derived from the Copernicus Emergency Management Service Rapid Mapping and the Global Flood Database v1.1. Each cell receives a $y \in \{\text{dry}, \text{saturated}, \text{surface}, \text{inundation}\}$ class determined by an offline assignment procedure that intersects the cell with EMSR/GFD polygons and propagates class membership through the daily inset map. Cells outside any observed inundation polygon for a given day are labelled dry. Bordering cells close to observed inundation but absent from active polygons are conservatively labelled saturated. The 442 EMSR/GFD polygons cleanly identify the realised inundation timeline \citep{hofmeister2023cross, hofmeister2024semantic}. Figure~\ref{fig:brisbane_grid_timeline} illustrates the geographic boundary, grid overlay, and 24-day precipitation timeline.
 
 \subsection{Baselines}
 
