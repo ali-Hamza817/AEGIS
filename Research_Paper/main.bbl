@@ -1,4 +1,4 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{19}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -68,13 +68,6 @@ C.~Lee, V.~Paramanayakam, A.~Karatzas, C.~Karakizi, N.~Dimitriou, A.~Tzotskou,
 \newblock In \emph{Proceedings of IEEE International Geoscience and Remote
   Sensing Symposium (IGARSS)}, 2025.
 \newblock \doi{10.1109/igarss55030.2025.11243915}.
-
-\bibitem[Li et~al.(2024)Li, He, Xu, and Tian]{li2024adaptive}
-Shuang Li, Chen He, Xiang Xu, and Qi~Tian.
-\newblock Adaptive uncertainty-based learning for text-based person retrieval.
-\newblock In \emph{Proceedings of the AAAI Conference on Artificial
-  Intelligence}, volume~38, pages 3450--3458, 2024.
-\newblock \doi{10.1609/aaai.v38i4.28101}.
 
 \bibitem[Liu et~al.(2025)Liu, Gao, Shi, Wang, Zheng, Zhang, and
   Shen]{liu2025merit}

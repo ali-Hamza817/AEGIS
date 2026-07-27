@@ -3,48 +3,47 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: references.bib
-Warning--can't use both volume and number fields in li2024adaptive
 Warning--can't use both volume and number fields in palancacantonjos2026agroaskai
 Warning--can't use both volume and number fields in sun2024t2mac
-You've used 20 entries,
+You've used 19 entries,
             2773 wiz_defined-function locations,
-            719 strings with 9560 characters,
-and the built_in function-call counts, 11939 in all, are:
-= -- 1033
-> -- 886
-< -- 13
-+ -- 296
-- -- 276
-* -- 1032
-:= -- 1841
-add.period$ -- 78
-call.type$ -- 20
-change.case$ -- 152
-chr.to.int$ -- 20
-cite$ -- 43
-duplicate$ -- 496
-empty$ -- 817
-format.name$ -- 302
-if$ -- 2498
+            714 strings with 9395 characters,
+and the built_in function-call counts, 11199 in all, are:
+= -- 963
+> -- 847
+< -- 11
++ -- 283
+- -- 264
+* -- 970
+:= -- 1742
+add.period$ -- 74
+call.type$ -- 19
+change.case$ -- 145
+chr.to.int$ -- 19
+cite$ -- 40
+duplicate$ -- 461
+empty$ -- 760
+format.name$ -- 289
+if$ -- 2333
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 20
-newline$ -- 126
-num.names$ -- 80
-pop$ -- 291
+missing$ -- 19
+newline$ -- 120
+num.names$ -- 76
+pop$ -- 277
 preamble$ -- 1
-purify$ -- 132
+purify$ -- 126
 quote$ -- 0
-skip$ -- 433
+skip$ -- 400
 stack$ -- 0
-substring$ -- 339
-swap$ -- 97
-text.length$ -- 9
+substring$ -- 297
+swap$ -- 82
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 220
-warning$ -- 3
-while$ -- 84
+type$ -- 209
+warning$ -- 2
+while$ -- 78
 width$ -- 0
-write$ -- 299
-(There were 3 warnings)
+write$ -- 283
+(There were 2 warnings)
