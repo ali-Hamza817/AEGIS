@@ -1,4 +1,4 @@
-\section{AEGIS Architecture}
+\section{AEGIS Architecture}\label{sec:architecture}
 
 \subsection{End-to-end pipeline}
 
@@ -13,7 +13,7 @@ The AEGIS pipeline ingests multi-source environmental streams, routes them throu
 
 \subsection{Data ingestion substrate}
 
-A canonical DuckDB 1.1 warehouse materialises nine relational tables --- \texttt{climate\_daily}, \texttt{satellite\_sar}, \texttt{satellite\_optical}, \texttt{landcover\_static}, \texttt{dem\_static}, \texttt{airquality\_hourly}, \texttt{gauges\_hourly}, \texttt{bulletins\_json}, and \texttt{opinions\_log} --- each keyed by (\texttt{cell\_id}, \texttt{timestamp}). Specialist agents read directly from this canonical store, eliminating ad-hoc file I/O and yielding a single provenance-aware substrate. Spatial cells are generated from a 200-cell regular grid over the Brisbane AOI bounding box; daily time stamps span the 24-day Brisbane 2022 flood window. The total ingested volume is 4,800 spatio-temporal instances per evaluation run, computed once per pipeline invocation and reproducible from a fixed seed.
+A canonical DuckDB 1.1 warehouse materialises nine relational tables (\texttt{climate\_daily}, \texttt{satellite\_sar}, \texttt{satellite\_optical}, \texttt{landcover\_static}, \texttt{dem\_static}, \texttt{airquality\_hourly}, \texttt{gauges\_hourly}, \texttt{bulletins\_json}, and \texttt{opinions\_log}), each keyed by (\texttt{cell\_id}, \texttt{timestamp}). Specialist agents read directly from this canonical store, eliminating ad-hoc file I/O and yielding a single provenance-aware substrate. Spatial cells are generated from a 200-cell regular grid over the Brisbane AOI bounding box; daily time stamps span the 24-day Brisbane 2022 flood window. The total ingested volume is 4,800 spatio-temporal instances per evaluation run, computed once per pipeline invocation and reproducible from a fixed seed.
 
 \subsection{Specialist agent catalog}
 
@@ -38,7 +38,7 @@ Document Intelligence (D) & Hydrological bulletins & SentenceTransformer embeddi
 \end{tabularx}
 \end{table*}
 
-Climate, Satellite, Land-Cover and Air-Quality agents emit a Dirichlet posterior over the four states; the Document agent emits a soft categorical verdict that is converted to a four-state opinion through the same base-rate prior for algebra compatibility. Each agent independently computes its evidence weight $C$ and is responsible for the partial-observable projection when its modality is unavailable --- a property that propagates the monotone-$u$ invariant downstream without further coordination \citep{kaplan2015partial}.
+Climate, Satellite, Land-Cover and Air-Quality agents emit a Dirichlet posterior over the four states; the Document agent emits a soft categorical verdict that is converted to a four-state opinion through the same base-rate prior for algebra compatibility. Each agent independently computes its evidence weight $C$ and is responsible for the partial-observable projection when its modality is unavailable, a property that propagates the monotone-$u$ invariant downstream without further coordination \citep{kaplan2015partial}.
 
 \subsection{SL coordinator and routing logic}
 

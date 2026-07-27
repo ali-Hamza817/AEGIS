@@ -1,4 +1,4 @@
-\section{Mathematical Foundations}
+\section{Mathematical Foundations}\label{sec:math_foundations}
 
 \subsection{Opinion algebra and Dirichlet bijection}
 
@@ -33,7 +33,7 @@ When a sensor or modality yields no observation, the agent formally projects its
 \noindent\textbf{Theorem.} \textit{When an observing agent loses one or more modalities, the projected epistemic uncertainty $u$ is a strictly non-decreasing function of the count of missing modalities \citep{kaplan2015partial, vanderheijden2018multisource}.}
 \vspace{0.3em}
 
-Operationally, this guarantee means missing data produces auditable quantification rather than silent hallucination --- every dropout event is detectable through a monotonic $u$ increase recorded in the provenance ledger, and is therefore distinguishable from confident-but-wrong prediction patterns. Figure~\ref{fig:opinion_pipeline} illustrates this mapping pipeline visually.
+Operationally, this guarantee means missing data produces auditable quantification rather than silent hallucination. Every dropout event is detectable through a monotonic $u$ increase recorded in the provenance ledger, and is therefore distinguishable from confident-but-wrong prediction patterns. Figure~\ref{fig:opinion_pipeline} illustrates this mapping pipeline visually.
 
 \subsection{Multi-source fusion: WBF and CCF}
 
@@ -55,7 +55,7 @@ and the reputation is updated as
 \label{eq:credibility_update}
 \end{equation}
 
-with learning rate $\eta$ and lower bound $\gamma_{\min}$. The clipping step enforces a non-zero agent vote inside WBF weighting even when an agent has scored poorly over many rounds --- an empirically important property so an agent cannot be silently zeroed out and remove itself from disagreement-resolution channels. This dynamic reputation tracking is what differentiates the AEGIS framework from monolithic late-fusion alternatives; an unreliable agent's effective contribution to WBF decays over successive rounds without manual re-tuning \citep{wang2007formal}.
+with learning rate $\eta$ and lower bound $\gamma_{\min}$. The clipping step enforces a non-zero agent vote inside WBF weighting even when an agent has scored poorly over many rounds, which is an empirically important property ensuring an agent cannot be silently zeroed out and removed from disagreement-resolution channels. This dynamic reputation tracking differentiates the AEGIS framework from monolithic late-fusion alternatives, as an unreliable agent's effective contribution to WBF decays over successive rounds without manual re-tuning \citep{wang2007formal}.
 
 \subsection{Hybrid-head composite feature space}
 
