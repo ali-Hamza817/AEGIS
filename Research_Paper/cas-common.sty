@@ -383,7 +383,7 @@
         { \textit{Email~address:\c_space_token} }
         { \textit{Email~addresses:\c_space_token} }
       }
-      { \includegraphics[height=8pt]{thumbnails/cas-email.jpeg}\c_space_token } 
+      { \textit{Email~address:\c_space_token} } 
       \seq_use:Nn \g_stm_ead_seq { ;~ }
     }
   }
@@ -399,9 +399,7 @@
     \tex_let:D \thefootnote \relax \footnotetext
     {
       \raggedright
-      \bool_if:NTF \g_stm_nologo_bool
       { \textit{URL:\c_space_token} } 
-      { \includegraphics[height=8pt]{thumbnails/cas-url.jpeg}\c_space_token } 
       \seq_use:Nn \g_stm_uad_seq { ;~ }
     }
   }
