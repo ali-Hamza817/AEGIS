@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  30 JUL 2026 09:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  30 JUL 2026 09:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**"AEGIS-Original Manuscript.tex"
+(./AEGIS-Original Manuscript.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
 (./cas-dc.cls
@@ -714,8 +714,9 @@ LaTeX Font Info:    Trying to load font information for T1+stix on input line 3
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/t1stix.fd
 File: t1stix.fd 2015/04/17 v1.1.2-latex STIX T1 font definitions
-) (./main.aux)
-\openout1 = `main.aux'.
+)
+(./AEGIS-Original Manuscript.aux)
+\openout1 = `"AEGIS-Original Manuscript.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
 LaTeX Font Info:    ... okay on input line 36.
@@ -786,9 +787,9 @@ LaTeX Info: Command `\dddot' is already robust on input line 36.
 LaTeX Info: Command `\ddddot' is already robust on input line 36.
 Package hyperref Info: Link coloring ON on input line 36.
 
-(./main.out) (./main.out)
+(./AEGIS-Original Manuscript.out) (./AEGIS-Original Manuscript.out)
 \@outlinefile=\write3
-\openout3 = `main.out'.
+\openout3 = `"AEGIS-Original Manuscript.out"'.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
@@ -830,7 +831,7 @@ tim
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \verbatim@out=\write4
-\openout4 = `main.abs'.
+\openout4 = `"AEGIS-Original Manuscript.abs"'.
 
 LaTeX Font Info:    Trying to load font information for LS1+stixscr on input li
 ne 78.
@@ -894,7 +895,7 @@ Overfull \hbox (123.62721pt too wide) detected at line 78
 []
  []
 
-(./main.abs)
+(./AEGIS-Original Manuscript.abs)
 
 Package hyperref Warning: Ignoring empty anchor on input line 78.
 
@@ -909,7 +910,7 @@ File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 6.80005pt on input line 78.
 
-(./sections/01_introduction.tex
+(../Research_Paper/sections/01_introduction.tex
 Underfull \hbox (badness 1048) in paragraph at lines 5--6
 \T1/stix/m/n/10 chained rea-son-ing [[][]Jiang et al.[][], [][]2026[][]]. Remot
 e-sensing-
@@ -946,7 +947,7 @@ f-dist/fonts/enc/dvips/stix/stix-t1.enc}
 
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}{/usr/sh
 are/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}])
-(./sections/02_related_work.tex
+(../Research_Paper/sections/02_related_work.tex
 Underfull \hbox (badness 2158) in paragraph at lines 11--12
 []\T1/stix/m/n/10 The agen-tic environmental-AI wave ac-cel-er-ated be-
  []
@@ -1037,7 +1038,7 @@ Underfull \hbox (badness 5077) in paragraph at lines 45--45
 []|\T1/cmss/m/n/9 Prompt-chained ar-bi-tra-tion; minority-class
  []
 
-) (./sections/03_mathematical_foundations.tex
+) (../Research_Paper/sections/03_mathematical_foundations.tex
 <figures/fig2_opinion_pipeline.pdf, id=122, 788.50334pt x 268.2653pt>
 File: figures/fig2_opinion_pipeline.pdf Graphic file (type pdf)
 <use figures/fig2_opinion_pipeline.pdf>
@@ -1055,7 +1056,7 @@ Overfull \hbox (7.07556pt too wide) in paragraph at lines 62--63
 l
  []
 
-) (./sections/04_aegis_architecture.tex [3] [4
+) (../Research_Paper/sections/04_aegis_architecture.tex [3] [4
 pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1135,7 +1136,7 @@ Underfull \hbox (badness 1117) in paragraph at lines 49--50
 \T1/stix/m/n/10 depth re-gres-sor shar-ing the same in-put. The com-pos-ite
  []
 
-) (./sections/05_experimental_setup.tex
+) (../Research_Paper/sections/05_experimental_setup.tex
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
 5.
 
@@ -1174,7 +1175,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
                                                   \__shipout_drop_firstpage_...
 l.48 
      {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./figures/fi
-g3_brisbane_aoi_grid.pdf>]) (./sections/06_results.tex
+g3_brisbane_aoi_grid.pdf>]) (../Research_Paper/sections/06_results.tex
 <figures/fig9_composite_summary_panel.pdf, id=390, 787.73863pt x 606.2487pt>
 File: figures/fig9_composite_summary_panel.pdf Graphic file (type pdf)
 <use figures/fig9_composite_summary_panel.pdf>
@@ -1321,7 +1322,7 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.149 
        <./figures/fig5_calibration_reliability.pdf> <./figures/fig6_per_class_r
-ecall.pdf>]) (./sections/07_conclusion.tex [11
+ecall.pdf>]) (../Research_Paper/sections/07_conclusion.tex [11
 pdfTeX warning (ext4): destination with the same identifier (name{table.7}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -1347,7 +1348,7 @@ s been already used, duplicate ignored
 l.6 
      <./figures/fig4_monotonic_u_progression.pdf> <./figures/fig7_agent_credibi
 lity_trajectory.pdf> <./figures/fig8_source_contribution_distribution.pdf>])
-(./sections/08_declarations.tex
+(../Research_Paper/sections/08_declarations.tex
 Underfull \hbox (badness 2181) in paragraph at lines 4--5
 \T1/stix/m/n/10 Sentinel-1/2 remote-sensing im-agery, ESA World-Cover,
  []
@@ -1363,7 +1364,7 @@ Overfull \hbox (4.72632pt too wide) in paragraph at lines 10--11
 repa-
  []
 
-) (./main.bbl
+) (./AEGIS-Original Manuscript.bbl
 Underfull \hbox (badness 1365) in paragraph at lines 65--71
 []\T1/stix/m/n/8 C. Lee, V. Para-manayakam, A. Karatzas, C. Karak-izi, N. Dim-i
 triou,
@@ -1401,22 +1402,27 @@ n and man-
 
 ) [13
 
-] (./main.aux)
+] (./AEGIS-Original Manuscript.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-Package rerunfilecheck Info: File `main.out' has not changed.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package rerunfilecheck Info: File `"AEGIS-Original Manuscript".out' has not cha
+nged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19036 strings out of 476182
- 303459 string characters out of 5795595
+ 19040 strings out of 476182
+ 304943 string characters out of 5795595
  1964975 words of memory out of 5000000
- 40587 multiletter control sequences out of 15000+600000
+ 40591 multiletter control sequences out of 15000+600000
  698176 words of font info for 251 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 90i,12n,93p,2185b,595s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,12n,93p,2208b,595s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4
 r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Bold.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/stix/STIXGeneral-Italic.pf
@@ -1432,7 +1438,7 @@ exlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on main.pdf (13 pages, 517599 bytes).
+Output written on "AEGIS-Original Manuscript.pdf" (13 pages, 517599 bytes).
 PDF statistics:
  1038 PDF objects out of 1200 (max. 8388607)
  460 compressed objects within 5 object streams

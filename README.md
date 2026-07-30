@@ -7,8 +7,8 @@
 [![FastAPI Service](https://img.shields.io/badge/API-FastAPI-009688.svg)](src/api/)
 
 > **Official Open-Source Implementation of the Research Manuscript:**  
-> *Evidential Multi-Agent Orchestration for Multimodal Urban Flood Risk Assessment: A Subjective Logic Framework with Provenance-Aware Explanations*  
-> **Target Journal:** *Expert Systems with Applications* (ESWA), Elsevier B.V.
+> *AEGIS: Evidential Multi-Agent Orchestration for Multimodal Urban Flood Risk Assessment: A Subjective Logic Framework with Provenance-Aware Explanations*  
+> **Target Journal:** *International Journal of Disaster Risk Reduction* (IJDRR), Elsevier B.V. (Impact Factor: 4.8, CiteScore 9.1)
 
 ---
 
@@ -36,43 +36,19 @@ Operational flood decision-support systems must fuse heterogeneous multi-modal s
 
 ---
 
-## 🏗 System Design & Pipeline Flow
-
-The AEGIS processing pipeline operates over discretised spatio-temporal grid cells (e.g., $200 \text{ cells} \times 24 \text{ days} = 4,800 \text{ instances}$):
-
-1. **Ingestion Layer**: Ingests ERA5 daily climate, Sentinel-1 SAR (VV/VH), Sentinel-2 optical (NDWI/NDVI), ESA WorldCover, Copernicus DEM GLO-30, OpenAQ PM2.5, BOM gauge precipitation, and hydrological bulletin NLP embeddings into a unified DuckDB substrate.
-2. **Specialist Agent Emission**: Five domain agents independently evaluate their input channels and emit Dirichlet evidence vectors $\boldsymbol{\alpha}_i$, mapped bijectively onto opinion tuples $\omega_i = (\mathbf{b}_i, u_i, \mathbf{a})$.
-3. **Partial-Observable Projection**: If an agent experiences a modality dropout, it projects evidence to force belief mass to zero and epistemic uncertainty to $1.0$.
-4. **SL Coordinator Routing**: Computes inter-agent agreement using maximum pairwise JS divergence. Routes to CCF for consensus or WBF for credibility-weighted compromise.
-5. **Hybrid Prediction**: Concatenates fused opinion $[\mathbf{b} \mid u \mid \mathbf{a}]$ with raw feature channels into a 27-dimensional feature vector fed to LightGBM.
-6. **Provenance Logging & Dashboard**: Persists all intermediate states to `opinions_log` in DuckDB, powering spatial grid rendering and per-cell evidence share audits on the Leaflet dashboard.
-
----
-
-## 📊 Empirical Benchmarks (Brisbane 2022 Fold)
-
-Evaluated on the benchmark **Brisbane February--March 2022 flood event** ($200 \text{ spatial cells} \times 24 \text{ daily steps} = 4,800 \text{ cell-day instances}$):
-
-| Method | F1-Macro | F1-Weighted | AUROC (ovr) | ECE (10-bin) | Latency (s) | RAM Peak (MB) |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **AEGIS-SL (Full Proposed)** | **0.7190** | **0.7240** | **0.9310** | **0.043** | **14.7** | **612** |
-| **BL2** (Monolithic Late Fusion) | 0.7106 | 0.7150 | 0.9189 | 0.087 | 11.2 | 588 |
-| **BL1** (ERA5-Only LightGBM) | 0.5880 | 0.6210 | 0.7820 | 0.214 | 2.1 | 248 |
-| **BL3** (LLM-Arbitrated Qwen2.5-3B) | 0.6238 | 0.6891 | 0.8410 | N/A *(Non-prob)* | 86.4 | 1,820 |
-
-### Key Experimental Findings & Hypotheses
-- **H1 (Benchmark Accuracy & Calibration)**: AEGIS-SL matches monolithic accuracy ($0.7190$ vs $0.7106$ F1-Macro) while yielding a **50.6% reduction in calibration error** (ECE $0.043$ vs $0.087$).
-- **H2 (LLM Minority-Class Collapse)**: Prompt-chained LLM arbitration (BL3) collapses on minority flood states (saturated recall $0.21$, surface flow $0.09$, inundation $0.18$), whereas AEGIS-SL maintains strong recall across all categories ($0.61$, $0.52$, $0.73$).
-- **H3 (Missing-Modality Monotonicity)**: Epistemic uncertainty $u$ rises strictly monotonically as modalities drop ($0.12 \to 0.34 \to 0.61 \to 0.83$ for 0, 1, 2, 3 dropped modalities), verifying Theorem 1.
-- **H4 (Provenance & Credibility)**: Agent reputations converge within 7 days (Satellite $0.91$, Climate $0.86$, Document $0.81$, Land-Cover $0.78$, Air-Quality $0.74$), enabling auditable source contribution attribution.
-
----
-
-## 📂 Repository Structure
+## 📁 Repository Structure
 
 ```
 Multi Eco Agent/
-├── Research_Paper/                       # Complete LaTeX source, figures & compiled PDF
+├── New Submission/                       # Camera-ready Submission Package (IJDRR)
+│   ├── AEGIS-Original Manuscript.pdf     # Full original manuscript with author details
+│   ├── AEGIS-Anonymous Manuscript.pdf    # Blinded manuscript for double-blind review
+│   ├── AEGIS-Title Page.pdf              # Official title page & CRediT statement
+│   ├── AEGIS-Cover Letter.pdf            # Cover letter to IJDRR Editor-in-Chief
+│   ├── AEGIS-Highlights.pdf              # Research highlights (3-5 bullets)
+│   ├── AEGIS-Declaration of Interest.pdf # Competing interest declaration
+│   └── AEGIS-ORCID Information.pdf       # Verified author ORCIDs
+├── Research_Paper/                       # LaTeX source, figures & recompiled PDF
 │   ├── main.tex                          # Primary LaTeX document
 │   ├── references.bib                    # Complete BibTeX bibliography
 │   ├── cas-dc.cls / cas-common.sty       # Elsevier CAS journal template
@@ -87,30 +63,12 @@ Multi Eco Agent/
 │   └── run_pipeline.py                   # Master evaluation harness (data generation & benchmark runner)
 ├── src/
 │   ├── sl/                               # Core Subjective Logic Engine
-│   │   ├── opinion.py                    # Dirichlet bijection & opinion algebra
-│   │   ├── fusion.py                     # WBF and CCF multi-source fusion operators
-│   │   ├── partial_obs.py                # Kaplan partial-observable projection engine
-│   │   └── credibility.py                # Online Brier-score credibility tracker
 │   ├── agents/                           # 5 Specialist Evidential Agents
-│   │   ├── base.py                       # Abstract base agent & provenance record schema
-│   │   ├── climate_agent.py              # ERA5 climate agent
-│   │   ├── satellite_agent.py            # Sentinel-1 SAR & Sentinel-2 optical agent
-│   │   ├── landcover_agent.py            # ESA WorldCover & DEM terrain agent
-│   │   ├── airquality_agent.py           # OpenAQ PM2.5 & gauge sensor agent
-│   │   └── docint_agent.py               # Hydrological bulletin NLP agent
-│   ├── coordinator/
-│   │   └── orchestrator.py               # Deterministic SL Routing Orchestrator
-│   ├── ingestion/
-│   │   ├── duckdb_schema.py              # Canonical DuckDB warehouse schema
-│   │   └── synthetic_generator.py        # Spatio-temporal dataset generator
-│   ├── prediction/
-│   │   ├── evidential_head.py            # Hybrid LightGBM evidential classifier
-│   │   └── baselines.py                  # Single-modality, monolithic, and LLM baselines
-│   ├── eval/
-│   │   ├── metrics.py                    # Benchmark evaluation metrics (F1, AUROC, ECE)
-│   │   └── ablations.py                  # Mechanistic 2x2 ablation runners
-│   └── api/
-│       └── app.py                        # FastAPI REST service & security middleware
+│   ├── coordinator/                      # Deterministic SL Routing Orchestrator
+│   ├── ingestion/                        # DuckDB warehouse schema & synthetic generator
+│   ├── prediction/                       # Hybrid LightGBM classifier & baselines
+│   ├── eval/                             # Evaluation metrics & ablations
+│   └── api/                              # FastAPI REST service
 ├── web/
 │   └── public/index.html                 # Leaflet spatial grid & provenance UI dashboard
 ├── tests/
@@ -123,45 +81,16 @@ Multi Eco Agent/
 
 ---
 
-## 💻 Quickstart Guide
+## 📊 Empirical Benchmarks (Brisbane 2022 Fold)
 
-### 1. Requirements & Installation
+Evaluated on the benchmark **Brisbane February--March 2022 flood event** ($200 \text{ spatial cells} \times 24 \text{ daily steps} = 4,800 \text{ cell-day instances}$):
 
-Clone the repository and install dependencies:
-
-```bash
-git clone https://github.com/ali-Hamza817/AEGIS.git
-cd AEGIS
-pip install duckdb numpy pandas scipy scikit-learn lightgbm fastapi uvicorn pydantic pyyaml pytest
-```
-
-### 2. Execute Test Suite (34/34 Tests Passing)
-
-Verify Subjective Logic operator correctness, projection monotonicity, and pipeline integration:
-
-```bash
-python -m pytest tests/ -v
-```
-
-### 3. Run Benchmark Evaluation Pipeline
-
-Execute the full 4,800 cell-day experiment runner:
-
-```bash
-python experiments/run_pipeline.py --n-cells 200 --seed 42
-```
-
-### 4. Launch FastAPI REST Server & Dashboard
-
-Start the FastAPI service on port 8085:
-
-```bash
-python -m uvicorn src.api.app:app --host 0.0.0.0 --port 8085
-```
-
-- 🌐 **Interactive Dashboard**: `http://localhost:8085/`
-- 📖 **FastAPI Swagger Docs**: `http://localhost:8085/docs`
-- 🩺 **System Health Check**: `http://localhost:8085/health`
+| Method | F1-Macro | F1-Weighted | AUROC (ovr) | ECE (10-bin) | Latency (s) | RAM Peak (MB) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **AEGIS-SL (Full Proposed)** | **0.7190** | **0.7240** | **0.9310** | **0.043** | **14.7** | **612** |
+| **BL2** (Monolithic Late Fusion) | 0.7106 | 0.7150 | 0.9189 | 0.087 | 11.2 | 588 |
+| **BL1** (ERA5-Only LightGBM) | 0.5880 | 0.6210 | 0.7820 | 0.214 | 2.1 | 248 |
+| **BL3** (LLM-Arbitrated Qwen2.5-3B) | 0.6238 | 0.6891 | 0.8410 | N/A *(Non-prob)* | 86.4 | 1,820 |
 
 ---
 
@@ -185,9 +114,9 @@ If you find AEGIS useful in your research, please cite our manuscript:
 
 ```bibtex
 @article{hamza2026aegis,
-  title     = {Evidential Multi-Agent Orchestration for Multimodal Urban Flood Risk Assessment: A Subjective Logic Framework with Provenance-Aware Explanations},
+  title     = {AEGIS: Evidential Multi-Agent Orchestration for Multimodal Urban Flood Risk Assessment: A Subjective Logic Framework with Provenance-Aware Explanations},
   author    = {Hamza, Ali and Mujtaba, Ghulam},
-  journal   = {Expert Systems with Applications},
+  journal   = {International Journal of Disaster Risk Reduction},
   year      = {2026},
   publisher = {Elsevier B.V.}
 }
