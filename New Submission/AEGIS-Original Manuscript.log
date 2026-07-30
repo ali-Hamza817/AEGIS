@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  30 JUL 2026 09:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  30 JUL 2026 09:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -834,81 +834,81 @@ tim
 \openout4 = `"AEGIS-Original Manuscript.abs"'.
 
 LaTeX Font Info:    Trying to load font information for LS1+stixscr on input li
-ne 78.
+ne 77.
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixscr.fd
 File: ls1stixscr.fd 2015/04/17 v1.1.2-latex STIX script LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixex on input lin
-e 78.
+e 77.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixex.fd
 File: ls2stixex.fd 2015/04/17 v1.1.2-latex STIX extentions LS2 font definitions
 
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 77.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 77.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixfrak on input l
-ine 78.
+ine 77.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixfrak.fd
 File: ls1stixfrak.fd 2015/04/17 v1.1.2-latex STIX fraktur LS1 font definitions
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixbb on input lin
-e 78.
+e 77.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixbb.fd
 File: ls1stixbb.fd 2015/04/17 v1.1.2-latex STIX blackboard LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixcal on input li
-ne 78.
+ne 77.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixcal.fd
 File: ls2stixcal.fd 2015/04/17 v1.1.2-latex STIX calligraphic LS2 font definiti
 ons
 )
 LaTeX Font Info:    Trying to load font information for LS1+stixsf on input lin
-e 78.
+e 77.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls1stixsf.fd
 File: ls1stixsf.fd 2015/04/17 v1.1.2-latex STIX sans-serif LS1 font definitions
 
 )
 LaTeX Font Info:    Trying to load font information for LS2+stixtt on input lin
-e 78.
+e 77.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ls2stixtt.fd
 File: ls2stixtt.fd 2015/04/17 v1.1.2-latex STIX typewriter LS2 font definitions
 
 )
-Overfull \hbox (123.62721pt too wide) detected at line 78
+Overfull \hbox (123.62721pt too wide) detected at line 77
 []
  []
 
 (./AEGIS-Original Manuscript.abs)
 
-Package hyperref Warning: Ignoring empty anchor on input line 78.
+Package hyperref Warning: Ignoring empty anchor on input line 77.
 
 
-Package hyperref Warning: Ignoring empty anchor on input line 78.
+Package hyperref Warning: Ignoring empty anchor on input line 77.
 
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 78
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 77
 .
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 6.80005pt on input line 78.
+(Font)              scaled to size 6.80005pt on input line 77.
 
 (../Research_Paper/sections/01_introduction.tex
 Underfull \hbox (badness 1048) in paragraph at lines 5--6
@@ -1408,15 +1408,19 @@ n and man-
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `"AEGIS-Original Manuscript".out' has not cha
 nged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19040 strings out of 476182
- 304943 string characters out of 5795595
- 1964975 words of memory out of 5000000
- 40591 multiletter control sequences out of 15000+600000
+ 19039 strings out of 476182
+ 304913 string characters out of 5795595
+ 1965975 words of memory out of 5000000
+ 40590 multiletter control sequences out of 15000+600000
  698176 words of font info for 251 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  90i,12n,93p,2208b,595s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1435,7 +1439,7 @@ exlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on "AEGIS-Original Manuscript.pdf" (13 pages, 517191 bytes).
+Output written on "AEGIS-Original Manuscript.pdf" (13 pages, 517148 bytes).
 PDF statistics:
  1038 PDF objects out of 1200 (max. 8388607)
  460 compressed objects within 5 object streams
