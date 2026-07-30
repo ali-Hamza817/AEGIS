@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  30 JUL 2026 09:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  30 JUL 2026 09:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -213,7 +213,7 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count278
 \l__pdf_internal_box=\box52
 )
-No file "AEGIS-ORCID Information".aux.
+(./AEGIS-ORCID Information.aux)
 \openout1 = `"AEGIS-ORCID Information.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -234,6 +234,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -294,6 +295,8 @@ File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 \everyMPtoPDFconversion=\toks23
 )) (/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
 Package hyperref Info: Link coloring ON on input line 10.
+
+(./AEGIS-ORCID Information.out) (./AEGIS-ORCID Information.out)
 \@outlinefile=\write3
 \openout3 = `"AEGIS-ORCID Information.out"'.
 
@@ -305,29 +308,22 @@ st/fonts/enc/dvips/base/8r.enc}] (./AEGIS-ORCID Information.aux)
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-
-
-Package rerunfilecheck Warning: File `"AEGIS-ORCID Information".out' has change
-d.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `"AEGIS-ORCID Information".out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+Package rerunfilecheck Info: File `"AEGIS-ORCID Information".out' has not chang
+ed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 8929 strings out of 476182
- 139298 string characters out of 5795595
+ 8937 strings out of 476182
+ 139546 string characters out of 5795595
  1926975 words of memory out of 5000000
- 30859 multiletter control sequences out of 15000+600000
+ 30861 multiletter control sequences out of 15000+600000
  568125 words of font info for 48 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  75i,5n,79p,251b,434s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/bitstrea/charter/bchri8a.pfb>
-Output written on "AEGIS-ORCID Information.pdf" (1 page, 42636 bytes).
+Output written on "AEGIS-ORCID Information.pdf" (1 page, 42090 bytes).
 PDF statistics:
  33 PDF objects out of 1000 (max. 8388607)
  23 compressed objects within 1 object stream

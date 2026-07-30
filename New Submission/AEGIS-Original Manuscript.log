@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  30 JUL 2026 09:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  30 JUL 2026 09:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -937,7 +937,7 @@ Underfull \hbox (badness 1931) in paragraph at lines 7--8
 \T1/stix/m/n/10 provenance trail ex-ists: post-hoc fea-ture at-tri-bu-tion ex-
  []
 
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 8
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 9
 .
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
@@ -1119,13 +1119,7 @@ Underfull \hbox (badness 6741) in paragraph at lines 31--31
 []|$\LS1/stix/m/it/9 ![]$ \T1/cmss/m/n/9 over bulletin-day
  []
 
-[5
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.46 
-      <./figures/fig2_opinion_pipeline.pdf>]
+
 Overfull \hbox (5.49469pt too wide) in paragraph at lines 49--50
 []\T1/stix/m/n/10 The hy-brid ev-i-den-tial head is a sin-gle Light-GBM gradien
 t-
@@ -1136,14 +1130,21 @@ Underfull \hbox (badness 1117) in paragraph at lines 49--50
 \T1/stix/m/n/10 depth re-gres-sor shar-ing the same in-put. The com-pos-ite
  []
 
-) (../Research_Paper/sections/05_experimental_setup.tex
+[5
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.50 
+      <./figures/fig2_opinion_pipeline.pdf>])
+(../Research_Paper/sections/05_experimental_setup.tex
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/stix/ts1stix.fd
 File: ts1stix.fd 2015/04/17 v1.1.2-latex STIX TS1 font definitions
 )
-<figures/fig3_brisbane_aoi_grid.pdf, id=287, 627.02383pt x 363.1054pt>
+<figures/fig3_brisbane_aoi_grid.pdf, id=288, 627.02383pt x 363.1054pt>
 File: figures/fig3_brisbane_aoi_grid.pdf Graphic file (type pdf)
 <use figures/fig3_brisbane_aoi_grid.pdf>
 Package pdftex.def Info: figures/fig3_brisbane_aoi_grid.pdf  used on input line
@@ -1407,10 +1408,6 @@ n and man-
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `"AEGIS-Original Manuscript".out' has not cha
 nged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
@@ -1438,7 +1435,7 @@ exlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on "AEGIS-Original Manuscript.pdf" (13 pages, 517599 bytes).
+Output written on "AEGIS-Original Manuscript.pdf" (13 pages, 517191 bytes).
 PDF statistics:
  1038 PDF objects out of 1200 (max. 8388607)
  460 compressed objects within 5 object streams

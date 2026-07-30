@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  30 JUL 2026 09:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.5)  30 JUL 2026 09:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -939,7 +939,8 @@ File: t1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 f-dist/fonts/enc/dvips/stix/stix-t1.enc}
 
 
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}])
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}{/usr/sh
+are/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}])
 (../Research_Paper/sections/02_related_work.tex
 Underfull \hbox (badness 2158) in paragraph at lines 11--12
 []\T1/stix/m/n/10 The agen-tic environmental-AI wave ac-cel-er-ated be-
@@ -976,7 +977,7 @@ Underfull \hbox (badness 1540) in paragraph at lines 11--12
 \T1/stix/m/n/10 modality han-dling, per-agent cred-i-bil-ity, or source-level
  []
 
-[2{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+[2]
 Underfull \hbox (badness 1043) in paragraph at lines 45--45
 []|\T1/cmss/m/n/9 First for-mal ar-gu-men-ta-tion scheme fus-ing
  []
@@ -1038,7 +1039,19 @@ File: figures/fig2_opinion_pipeline.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/fig2_opinion_pipeline.pdf  used on input line 
 23.
 (pdftex.def)             Requested size: 494.50888pt x 168.23848pt.
-
+ [3
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.45 
+      <./figures/fig2_opinion_pipeline.pdf>] [4
+pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.45 
+     ]
 Underfull \hbox (badness 1342) in paragraph at lines 58--59
 \T1/stix/m/n/10 agent can-not be silently ze-roed out and re-moved from
  []
@@ -1049,13 +1062,7 @@ Overfull \hbox (7.07556pt too wide) in paragraph at lines 62--63
 l
  []
 
-) (../Research_Paper/sections/04_aegis_architecture.tex [3] [4
-pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.1 \section
-            {AEGIS Architecture}\label{sec:architecture}]
+) (../Research_Paper/sections/04_aegis_architecture.tex
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 (Font)              scaled to size 8.50006pt on input line 9.
 
@@ -1123,14 +1130,7 @@ Underfull \hbox (badness 1117) in paragraph at lines 49--50
 \T1/stix/m/n/10 depth re-gres-sor shar-ing the same in-put. The com-pos-ite
  []
 
-[5
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.50 
-      <./figures/fig2_opinion_pipeline.pdf>])
-(../Research_Paper/sections/05_experimental_setup.tex
+[5]) (../Research_Paper/sections/05_experimental_setup.tex
 LaTeX Font Info:    Trying to load font information for TS1+stix on input line 
 5.
 
@@ -1402,10 +1402,6 @@ n and man-
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `"AEGIS-Anonymous Manuscript".out' has not ch
 anged.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
@@ -1433,7 +1429,7 @@ exlive/texmf-dist/fonts/type1/public/stix/stix-mathrm-bold.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/stix/stix-mathrm.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/stix/stix-mathscr.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/stix/stix-mathsf.pfb>
-Output written on "AEGIS-Anonymous Manuscript.pdf" (13 pages, 516098 bytes).
+Output written on "AEGIS-Anonymous Manuscript.pdf" (13 pages, 516034 bytes).
 PDF statistics:
  1038 PDF objects out of 1200 (max. 8388607)
  460 compressed objects within 5 object streams
