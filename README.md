@@ -102,7 +102,7 @@ Evaluated on the benchmark **Brisbane February--March 2022 flood event** ($200 \
   ORCID: [0009-0006-9790-6643](https://orcid.org/0009-0006-9790-6643)
 
 - **Ghulam Mujtaba**  
-  *Department of Computer Science, National University of Computer and Emerging Sciences (FAST-NUCES), Islamabad, Pakistan*  
+  *National University of Computer and Emerging Sciences (FAST-NUCES), Islamabad, Pakistan*  
   Email: [i257619@isb.nu.edu.pk](mailto:i257619@isb.nu.edu.pk)  
   ORCID: [0009-0006-3988-8088](https://orcid.org/0009-0006-3988-8088)
 
