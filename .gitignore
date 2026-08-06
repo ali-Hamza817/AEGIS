@@ -18,6 +18,9 @@ dist/
 *.egg-info/
 data/duckdb/
 
-# Submission Folder (Private)
+# Private Submission & Research Paper Folders (Local only)
 Submission to ESWA/
 Submission_to_ESWA/
+New Submission/
+Submission to Environmental Modelling and Software/
+Research_Paper/
