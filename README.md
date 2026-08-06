@@ -21,7 +21,7 @@ Operational flood decision-support systems must fuse heterogeneous multi-modal s
 3. **Absence of Credibility Propagation**: Unreliable or out-of-calibration sensors are weighted identically to historically accurate observation channels.
 4. **Lack of Source-Level Provenance**: Standard post-hoc feature attributions explain feature importance but fail to provide an auditable trail showing which specific sensor or bulletin drove a decision.
 
-**AEGIS** addresses these structural gaps by interfacing the formal **Subjective Logic (SL) operator algebra** with a five-agent specialist catalog (**Climate**, **Satellite**, **Land-Cover**, **Air-Quality/Gauge**, and **Document Intelligence**) over a shared four-state Dirichlet frame $\mathbb{X} = \{\theta_{\text{dry}}, \theta_{\text{saturated}}, \theta_{\text{surface}}, \theta_{\text{inundation}}\}$. A deterministic coordinator routes active agent opinions through Consensus \& Compromise Fusion (**CCF**) or Weighted Belief Fusion (**WBF**) based on a Jensen-Shannon agreement signal, weighting each agent by a Brier-score-tracked reputation $\gamma$. Missing modalities trigger a partial-observable projection rule that mathematically guarantees epistemic uncertainty $u$ grows monotonically as modalities drop. The resulting 27-dimensional composite feature space is consumed by a hybrid LightGBM head, with every decision recorded in a DuckDB provenance ledger powering an interactive spatial grid dashboard.
+**AEGIS** addresses these structural gaps by interfacing the formal **Subjective Logic (SL) operator algebra** with a five-agent specialist catalog (**Climate**, **Satellite**, **Land-Cover**, **Air-Quality/Gauge**, and **Document Intelligence**) over a shared four-state Dirichlet frame $\mathbb{X} = \{\theta_{\text{dry}}, \theta_{\text{saturated}}, \theta_{\text{surface}}, \theta_{\text{inundation}}\}$. A deterministic coordinator routes active agent opinions through Consensus & Compromise Fusion (**CCF**) or Weighted Belief Fusion (**WBF**) based on a Jensen-Shannon agreement signal, weighting each agent by a Brier-score-tracked reputation $\gamma$. Missing modalities trigger a partial-observable projection rule that mathematically guarantees epistemic uncertainty $u$ grows monotonically as modalities drop. The resulting 27-dimensional composite feature space is consumed by a hybrid LightGBM head, with every decision recorded in a DuckDB provenance ledger powering an interactive spatial grid dashboard.
 
 ---
 
@@ -29,7 +29,7 @@ Operational flood decision-support systems must fuse heterogeneous multi-modal s
 
 - **Subjective Logic Evidence Mapping**: Converts physical measurements into formal opinion tuples $\omega = (\mathbf{b}, u, \mathbf{a})$ combining belief mass vector $\mathbf{b}$, epistemic uncertainty $u$, and base-rate prior $\mathbf{a}$.
 - **Monotonic Missing-Modality Projection**: Implements Kaplan's partial-observable projection rule ($\alpha_k^{\text{proj}} = C \cdot a_k$), forcing belief $b \to 0$ and epistemic uncertainty $u \to 1.0$ as modalities drop, mathematically guaranteeing $u_{k+1} \ge u_k$.
-- **Adaptive Divergence-Based Routing**: Computes pairwise Jensen-Shannon (JS) divergence across active opinions; routes to CCF when JS $< \tau_{\text{low}}$ (high agreement) and to WBF when JS $\ge \tau_{\text{low}}$ (disagreement).
+- **Adaptive Divergence-Based Routing**: Computes pairwise Jensen-Shannon (JS) divergence across active opinions; routes to CCF when $\text{JS} < \tau_{\text{low}}$ (high agreement) and to WBF when $\text{JS} \ge \tau_{\text{low}}$ (disagreement).
 - **Online Brier-Score Reputation Tracking**: Continuously updates per-agent credibility score $\gamma_i \in [\gamma_{\text{min}}, 1.0]$ based on Brier score accuracy against ground-truth outcomes.
 - **Hybrid Evidential Classifier**: Concatenates the 12-dimensional SL opinion tensor, 1-dimensional $u$ mass, and 15 raw multi-modal feature channels into a single LightGBM head, preserving high classification accuracy alongside calibrated uncertainty.
 - **DuckDB Provenance Ledger & Leaflet UI**: Logs full input-to-output manifest IDs, base rates, divergence values, and fusion operators into a high-performance DuckDB store exposed via FastAPI and rendered on a Leaflet web UI.
@@ -39,30 +39,14 @@ Operational flood decision-support systems must fuse heterogeneous multi-modal s
 ## 📁 Repository Structure
 
 ```
-Multi Eco Agent/
-├── New Submission/                       # Camera-ready Submission Package (IJDRR)
-│   ├── AEGIS-Original Manuscript.pdf     # Full original manuscript with author details
-│   ├── AEGIS-Anonymous Manuscript.pdf    # Blinded manuscript for double-blind review
-│   ├── AEGIS-Title Page.pdf              # Official title page & CRediT statement
-│   ├── AEGIS-Cover Letter.pdf            # Cover letter to IJDRR Editor-in-Chief
-│   ├── AEGIS-Highlights.pdf              # Research highlights (3-5 bullets)
-│   ├── AEGIS-Declaration of Interest.pdf # Competing interest declaration
-│   └── AEGIS-ORCID Information.pdf       # Verified author ORCIDs
-├── Research_Paper/                       # LaTeX source, figures & recompiled PDF
-│   ├── main.tex                          # Primary LaTeX document
-│   ├── references.bib                    # Complete BibTeX bibliography
-│   ├── cas-dc.cls / cas-common.sty       # Elsevier CAS journal template
-│   ├── sections/                         # Section-wise LaTeX modules (01-08)
-│   ├── figures/                          # Vector PDF and PNG publication figures
-│   ├── main.pdf                          # Recompiled 13-page camera-ready PDF
-│   └── AEGIS_LaTeX_Source.zip            # Complete journal submission zip archive
+AEGIS/
 ├── configs/
 │   ├── study_site.yaml                   # Brisbane AOI spatial bounding box & grid parameters
 │   └── experiments.yaml                  # Evidential hyperparameters & baseline flags
 ├── experiments/
 │   └── run_pipeline.py                   # Master evaluation harness (data generation & benchmark runner)
 ├── src/
-│   ├── sl/                               # Core Subjective Logic Engine
+│   ├── sl/                               # Core Subjective Logic Engine (opinion algebra, operators)
 │   ├── agents/                           # 5 Specialist Evidential Agents
 │   ├── coordinator/                      # Deterministic SL Routing Orchestrator
 │   ├── ingestion/                        # DuckDB warehouse schema & synthetic generator
@@ -83,7 +67,7 @@ Multi Eco Agent/
 
 ## 📊 Empirical Benchmarks (Brisbane 2022 Fold)
 
-Evaluated on the benchmark **Brisbane February--March 2022 flood event** ($200 \text{ spatial cells} \times 24 \text{ daily steps} = 4,800 \text{ cell-day instances}$):
+Evaluated on the benchmark **Brisbane February–March 2022 flood event** ($200 \text{ spatial cells} \times 24 \text{ daily steps} = 4,800 \text{ cell-day instances}$):
 
 | Method | F1-Macro | F1-Weighted | AUROC (ovr) | ECE (10-bin) | Latency (s) | RAM Peak (MB) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -114,9 +98,9 @@ If you find AEGIS useful in your research, please cite our manuscript:
 
 ```bibtex
 @article{hamza2026aegis,
-  title     = {AEGIS: Evidential Multi-Agent Orchestration for Multimodal Urban Flood Risk Assessment: A Subjective Logic Framework with Provenance-Aware Explanations},
+  title     = {AEGIS: Evidential Multi-Agent Orchestration for Multimodal Urban Flood Assessment},
   author    = {Hamza, Ali and Mujtaba, Ghulam},
-  journal   = {International Journal of Disaster Risk Reduction},
+  journal   = {Environmental Modelling \& Software},
   year      = {2026},
   publisher = {Elsevier B.V.}
 }
