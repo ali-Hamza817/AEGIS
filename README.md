@@ -7,8 +7,8 @@
 [![FastAPI Service](https://img.shields.io/badge/API-FastAPI-009688.svg)](src/api/)
 
 > **Official Open-Source Implementation of the Research Manuscript:**  
-> *AEGIS: Evidential Multi-Agent Orchestration for Multimodal Urban Flood Risk Assessment: A Subjective Logic Framework with Provenance-Aware Explanations*  
-> **Target Journal:** *International Journal of Disaster Risk Reduction* (IJDRR), Elsevier B.V. (Impact Factor: 4.8, CiteScore 9.1)
+> *AEGIS: Evidential Multi-Agent Orchestration for Multimodal Urban Flood Assessment*  
+> **Target Journal:** *Environmental Modelling & Software*, Elsevier B.V. (Impact Factor: 4.8, CiteScore 10.9)
 
 ---
 

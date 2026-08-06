@@ -1,0 +1,83 @@
+\documentclass[a4paper,fleqn]{cas-dc}
+
+% Packages
+\usepackage[authoryear]{natbib}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{afterpage}
+\usepackage{stfloats}
+\usepackage{indentfirst}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage[nameinlink]{cleveref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\crefname{table}{Table}{Tables}
+\Crefname{table}{Table}{Tables}
+
+\def\tsc#1{\csdef{#1}{\textsc{\lowercase{#1}}\xspace}}
+\tsc{WGM}
+\tsc{QE}
+
+\let\printorcid\relax
+
+\begin{document}
+
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{0.001}
+
+\shorttitle{AEGIS: Evidential Multi-Agent Orchestration for Urban Flood Assessment}
+
+\title[mode=title]{AEGIS: Evidential Multi-Agent Orchestration for Multimodal Urban Flood Assessment}
+
+\shortauthors{Anonymous Authors}
+
+\author[1]{Anonymous Authors}
+
+\address[1]{Department of Computer Science / Engineering, Anonymous University}
+
+\begin{abstract}
+Operational flood decision-support must fuse heterogeneous multi-modal streams under mutual sensor dropout and frequent inter-source disagreement, yet contemporary agentic pipelines remain structurally vulnerable to four operational gaps: minority-class collapse under LLM-arbitration, silent hallucination under missing modalities, the absence of per-agent credibility propagation, and the lack of source-level provenance. We present AEGIS (Agentic Evidential Geographic Intelligence for Sustainability), a per-cell specialist multi-agent framework interfacing the Subjective Logic operator algebra with a five-agent catalog (Climate, Satellite, Land-Cover, Air-Quality/Gauge, Document Intelligence) over a shared four-state Dirichlet frame. A deterministic coordinator routes inter-agent opinion streams through Consensus \& Compromise Fusion or Weighted Belief Fusion based on a Jensen-Shannon agreement signal, weighting each agent by a Brier-score-tracked reputation. Missing modalities trigger a partial-observable projection that provably raises epistemic uncertainty $u$ monotonically as observed modalities drop. The 27-dimensional composite feature space, concatenating the SL opinion tensor and raw multi-modal features, is consumed by a hybrid LightGBM head, with a DuckDB-backed provenance ledger powering a Leaflet dashboard. Evaluated on the Brisbane February--March 2022 south-east Queensland flood fold (200 cells $\times$ 24 days, 4,800 cell-day instances), AEGIS-SL attains F1-Macro 0.7190, AUROC 0.9310, and ECE 0.043, outperforming monolithic raw-feature late-fusion (0.7106 / 0.9189 / 0.087), ERA5-only (0.5880 / 0.7820 / 0.214), and an LLM-arbitrated baseline (0.6238 / 0.8410, non-probabilistic). The LLM arbiter collapses minority-class recall (saturated 0.21, surface 0.09, inundation 0.18), confirming structural vulnerability. Mean $u$ rises monotonically $0.12 \to 0.34 \to 0.61 \to 0.83$ as 0--3 modalities drop, satisfying the partial-observable projection invariant. A mechanistic 2$\times$2 ablation isolates the marginal contribution of the SL opinion tensor and credibility tracker and confirms their synergy.
+\end{abstract}
+
+\begin{keywords}
+Subjective Logic
+\sep Multi-Agent Systems
+\sep Evidential Reasoning
+\sep Flood Monitoring
+\sep Source-Level Provenance
+\sep Trust-Aware Fusion
+\sep Multimodal Urban Flood Risk Assessment
+\sep Partial-Observable Projection
+\sep Uncertainty Quantification
+\sep Brier-Score Credibility Tracking
+\end{keywords}
+
+\maketitle
+
+\input{../Research_Paper/sections/01_introduction.tex}
+\input{../Research_Paper/sections/02_related_work.tex}
+\input{../Research_Paper/sections/03_mathematical_foundations.tex}
+\input{../Research_Paper/sections/04_aegis_architecture.tex}
+\input{../Research_Paper/sections/05_experimental_setup.tex}
+\input{../Research_Paper/sections/06_results.tex}
+\input{../Research_Paper/sections/07_conclusion.tex}
+\input{../Research_Paper/sections/08_declarations.tex}
+
+\bibliographystyle{plainnat}
+\bibliography{../Research_Paper/references}
+
+\end{document}
