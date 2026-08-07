@@ -8,7 +8,7 @@
 
 > **Official Open-Source Implementation of the Research Manuscript:**  
 > *AEGIS: Evidential Multi-Agent Orchestration for Multimodal Urban Flood Assessment*  
-> **Target Journal:** *Environmental Modelling & Software*, Elsevier B.V. (Impact Factor: 4.8, CiteScore 10.9)
+> **Target Journal:** *Cognitive Systems Research*, Elsevier B.V. (Impact Factor: 4.3, CiteScore 8.5)
 
 ---
 
@@ -100,7 +100,7 @@ If you find AEGIS useful in your research, please cite our manuscript:
 @article{hamza2026aegis,
   title     = {AEGIS: Evidential Multi-Agent Orchestration for Multimodal Urban Flood Assessment},
   author    = {Hamza, Ali and Mujtaba, Ghulam},
-  journal   = {Environmental Modelling \& Software},
+  journal   = {Cognitive Systems Research},
   year      = {2026},
   publisher = {Elsevier B.V.}
 }
